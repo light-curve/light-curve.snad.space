@@ -1340,6 +1340,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#controlling-log-verbosity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controlling log verbosity
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1647,6 +1658,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#controlling-log-verbosity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controlling log verbosity
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1753,6 +1775,30 @@ your chosen <code>onnxruntime-gpu</code> release. Pin the version if needed:</p>
 DirectML (Windows/AMD), CoreML (Apple Silicon), OpenVINO (Intel), TensorRT, and others.
 See the <a href="https://onnxruntime.ai/docs/execution-providers/">onnxruntime execution providers docs</a>
 for installation and provider names to pass in <code>providers</code>.</p>
+<h2 id="controlling-log-verbosity">Controlling log verbosity<a class="headerlink" href="#controlling-log-verbosity" title="Permanent link">&para;</a></h2>
+<p>When using a non-CPU execution provider you may see warnings like:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>[W:onnxruntime:, transformer_memcpy.cc:111 ApplyImpl] 6 Memcpy nodes are added to the graph
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>main_graph for CUDAExecutionProvider. It might have negative impact on performance ...
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>[W:onnxruntime:, session_state.cc:1367 VerifyEachNodeIsAssignedToAnEp] Some nodes were not
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>assigned to the preferred execution providers which may or may not have a negative impact on
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.
+</code></pre></div>
+<p>These are informational — onnxruntime deliberately keeps certain ops (e.g. shape ops) on CPU,
+which is normal. To silence them, raise the log severity to <code>ERROR</code> (3) via <code>SessionOptions</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">onnxruntime</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ort</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">light_curve.embed</span><span class="w"> </span><span class="kn">import</span> <span class="n">Astromer2</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">so</span> <span class="o">=</span> <span class="n">ort</span><span class="o">.</span><span class="n">SessionOptions</span><span class="p">()</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">so</span><span class="o">.</span><span class="n">log_severity_level</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># 0=Verbose, 1=Info, 2=Warning (default), 3=Error, 4=Fatal</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">model</span> <span class="o">=</span> <span class="n">Astromer2</span><span class="o">.</span><span class="n">from_hf</span><span class="p">(</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="n">output</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="n">ort_session_kwargs</span><span class="o">=</span><span class="p">{</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>        <span class="s2">&quot;providers&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;CUDAExecutionProvider&quot;</span><span class="p">],</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>        <span class="s2">&quot;sess_options&quot;</span><span class="p">:</span> <span class="n">so</span><span class="p">,</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="p">},</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="p">)</span>
+</code></pre></div>
 
 
 
