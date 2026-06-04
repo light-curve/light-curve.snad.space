@@ -2445,7 +2445,7 @@ Astromer2, and finds the closest neighbour to a given object by cosine distance.
 <span class="n">MIN_OBS</span> <span class="o">=</span> <span class="mi">1000</span>
 
 <span class="n">nf</span> <span class="o">=</span> <span class="n">npd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">UPath</span><span class="p">(</span>
-    <span class="s2">"s3://ipac-irsa-ztf/contributed/dr23/licu/hats/ztf_dr23_lc-hats"</span>
+    <span class="s2">"s3://ipac-irsa-ztf/contributed/dr23/lc/hats/ztf_dr23_lc-hats"</span>
     <span class="s2">"/dataset/Norder=5/Dir=0/Npix=2378/"</span><span class="p">,</span>
     <span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">))</span>
@@ -2484,7 +2484,7 @@ TARGET_OID = 680213300009232  # ZTF r-band light curve
 MIN_OBS = 1000
 
 nf = npd.read_parquet(UPath(
-    "s3://ipac-irsa-ztf/contributed/dr23/licu/hats/ztf_dr23_lc-hats"
+    "s3://ipac-irsa-ztf/contributed/dr23/lc/hats/ztf_dr23_lc-hats"
     "/dataset/Norder=5/Dir=0/Npix=2378/",
     anon=True,
 ))

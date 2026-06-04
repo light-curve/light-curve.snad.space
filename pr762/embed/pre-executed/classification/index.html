@@ -2512,13 +2512,13 @@ nested-pandas frame as a Parquet file for later use.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=2037bdae">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2037bdae">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-2">
@@ -2546,7 +2546,7 @@ nested-pandas frame as a Parquet file for later use.</p>
 <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"hourglass_objects.parquet"</span><span class="p">,</span> <span class="s2">"hourglass_photometry.parquet"</span><span class="p">):</span>
     <span class="n">dest</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">CACHE</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">dest</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Downloading </span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="se">\u2026</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Downloading </span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">…"</span><span class="p">)</span>
         <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">ZENODO</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">?download=1"</span><span class="p">,</span> <span class="n">dest</span><span class="p">)</span>
 
 <span class="n">objects</span> <span class="o">=</span> <span class="n">npd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">CACHE</span><span class="p">,</span> <span class="s2">"hourglass_objects.parquet"</span><span class="p">))</span>
@@ -2558,7 +2558,7 @@ nested-pandas frame as a Parquet file for later use.</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">sample</span><span class="p">[</span><span class="s2">"class"</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
 
 <span class="n">photometry</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">CACHE</span><span class="p">,</span> <span class="s2">"hourglass_photometry.parquet"</span><span class="p">))</span>
-<span class="n">nf</span> <span class="o">=</span> <span class="n">npd</span><span class="o">.</span><span class="n">NestedFrame</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span><span class="o">.</span><span class="n">join_nested</span><span class="p">(</span><span class="n">photometry</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"licu"</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">"cid"</span><span class="p">)</span>
+<span class="n">nf</span> <span class="o">=</span> <span class="n">npd</span><span class="o">.</span><span class="n">NestedFrame</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span><span class="o">.</span><span class="n">join_nested</span><span class="p">(</span><span class="n">photometry</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"lc"</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">"cid"</span><span class="p">)</span>
 <span class="n">nf</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="n">SAMPLE_PATH</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Saved sample → </span><span class="si">{</span><span class="n">SAMPLE_PATH</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
@@ -2577,7 +2577,7 @@ os.makedirs(CACHE, exist_ok=True)
 for fname in ("hourglass_objects.parquet", "hourglass_photometry.parquet"):
     dest = os.path.join(CACHE, fname)
     if not os.path.exists(dest):
-        print(f"Downloading {fname}\u2026")
+        print(f"Downloading {fname}…")
         urllib.request.urlretrieve(f"{ZENODO}/{fname}?download=1", dest)
 
 objects = npd.read_parquet(os.path.join(CACHE, "hourglass_objects.parquet"))
@@ -2589,29 +2589,9 @@ print(f"Sample: {len(sample):,} objects")
 print(sample["class"].value_counts().to_string())
 
 photometry = pd.read_parquet(os.path.join(CACHE, "hourglass_photometry.parquet"))
-nf = npd.NestedFrame(sample).join_nested(photometry, name="licu", on="cid")
+nf = npd.NestedFrame(sample).join_nested(photometry, name="lc", on="cid")
 nf.to_parquet(SAMPLE_PATH)
 print(f"Saved sample → {SAMPLE_PATH}")</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Top-5 classes: ['CCSN', 'SN_Ia', 'SN_Iax', 'SNIa-91bg', 'Fixed_mag']
-Sample: 64,032 objects
-class
-CCSN         39177
-SN_Ia        21731
-SN_Iax        1318
-SNIa-91bg     1317
-Fixed_mag      489
-</pre>
 </div>
 </div>
 </div>
@@ -2631,13 +2611,13 @@ ATCAT takes fluxes (SNANA's <code>fluxcal</code>, ZP=27.5) and produces a single
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3c4d5e6f">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3c4d5e6f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-3">
@@ -2683,10 +2663,10 @@ ATCAT takes fluxes (SNANA's <code>fluxcal</code>, ZP=27.5) and produces a single
     <span class="k">return</span> <span class="p">{</span><span class="s2">"embedding.value"</span><span class="p">:</span> <span class="n">emb</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()}</span>
 
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Embedding light curves</span><span class="se">\u2026</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Embedding light curves…"</span><span class="p">)</span>
 <span class="n">nf</span> <span class="o">=</span> <span class="n">nf</span><span class="o">.</span><span class="n">map_rows</span><span class="p">(</span>
     <span class="n">embed_row</span><span class="p">,</span>
-    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"licu.mjd"</span><span class="p">,</span> <span class="s2">"licu.fluxcal"</span><span class="p">,</span> <span class="s2">"licu.fluxcal_err"</span><span class="p">,</span> <span class="s2">"licu.band"</span><span class="p">,</span> <span class="s2">"licu.phot_flag"</span><span class="p">],</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"lc.mjd"</span><span class="p">,</span> <span class="s2">"lc.fluxcal"</span><span class="p">,</span> <span class="s2">"lc.fluxcal_err"</span><span class="p">,</span> <span class="s2">"lc.band"</span><span class="p">,</span> <span class="s2">"lc.phot_flag"</span><span class="p">],</span>
     <span class="n">row_container</span><span class="o">=</span><span class="s2">"args"</span><span class="p">,</span>
     <span class="n">append_columns</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
@@ -2727,41 +2707,16 @@ def embed_row(mjd, flux, flux_err, band, flag):
     return {"embedding.value": emb.squeeze()}
 
 
-print("Embedding light curves\u2026")
+print("Embedding light curves…")
 nf = nf.map_rows(
     embed_row,
-    columns=["licu.mjd", "licu.fluxcal", "licu.fluxcal_err", "licu.band", "licu.phot_flag"],
+    columns=["lc.mjd", "lc.fluxcal", "lc.fluxcal_err", "lc.band", "lc.phot_flag"],
     row_container="args",
     append_columns=True,
 )
 print("Done.")
 
 embed_nf = nf[["cid", "class", "embedding"]]</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>/Users/hombit/.virtualenvs/light-curve/lib/python3.13/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
-  from .autonotebook import tqdm as notebook_tqdm
-/Users/hombit/projects/light-curve-python/light-curve/light_curve/embed/model.py:60: ExperimentalWarning: light_curve.embed.atcat.ATCAT is experimental and may change in future versions
-  warn_experimental(
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>ATCAT loaded (embed_dim=384, seq_size=243)
-Embedding light curves…
-Done.
-</pre>
 </div>
 </div>
 </div>
