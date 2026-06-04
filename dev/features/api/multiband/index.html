@@ -1780,13 +1780,8 @@ Other options are: 'constant', 'delayed_sigmoid'</p>
             <td>
               <div class="doc-md-description">
                 <p>The spectral SED model. Default is 'planck' (standard blackbody,
-no extra fit parameters). Use 'blanketed' for a UV-extincted blackbody:</p>
-<p>.. math::
-    F(\lambda) = B_\nu(T) \cdot e^{-\tau},\quad
-    \tau = 10^{\texttt{log_intensity}} \cdot e^{-\lambda/\texttt{lambda_scale}}</p>
-<p>This adds two fit parameters: <code>log_intensity</code> (blanketing strength,
-range 1.5–6) and <code>lambda_scale</code> (characteristic blanketing wavelength
-in Å, range 100–2000).</p>
+no extra fit parameters). Use 'blanketed' for a UV-extincted blackbody.
+It adds one parameter to fit: <code>lambda_scale</code> (blanketing strength from ~0 to 1)</p>
               </div>
             </td>
             <td>
