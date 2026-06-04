@@ -508,6 +508,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -597,6 +601,62 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../features/multiband/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-band feature extraction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../features/batch_processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch processing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../features/periodogram/" class="md-nav__link">
         
   
@@ -632,7 +692,7 @@
   <span class="md-ellipsis">
     
   
-    Parametric fits: BazinFit, LinexpFit, VillarFit
+    Single-band parametric fits: BazinFit, LinexpFit, VillarFit
   
 
     
@@ -718,7 +778,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -740,14 +800,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2404,7 +2464,7 @@ Astromer2, and finds the closest neighbour to a given object by cosine distance.
 <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">nf</span><span class="p">[</span><span class="s2">"embedding"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
 
 <span class="n">query_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">oids</span> <span class="o">==</span> <span class="n">TARGET_OID</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">distances</span> <span class="o">=</span> <span class="n">cdist</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="n">query_idx</span> <span class="p">:</span> <span class="n">query_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">matrix</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">"cosine"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">distances</span> <span class="o">=</span> <span class="n">cdist</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="n">query_idx</span><span class="p">:</span> <span class="n">query_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">matrix</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">"cosine"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">distances</span><span class="p">[</span><span class="n">query_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
 
 <span class="n">best_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">distances</span><span class="p">)</span>
@@ -2443,7 +2503,7 @@ oids = nf["objectid"].to_numpy()
 matrix = np.vstack(nf["embedding"].to_numpy())
 
 query_idx = np.where(oids == TARGET_OID)[0][0]
-distances = cdist(matrix[query_idx : query_idx + 1], matrix, metric="cosine")[0]
+distances = cdist(matrix[query_idx: query_idx + 1], matrix, metric="cosine")[0]
 distances[query_idx] = np.inf
 
 best_idx = np.argmin(distances)

@@ -25,7 +25,7 @@
     
     
       
-        <title>Parametric fits: BazinFit, LinexpFit, VillarFit - light-curve</title>
+        <title>Single-band parametric fits: BazinFit, LinexpFit, VillarFit - light-curve</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#parametric-fits-bazinfit-linexpfit-villarfit" class="md-skip">
+        <a href="#single-band-parametric-fits-bazinfit-linexpfit-villarfit" class="md-skip">
           Skip to content
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Parametric fits: BazinFit, LinexpFit, VillarFit
+              Single-band parametric fits: BazinFit, LinexpFit, VillarFit
             
           </span>
         </div>
@@ -510,6 +510,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -602,6 +606,62 @@
   
   
     <li class="md-nav__item">
+      <a href="../multiband/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-band feature extraction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../batch_processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch processing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../periodogram/" class="md-nav__link">
         
   
@@ -646,7 +706,7 @@
   <span class="md-ellipsis">
     
   
-    Parametric fits: BazinFit, LinexpFit, VillarFit
+    Single-band parametric fits: BazinFit, LinexpFit, VillarFit
   
 
     
@@ -664,7 +724,7 @@
   <span class="md-ellipsis">
     
   
-    Parametric fits: BazinFit, LinexpFit, VillarFit
+    Single-band parametric fits: BazinFit, LinexpFit, VillarFit
   
 
     
@@ -850,7 +910,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -872,14 +932,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+              <label class="md-nav__link " for="__nav_3_8" id="__nav_3_8_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2447,13 +2507,13 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </style>
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fitting-0001">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="parametric-fits-bazinfit-linexpfit-villarfit">Parametric fits: BazinFit, LinexpFit, VillarFit<a class="anchor-link" href="#parametric-fits-bazinfit-linexpfit-villarfit">¶</a></h1><p><a href="../api/fitting/#light_curve.BazinFit"><code>BazinFit</code></a>, <a href="../api/fitting/#light_curve.LinexpFit"><code>LinexpFit</code></a>, and
+<h1 id="single-band-parametric-fits-bazinfit-linexpfit-villarfit">Single-band parametric fits: BazinFit, LinexpFit, VillarFit<a class="anchor-link" href="#single-band-parametric-fits-bazinfit-linexpfit-villarfit">¶</a></h1><p><a href="../api/fitting/#light_curve.BazinFit"><code>BazinFit</code></a>, <a href="../api/fitting/#light_curve.LinexpFit"><code>LinexpFit</code></a>, and
 <a href="../api/fitting/#light_curve.VillarFit"><code>VillarFit</code></a> extract physically motivated parameters
 from transient <strong>flux</strong> light curves.
 All three operate on flux (not magnitude) — use positive flux values.</p>
@@ -2461,7 +2521,7 @@ All three operate on flux (not magnitude) — use positive flux values.</p>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=pip-install-docs-features-fitting-ipynb">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -2488,7 +2548,7 @@ All three operate on flux (not magnitude) — use positive flux values.</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fitting-0002">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -2499,7 +2559,7 @@ All three operate on flux (not magnitude) — use positive flux values.</p>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=fitting-0003">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -2569,7 +2629,7 @@ print(f'n_obs: {len(t)},  peak flux: {flux.max():.1f}')</div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fitting-0004">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -2583,7 +2643,7 @@ fall time $\tau_\text{fall}$, and reduced $\chi^2$.</p>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=fitting-0005">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -2658,7 +2718,7 @@ for name, val in zip(bazin.names, result_b):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fitting-0006">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -2671,7 +2731,7 @@ for name, val in zip(bazin.names, result_b):
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=fitting-0007">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -2743,7 +2803,7 @@ for name, val in zip(linexp.names, result_l):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fitting-0008">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -2761,7 +2821,7 @@ plateau slope $\beta$, plateau duration, reduced $\chi^2$.</p>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=fitting-0009">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -2836,8 +2896,8 @@ for name, val in zip(villar.names, result_v):
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
 <pre>WARNING: Logging before InitGoogleLogging() is written to STDERR
-E20260604 15:16:56.916139 140047163087744 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
-E20260604 15:16:56.917476 140047163087744 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
+E20260604 21:15:18.232045 140527576333184 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
+E20260604 21:15:18.233433 140527576333184 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
 </pre>
 </div>
 </div>
@@ -2845,7 +2905,7 @@ E20260604 15:16:56.917476 140047163087744 program_evaluator.h:286] Accumulated c
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fitting-0010">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=10">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -2858,7 +2918,7 @@ the first N entries (ignoring the trailing reduced χ²).</p>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=fitting-0011">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=11">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -2958,8 +3018,8 @@ plt.show()</div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>E20260604 15:16:56.960020 140047163087744 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
-E20260604 15:16:56.961149 140047163087744 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
+<pre>E20260604 21:15:18.285376 140527576333184 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
+E20260604 21:15:18.286772 140527576333184 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
 </pre>
 </div>
 </div>
@@ -2973,7 +3033,7 @@ E20260604 15:16:56.961149 140047163087744 program_evaluator.h:286] Accumulated c
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fitting-0012">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=12">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -3110,7 +3170,7 @@ descent is likely to get stuck.</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fitting-0013">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=13">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -3118,8 +3178,9 @@ descent is likely to get stuck.</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="see-also">See also<a class="anchor-link" href="#see-also">¶</a></h2><ul>
 <li>All three features work on <strong>flux</strong> light curves only (not magnitude).</li>
+<li>For linear trend and intercept, see <a href="../api/variability/#light_curve.LinearFit"><code>LinearFit</code></a> and <a href="../api/variability/#light_curve.LinearTrend"><code>LinearTrend</code></a>.</li>
 <li>For multi-band transient fitting with a physical blackbody model, see the
-<a href="../multiband/tutorial/">RainbowFit tutorial</a>.</li>
+<a href="../rainbow/">Rainbow tutorial</a>.</li>
 <li><a href="../api/fitting/">API reference</a></li>
 </ul>
 </div>

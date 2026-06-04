@@ -510,6 +510,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -602,6 +606,62 @@
   
   
     <li class="md-nav__item">
+      <a href="../../multiband/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-band feature extraction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../batch_processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch processing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../periodogram/" class="md-nav__link">
         
   
@@ -637,7 +697,7 @@
   <span class="md-ellipsis">
     
   
-    Parametric fits: BazinFit, LinexpFit, VillarFit
+    Single-band parametric fits: BazinFit, LinexpFit, VillarFit
   
 
     
@@ -728,7 +788,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -750,14 +810,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+              <label class="md-nav__link " for="__nav_3_8" id="__nav_3_8_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1838,6 +1898,47 @@ apply transformation for the underlying features via their constructors</p>
                   <code>None</code>
             </td>
           </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, a multiband periodogram
+is evaluated across all passbands simultaneously using a joint frequency
+grid.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>multiband_normalization</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>How per-band power spectra are combined into the joint spectrum. Only used
+when <code>bands</code> is given. Must be one of:</p>
+<ul>
+<li><code>'chi2'</code> (default): each band is weighted by <code>sum((m - m_mean)^2 / sigma^2)</code>.
+   <code>sigma</code> is optional; unity weights are used when absent, which differs
+   from <code>'count'</code> normalization and may not be meaningful.</li>
+<li><code>'count'</code>: weight each passband by observation count, ignoring <code>sigma</code></li>
+</ul>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;chi2&#39;</code>
+            </td>
+          </tr>
       </tbody>
     </table>
 
@@ -1875,24 +1976,50 @@ apply transformation for the underlying features via their constructors</p>
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code><span title="light_curve.Periodogram.freq_power(t, m, *, cast=False)">freq_power(t, m, *, cast=False)</span></code></td>
+            <td><code><span title="light_curve.Periodogram.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Periodogram.freq_power(t, m, sigma=None, band=None, *, cast=False)">freq_power(t, m, sigma=None, band=None, *, cast=False)</span></code></td>
             <td>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Get periodogram as a pair of frequencies and power values</p>
+                <p>Get periodogram as a pair of frequencies and power values.</p>
+<p>In <strong>single-band</strong> mode (<code>bands</code> not set at construction) only <code>t</code> and
+<code>m</code> are accepted.</p>
+<p>In <strong>multiband</strong> mode (<code>bands</code> set at construction) <code>band</code> is
+<strong>required</strong>. <code>sigma</code> is optional but recommended: it is used to weight
+each band by its chi-squared statistic when <code>multiband_normalization='chi2'</code>
+(the default); unity weights are assumed when omitted.</p>
 <h4 id="light_curve.Periodogram--parameters">Parameters<a class="headerlink" href="#light_curve.Periodogram--parameters" title="Permanent link">&para;</a></h4>
 <p>t : np.ndarray of np.float32 or np.float64
     Time array</p>
 <p>m : np.ndarray of np.float32 or np.float64
     Magnitude (flux) array</p>
+<p>sigma : np.ndarray of np.float32 or np.float64, optional
+    Photometric uncertainties. Used only for chi2-based band combination:
+    each band is weighted by <code>sum((m - m_mean)^2 / sigma^2)</code>.
+    Unity weights are assumed when omitted, which changes the band weights
+    but does not affect the per-observation Lomb-Scargle power computation.
+    Ignored in single-band mode.</p>
+<p>band : array-like of str, required in multiband mode
+    Passband label for each observation. Must be one of the bands given at
+    construction.</p>
 <p>cast : bool, optional
     Cast inputs to np.ndarray objects of the same dtype</p>
 <h4 id="light_curve.Periodogram--returns">Returns<a class="headerlink" href="#light_curve.Periodogram--returns" title="Permanent link">&para;</a></h4>
 <p>freq : np.ndarray of np.float32 or np.float64
     Frequency grid</p>
 <p>power : np.ndarray of np.float32 or np.float64
-    Periodogram power</p>
+    Periodogram power (combined across bands in multiband mode)</p>
               </div>
             </td>
           </tr>

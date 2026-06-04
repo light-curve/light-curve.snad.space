@@ -510,6 +510,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -602,6 +606,62 @@
   
   
     <li class="md-nav__item">
+      <a href="../../multiband/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-band feature extraction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../batch_processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch processing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../periodogram/" class="md-nav__link">
         
   
@@ -637,7 +697,7 @@
   <span class="md-ellipsis">
     
   
-    Parametric fits: BazinFit, LinexpFit, VillarFit
+    Single-band parametric fits: BazinFit, LinexpFit, VillarFit
   
 
     
@@ -728,7 +788,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -750,14 +810,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+              <label class="md-nav__link " for="__nav_3_8" id="__nav_3_8_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1636,143 +1696,8 @@
 
 
         <p>Base class for all feature extractors.</p>
-<p>All feature classes inherit from this base and share the same extraction
-interface.</p>
-
-
-<details class="call-signature" open>
-  <summary>Call signature</summary>
-  <p><code>extractor(t, m, sigma=None, *, fill_value=None, sorted=None, check=True, cast=False)</code></p>
-<p>Extract features from a single light curve and return them as a numpy array.</p>
-</details>
-
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td>
-                <code>t</code>
-            </td>
-            <td>
-                  <code>numpy.ndarray of float32 or float64</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Time moments</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>m</code>
-            </td>
-            <td>
-                  <code><span title="numpy.ndarray">ndarray</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Signal in magnitudes or fluxes.  Refer to the feature description to
-decide which would work better in your case</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>sigma</code>
-            </td>
-            <td>
-                  <code><span title="numpy.ndarray">ndarray</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Observation error.  If <code>None</code>, assumed to be unity</p>
-              </div>
-            </td>
-            <td>
-                  <code>None</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>fill_value</code>
-            </td>
-            <td>
-                  <code><span title="float">float</span> or None</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Value to fill invalid feature values, or raise if <code>None</code></p>
-              </div>
-            </td>
-            <td>
-                  <code>None</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>sorted</code>
-            </td>
-            <td>
-                  <code><span title="bool">bool</span> or None</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Whether <code>t</code> is sorted.  <code>True</code> — sorted, <code>False</code> — unsorted,
-<code>None</code> — check and raise if unsorted</p>
-              </div>
-            </td>
-            <td>
-                  <code>None</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>check</code>
-            </td>
-            <td>
-                  <code><span title="bool">bool</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Check arrays for NaNs and infinite values</p>
-              </div>
-            </td>
-            <td>
-                  <code>True</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>cast</code>
-            </td>
-            <td>
-                  <code><span title="bool">bool</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Allow non-numpy input and dtype casting</p>
-              </div>
-            </td>
-            <td>
-                  <code>False</code>
-            </td>
-          </tr>
-      </tbody>
-    </table>
+<p>Call signature:
+<code>extractor(t, m, sigma=None, band=None, *, fill_value=None, sorted=None, check=True, cast=False)</code></p>
 
 
 
@@ -1893,7 +1818,9 @@ List&lt;Struct&lt;...&gt;&gt; where the selected fields share the same float dty
 (float32 or float64). Arrow input is auto-detected via the
 <code>__arrow_c_array__</code> / <code>__arrow_c_stream__</code> protocol and enables
 zero-copy data access from pyarrow, polars, and other Arrow-compatible
-libraries.</p>
+libraries.
+For multiband features: a list of four-tuples <code>(t, m, sigma, band)</code>
+where <code>band</code> is an array of passband labels.</p>
               </div>
             </td>
             <td>
@@ -1905,15 +1832,16 @@ libraries.</p>
                 <code>arrow_fields</code>
             </td>
             <td>
-                  <code>list of (str or int)</code>
+                  <code><span title="dict">dict</span></code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Required when lcs is an Arrow array. Field names or indices specifying
-which struct fields to use as t, m, and optionally sigma. Must contain
-2 elements [t, m] or 3 elements [t, m, sigma]. Each element may be a
-field name (str) or a zero-based positional index (int); all elements
-must be of the same type. Ignored for non-Arrow input.</p>
+                <p>Required when lcs is an Arrow array. Maps roles to struct field names
+or zero-based indices, e.g.
+<code>{"t": "time", "m": "flux", "sigma": "fluxerr", "band": "passband"}</code>.
+Keys <code>"t"</code> and <code>"m"</code> are required; <code>"sigma"</code> and <code>"band"</code> are
+optional. <code>"band"</code> is required for multiband features and must refer
+to a Utf8 or LargeUtf8 column. Ignored for non-Arrow input.</p>
               </div>
             </td>
             <td>

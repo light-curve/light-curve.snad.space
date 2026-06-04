@@ -510,6 +510,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -602,6 +606,62 @@
   
   
     <li class="md-nav__item">
+      <a href="../../multiband/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-band feature extraction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../batch_processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch processing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../periodogram/" class="md-nav__link">
         
   
@@ -637,7 +697,7 @@
   <span class="md-ellipsis">
     
   
-    Parametric fits: BazinFit, LinexpFit, VillarFit
+    Single-band parametric fits: BazinFit, LinexpFit, VillarFit
   
 
     
@@ -728,7 +788,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -750,14 +810,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+              <label class="md-nav__link " for="__nav_3_8" id="__nav_3_8_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1778,6 +1838,24 @@ If None, no transformation is applied (default)</p>
                   <code>None</code>
             </td>
           </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
       </tbody>
     </table>
 
@@ -1811,6 +1889,17 @@ If None, no transformation is applied (default)</p>
             <td>
               <div class="doc-md-description">
                 <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Eta.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
               </div>
             </td>
           </tr>
@@ -1950,6 +2039,24 @@ If None, no transformation is applied (default)</p>
                   <code>None</code>
             </td>
           </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
       </tbody>
     </table>
 
@@ -1983,6 +2090,17 @@ If None, no transformation is applied (default)</p>
             <td>
               <div class="doc-md-description">
                 <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.EtaE.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
               </div>
             </td>
           </tr>
@@ -2125,6 +2243,24 @@ If None, no transformation is applied (default)</p>
                   <code>None</code>
             </td>
           </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
       </tbody>
     </table>
 
@@ -2158,6 +2294,17 @@ If None, no transformation is applied (default)</p>
             <td>
               <div class="doc-md-description">
                 <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.LaflerKinmanStringLength.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
               </div>
             </td>
           </tr>
@@ -2296,6 +2443,24 @@ If None, no transformation is applied (default)</p>
                   <code>None</code>
             </td>
           </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
       </tbody>
     </table>
 
@@ -2329,6 +2494,17 @@ If None, no transformation is applied (default)</p>
             <td>
               <div class="doc-md-description">
                 <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.LinearFit.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
               </div>
             </td>
           </tr>
@@ -2466,6 +2642,24 @@ If None, no transformation is applied (default)</p>
                   <code>None</code>
             </td>
           </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
       </tbody>
     </table>
 
@@ -2499,6 +2693,17 @@ If None, no transformation is applied (default)</p>
             <td>
               <div class="doc-md-description">
                 <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.LinearTrend.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
               </div>
             </td>
           </tr>
@@ -2634,6 +2839,24 @@ If None, no transformation is applied (default)</p>
                   <code>None</code>
             </td>
           </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
       </tbody>
     </table>
 
@@ -2667,6 +2890,17 @@ If None, no transformation is applied (default)</p>
             <td>
               <div class="doc-md-description">
                 <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.MaximumSlope.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
               </div>
             </td>
           </tr>
