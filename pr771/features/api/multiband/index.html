@@ -2623,9 +2623,10 @@ Other options are: 'sigmoid'</p>
               <div class="doc-md-description">
                 <p>The shape of temperature term. Default is 'sigmoid'.
 Other options are: 'constant', 'delayed_sigmoid'.
-The sigmoid terms are parametrized by a peak temperature <code>T</code> and a ratio
-<code>T_ratio = Tmin / Tmax</code> (the cool floor as a fraction of the peak); a weak prior
-anchors <code>T_ratio</code> to 1 (constant temperature) unless the data require cooling.</p>
+The sigmoid terms are parametrized by the mid temperature <code>T = (Tmin + Tmax) / 2</code>
+and a relative amplitude <code>T_amplitude = (Tmax - Tmin) / (Tmax + Tmin)</code>; a weak
+prior anchors <code>T_amplitude</code> to 0 (constant temperature) unless the data require a
+temperature change.</p>
               </div>
             </td>
             <td>
