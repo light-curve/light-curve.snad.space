@@ -1647,7 +1647,7 @@ The <code>.many()</code> method processes a list of light curves in batch with r
 <hr />
 <h2 id="feature-table">Feature table<a class="headerlink" href="#feature-table" title="Permanent link">&para;</a></h2>
 <h3 id="variability">Variability<a class="headerlink" href="#variability" title="Permanent link">&para;</a></h3>
-<p><em>These features are very fast — suitable for real-time pipelines processing millions of objects.</em></p>
+<p><em>Fast: all 26 features combined ~100 µs on 1,000 observations, single band.</em></p>
 <table>
 <thead>
 <tr>
@@ -1790,7 +1790,7 @@ The <code>.many()</code> method processes a list of light curves in batch with r
 </tbody>
 </table>
 <h3 id="linear-trend">Linear trend<a class="headerlink" href="#linear-trend" title="Permanent link">&para;</a></h3>
-<p><em>Fast; also suitable for real-time pipelines.</em></p>
+<p><em>Fast: both features combined ~10 µs on 1,000 observations, single band.</em></p>
 <table>
 <thead>
 <tr>
@@ -1813,7 +1813,7 @@ The <code>.many()</code> method processes a list of light curves in batch with r
 </tbody>
 </table>
 <h3 id="time-sampling">Time sampling<a class="headerlink" href="#time-sampling" title="Permanent link">&para;</a></h3>
-<p><em>Fast; also suitable for real-time pipelines.</em></p>
+<p><em>Fast: all 6 features combined ~5 µs on 1,000 observations, single band.</em></p>
 <table>
 <thead>
 <tr>
@@ -1917,6 +1917,7 @@ The <code>.many()</code> method processes a list of light curves in batch with r
 </tbody>
 </table>
 <h3 id="multiband">Multiband<a class="headerlink" href="#multiband" title="Permanent link">&para;</a></h3>
+<p><em>Fast: all 4 features combined ~100 µs on 1,000 observations.</em></p>
 <table>
 <thead>
 <tr>
