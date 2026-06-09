@@ -1,7 +1,7 @@
 [
   {
-    "version": "dev",
-    "title": "dev",
+    "version": "pr777",
+    "title": "pr777",
     "aliases": []
   },
   {
@@ -10,8 +10,8 @@
     "aliases": []
   },
   {
-    "version": "pr777",
-    "title": "pr777",
+    "version": "dev",
+    "title": "dev",
     "aliases": []
   }
 ]
