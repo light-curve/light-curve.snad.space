@@ -770,6 +770,8 @@
       
         
       
+        
+      
     
     
     
@@ -890,14 +892,14 @@
   
   
     <li class="md-nav__item">
-      <a href="api/statistical/" class="md-nav__link">
+      <a href="api/variability/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Statistical
+    Variability
   
 
     
@@ -918,14 +920,14 @@
   
   
     <li class="md-nav__item">
-      <a href="api/variability/" class="md-nav__link">
+      <a href="api/linear/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Variability & trend
+    Linear trend
   
 
     
@@ -1009,7 +1011,7 @@
   <span class="md-ellipsis">
     
   
-    Parametric fits
+    Non-linear parametric fits
   
 
     
@@ -1030,14 +1032,14 @@
   
   
     <li class="md-nav__item">
-      <a href="api/detection/" class="md-nav__link">
+      <a href="api/rainbow/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Detection-based
+    Multiband parametric fit
   
 
     
@@ -1066,6 +1068,34 @@
     
   
     Multiband
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api/detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Detection-based
   
 
     
@@ -1601,21 +1631,23 @@ All share a common interface: callable objects with <code>.names</code> and <cod
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">light_curve</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">licu</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">7.1</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">])</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">15.1</span><span class="p">,</span> <span class="mf">15.3</span><span class="p">,</span> <span class="mf">14.9</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">15.2</span><span class="p">])</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">])</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">ext</span> <span class="o">=</span> <span class="n">licu</span><span class="o">.</span><span class="n">Extractor</span><span class="p">(</span><span class="n">licu</span><span class="o">.</span><span class="n">Amplitude</span><span class="p">(),</span> <span class="n">licu</span><span class="o">.</span><span class="n">BeyondNStd</span><span class="p">(</span><span class="n">nstd</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">licu</span><span class="o">.</span><span class="n">LinearFit</span><span class="p">())</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">result</span> <span class="o">=</span> <span class="n">ext</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">ext</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">result</span><span class="p">)))</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">7.1</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">,</span> <span class="mf">13.0</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">17.0</span><span class="p">,</span> <span class="mf">19.0</span><span class="p">])</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">15.1</span><span class="p">,</span> <span class="mf">15.3</span><span class="p">,</span> <span class="mf">14.9</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">15.2</span><span class="p">,</span> <span class="mf">15.1</span><span class="p">,</span> <span class="mf">14.8</span><span class="p">,</span> <span class="mf">15.3</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">15.1</span><span class="p">])</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.05</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">band</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">([</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">ext</span> <span class="o">=</span> <span class="n">licu</span><span class="o">.</span><span class="n">Extractor</span><span class="p">(</span><span class="n">licu</span><span class="o">.</span><span class="n">Chi2Pvar</span><span class="p">(),</span> <span class="n">licu</span><span class="o">.</span><span class="n">BeyondNStd</span><span class="p">(</span><span class="n">nstd</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">licu</span><span class="o">.</span><span class="n">LinearFit</span><span class="p">(</span><span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">]))</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">result</span> <span class="o">=</span> <span class="n">ext</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">band</span><span class="p">)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">ext</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">result</span><span class="p">)))</span>
 </code></pre></div>
 <p>Use <a href="api/meta/#light_curve.Extractor"><code>Extractor</code></a> to combine multiple features into a single callable,
 or call each class directly for a single feature.
 The <code>.many()</code> method processes a list of light curves in batch with reduced Python–Rust overhead.</p>
-<p>See the <a href="api/statistical/">API reference</a> for full signatures, parameters, and equations.</p>
+<p>See the <a href="api/variability/">API reference</a> for full signatures, parameters, and equations.</p>
 <hr />
 <h2 id="feature-table">Feature table<a class="headerlink" href="#feature-table" title="Permanent link">&para;</a></h2>
-<h3 id="statistical">Statistical<a class="headerlink" href="#statistical" title="Permanent link">&para;</a></h3>
+<h3 id="variability">Variability<a class="headerlink" href="#variability" title="Permanent link">&para;</a></h3>
+<p><em>Fast: all 26 features combined ~100 µs on 1,000 observations, single band.</em></p>
 <table>
 <thead>
 <tr>
@@ -1626,127 +1658,30 @@ The <code>.many()</code> method processes a list of light curves in batch with r
 </thead>
 <tbody>
 <tr>
-<td><a href="api/statistical/#light_curve.Amplitude"><code>Amplitude</code></a></td>
+<td><a href="api/variability/#light_curve.Amplitude"><code>Amplitude</code></a></td>
 <td>Half peak-to-peak amplitude</td>
 <td>1</td>
 </tr>
 <tr>
-<td><a href="api/statistical/#light_curve.AndersonDarlingNormal"><code>AndersonDarlingNormal</code></a></td>
+<td><a href="api/variability/#light_curve.AndersonDarlingNormal"><code>AndersonDarlingNormal</code></a></td>
 <td>Unbiased Anderson–Darling normality test statistic</td>
 <td>1</td>
 </tr>
 <tr>
-<td><a href="api/statistical/#light_curve.BeyondNStd"><code>BeyondNStd</code></a></td>
+<td><a href="api/variability/#light_curve.BeyondNStd"><code>BeyondNStd</code></a></td>
 <td>Fraction of observations beyond <span class="arithmatex">\(n\,\sigma_m\)</span> from <span class="arithmatex">\(\langle m \rangle\)</span></td>
 <td>1</td>
 </tr>
 <tr>
-<td><a href="api/statistical/#light_curve.Chi2Pvar"><code>Chi2Pvar</code></a></td>
+<td><a href="api/variability/#light_curve.Chi2Pvar"><code>Chi2Pvar</code></a></td>
 <td>Probability of variability from the <span class="arithmatex">\(\chi^2\)</span> test</td>
 <td>1</td>
 </tr>
 <tr>
-<td><a href="api/statistical/#light_curve.Cusum"><code>Cusum</code></a></td>
+<td><a href="api/variability/#light_curve.Cusum"><code>Cusum</code></a></td>
 <td>Range of cumulative sums</td>
 <td>1</td>
 </tr>
-<tr>
-<td><a href="api/statistical/#light_curve.ExcessVariance"><code>ExcessVariance</code></a></td>
-<td>Measure of intrinsic variability amplitude</td>
-<td>1</td>
-</tr>
-<tr>
-<td><a href="api/statistical/#light_curve.InterPercentileRange"><code>InterPercentileRange</code></a></td>
-<td><span class="arithmatex">\(Q(1-p) - Q(p)\)</span> inter-percentile range</td>
-<td>1</td>
-</tr>
-<tr>
-<td><a href="api/statistical/#light_curve.Kurtosis"><code>Kurtosis</code></a></td>
-<td>Excess kurtosis of magnitude</td>
-<td>1</td>
-</tr>
-<tr>
-<td><a href="api/statistical/#light_curve.Mean"><code>Mean</code></a></td>
-<td>Mean magnitude</td>
-<td>1</td>
-</tr>
-<tr>
-<td><a href="api/statistical/#light_curve.MeanVariance"><code>MeanVariance</code></a></td>
-<td>Standard deviation to mean ratio</td>
-<td>1</td>
-</tr>
-<tr>
-<td><a href="api/statistical/#light_curve.Median"><code>Median</code></a></td>
-<td>Median magnitude</td>
-<td>1</td>
-</tr>
-<tr>
-<td><a href="api/statistical/#light_curve.MedianAbsoluteDeviation"><code>MedianAbsoluteDeviation</code></a></td>
-<td>Median of <span class="arithmatex">\(\lvert m_i - \mathrm{median}(m) \rvert\)</span></td>
-<td>1</td>
-</tr>
-<tr>
-<td><a href="api/statistical/#light_curve.MedianBufferRangePercentage"><code>MedianBufferRangePercentage</code></a></td>
-<td>Fraction of points within <span class="arithmatex">\(q \times \mathrm{amplitude}\)</span> of median</td>
-<td>1</td>
-</tr>
-<tr>
-<td><a href="api/statistical/#light_curve.OtsuSplit"><code>OtsuSplit</code></a></td>
-<td>Otsu thresholding: bimodality measure (subset means, std devs, fraction)</td>
-<td>4</td>
-</tr>
-<tr>
-<td><a href="api/statistical/#light_curve.PercentAmplitude"><code>PercentAmplitude</code></a></td>
-<td>Maximum deviation of magnitude from its median</td>
-<td>1</td>
-</tr>
-<tr>
-<td><a href="api/statistical/#light_curve.PercentDifferenceMagnitudePercentile"><code>PercentDifferenceMagnitudePercentile</code></a></td>
-<td>Ratio of inter-percentile range to median</td>
-<td>1</td>
-</tr>
-<tr>
-<td><a href="api/statistical/#light_curve.ReducedChi2"><code>ReducedChi2</code></a></td>
-<td>Reduced <span class="arithmatex">\(\chi^2\)</span> of magnitude measurements</td>
-<td>1</td>
-</tr>
-<tr>
-<td><a href="api/statistical/#light_curve.Roms"><code>Roms</code></a></td>
-<td>Robust median statistic <em>(experimental)</em></td>
-<td>1</td>
-</tr>
-<tr>
-<td><a href="api/statistical/#light_curve.Skew"><code>Skew</code></a></td>
-<td>Skewness <span class="arithmatex">\(G_1\)</span> of magnitude</td>
-<td>1</td>
-</tr>
-<tr>
-<td><a href="api/statistical/#light_curve.StandardDeviation"><code>StandardDeviation</code></a></td>
-<td>Standard deviation <span class="arithmatex">\(\sigma_m\)</span> of magnitude</td>
-<td>1</td>
-</tr>
-<tr>
-<td><a href="api/statistical/#light_curve.StetsonK"><code>StetsonK</code></a></td>
-<td>Stetson <span class="arithmatex">\(K\)</span> light-curve shape coefficient</td>
-<td>1</td>
-</tr>
-<tr>
-<td><a href="api/statistical/#light_curve.WeightedMean"><code>WeightedMean</code></a></td>
-<td>Inverse-variance weighted mean magnitude</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-<h3 id="variability-trend">Variability &amp; trend<a class="headerlink" href="#variability-trend" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>Description</th>
-<th>Outputs</th>
-</tr>
-</thead>
-<tbody>
 <tr>
 <td><a href="api/variability/#light_curve.Eta"><code>Eta</code></a></td>
 <td>Von Neumann <span class="arithmatex">\(\eta\)</span></td>
@@ -1758,28 +1693,127 @@ The <code>.many()</code> method processes a list of light curves in batch with r
 <td>1</td>
 </tr>
 <tr>
-<td><a href="api/variability/#light_curve.LaflerKinmanStringLength"><code>LaflerKinmanStringLength</code></a></td>
-<td>Lafler–Kinman string-length smoothness statistic</td>
+<td><a href="api/variability/#light_curve.ExcessVariance"><code>ExcessVariance</code></a></td>
+<td>Measure of intrinsic variability amplitude</td>
 <td>1</td>
 </tr>
 <tr>
-<td><a href="api/variability/#light_curve.LinearFit"><code>LinearFit</code></a></td>
-<td>Slope, its error, and reduced <span class="arithmatex">\(\chi^2\)</span> of the weighted linear fit</td>
-<td>3</td>
+<td><a href="api/variability/#light_curve.InterPercentileRange"><code>InterPercentileRange</code></a></td>
+<td><span class="arithmatex">\(Q(1-p) - Q(p)\)</span> inter-percentile range</td>
+<td>1</td>
 </tr>
 <tr>
-<td><a href="api/variability/#light_curve.LinearTrend"><code>LinearTrend</code></a></td>
-<td>Slope, its error, and noise level of the unweighted linear fit</td>
-<td>3</td>
+<td><a href="api/variability/#light_curve.Kurtosis"><code>Kurtosis</code></a></td>
+<td>Excess kurtosis of magnitude</td>
+<td>1</td>
+</tr>
+<tr>
+<td><a href="api/variability/#light_curve.LaflerKinmanStringLength"><code>LaflerKinmanStringLength</code></a></td>
+<td>Lafler–Kinman string-length smoothness statistic</td>
+<td>1</td>
 </tr>
 <tr>
 <td><a href="api/variability/#light_curve.MaximumSlope"><code>MaximumSlope</code></a></td>
 <td>Maximum slope between consecutive observations</td>
 <td>1</td>
 </tr>
+<tr>
+<td><a href="api/variability/#light_curve.Mean"><code>Mean</code></a></td>
+<td>Mean magnitude</td>
+<td>1</td>
+</tr>
+<tr>
+<td><a href="api/variability/#light_curve.MeanVariance"><code>MeanVariance</code></a></td>
+<td>Standard deviation to mean ratio</td>
+<td>1</td>
+</tr>
+<tr>
+<td><a href="api/variability/#light_curve.Median"><code>Median</code></a></td>
+<td>Median magnitude</td>
+<td>1</td>
+</tr>
+<tr>
+<td><a href="api/variability/#light_curve.MedianAbsoluteDeviation"><code>MedianAbsoluteDeviation</code></a></td>
+<td>Median of <span class="arithmatex">\(\lvert m_i - \mathrm{median}(m) \rvert\)</span></td>
+<td>1</td>
+</tr>
+<tr>
+<td><a href="api/variability/#light_curve.MedianBufferRangePercentage"><code>MedianBufferRangePercentage</code></a></td>
+<td>Fraction of points within <span class="arithmatex">\(q \times \mathrm{amplitude}\)</span> of median</td>
+<td>1</td>
+</tr>
+<tr>
+<td><a href="api/variability/#light_curve.OtsuSplit"><code>OtsuSplit</code></a></td>
+<td>Otsu thresholding: bimodality measure (subset means, std devs, fraction)</td>
+<td>4</td>
+</tr>
+<tr>
+<td><a href="api/variability/#light_curve.PercentAmplitude"><code>PercentAmplitude</code></a></td>
+<td>Maximum deviation of magnitude from its median</td>
+<td>1</td>
+</tr>
+<tr>
+<td><a href="api/variability/#light_curve.PercentDifferenceMagnitudePercentile"><code>PercentDifferenceMagnitudePercentile</code></a></td>
+<td>Ratio of inter-percentile range to median</td>
+<td>1</td>
+</tr>
+<tr>
+<td><a href="api/variability/#light_curve.ReducedChi2"><code>ReducedChi2</code></a></td>
+<td>Reduced <span class="arithmatex">\(\chi^2\)</span> of magnitude measurements</td>
+<td>1</td>
+</tr>
+<tr>
+<td><a href="api/variability/#light_curve.Roms"><code>Roms</code></a></td>
+<td>Robust median statistic <em>(experimental)</em></td>
+<td>1</td>
+</tr>
+<tr>
+<td><a href="api/variability/#light_curve.Skew"><code>Skew</code></a></td>
+<td>Skewness <span class="arithmatex">\(G_1\)</span> of magnitude</td>
+<td>1</td>
+</tr>
+<tr>
+<td><a href="api/variability/#light_curve.StandardDeviation"><code>StandardDeviation</code></a></td>
+<td>Standard deviation <span class="arithmatex">\(\sigma_m\)</span> of magnitude</td>
+<td>1</td>
+</tr>
+<tr>
+<td><a href="api/variability/#light_curve.StetsonK"><code>StetsonK</code></a></td>
+<td>Stetson <span class="arithmatex">\(K\)</span> light-curve shape coefficient</td>
+<td>1</td>
+</tr>
+<tr>
+<td><a href="api/variability/#light_curve.WeightedMean"><code>WeightedMean</code></a></td>
+<td>Inverse-variance weighted mean magnitude</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="linear-trend">Linear trend<a class="headerlink" href="#linear-trend" title="Permanent link">&para;</a></h3>
+<p><em>Fast: both features combined ~10 µs on 1,000 observations, single band.</em></p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+<th>Outputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="api/linear/#light_curve.LinearFit"><code>LinearFit</code></a></td>
+<td>Slope, its error, and reduced <span class="arithmatex">\(\chi^2\)</span> of the weighted linear fit</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="api/linear/#light_curve.LinearTrend"><code>LinearTrend</code></a></td>
+<td>Slope, its error, and noise level of the unweighted linear fit</td>
+<td>3</td>
+</tr>
 </tbody>
 </table>
 <h3 id="time-sampling">Time sampling<a class="headerlink" href="#time-sampling" title="Permanent link">&para;</a></h3>
+<p><em>Fast: all 6 features combined ~5 µs on 1,000 observations, single band.</em></p>
 <table>
 <thead>
 <tr>
@@ -1838,7 +1872,7 @@ The <code>.many()</code> method processes a list of light curves in batch with r
 </tr>
 </tbody>
 </table>
-<h3 id="parametric-fits-transients-flux-only">Parametric fits (transients, flux only)<a class="headerlink" href="#parametric-fits-transients-flux-only" title="Permanent link">&para;</a></h3>
+<h3 id="non-linear-parametric-fits-transients-flux-only">Non-linear parametric fits (transients, flux only)<a class="headerlink" href="#non-linear-parametric-fits-transients-flux-only" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -1865,6 +1899,56 @@ The <code>.many()</code> method processes a list of light curves in batch with r
 </tr>
 </tbody>
 </table>
+<h3 id="multiband-parametric-fit">Multiband parametric fit<a class="headerlink" href="#multiband-parametric-fit" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+<th>Outputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="api/rainbow/#light_curve.RainbowFit"><code>RainbowFit</code></a></td>
+<td>Multiband blackbody fit (Russeil+23) — bolometric flux + temperature evolution + SED spectral model</td>
+<td>4 to 10+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="multiband">Multiband<a class="headerlink" href="#multiband" title="Permanent link">&para;</a></h3>
+<p><em>Fast: all 4 features combined ~100 µs on 1,000 observations.</em></p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+<th>Outputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="api/multiband/#light_curve.ColorOfMaximum"><code>ColorOfMaximum</code></a></td>
+<td>Difference between maximum magnitudes of two bands</td>
+<td>1</td>
+</tr>
+<tr>
+<td><a href="api/multiband/#light_curve.ColorOfMedian"><code>ColorOfMedian</code></a></td>
+<td>Difference between median magnitudes of two bands</td>
+<td>1</td>
+</tr>
+<tr>
+<td><a href="api/multiband/#light_curve.ColorOfMinimum"><code>ColorOfMinimum</code></a></td>
+<td>Difference between minimum magnitudes of two bands</td>
+<td>1</td>
+</tr>
+<tr>
+<td><a href="api/multiband/#light_curve.ColorSpread"><code>ColorSpread</code></a></td>
+<td>Population std dev of per-band weighted mean magnitudes</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
 <h3 id="detection-based-experimental">Detection-based (experimental)<a class="headerlink" href="#detection-based-experimental" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1884,28 +1968,6 @@ The <code>.many()</code> method processes a list of light curves in batch with r
 <td><a href="api/detection/#light_curve.MagnitudeNNotDetBeforeFd"><code>MagnitudeNNotDetBeforeFd</code></a></td>
 <td>Number of non-detections (magnitude) before the first detection</td>
 <td>1</td>
-</tr>
-</tbody>
-</table>
-<h3 id="multiband-experimental">Multiband (experimental)<a class="headerlink" href="#multiband-experimental" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>Description</th>
-<th>Outputs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="api/multiband/#light_curve.ColorOfMedian"><code>ColorOfMedian</code></a></td>
-<td>Difference between median magnitudes of two bands</td>
-<td>1</td>
-</tr>
-<tr>
-<td><a href="api/multiband/#light_curve.RainbowFit"><code>RainbowFit</code></a></td>
-<td>Multiband blackbody fit (Russeil+23) — bolometric flux + temperature evolution + SED spectral model</td>
-<td>(4 to 10+)</td>
 </tr>
 </tbody>
 </table>

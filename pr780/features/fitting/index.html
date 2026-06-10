@@ -894,6 +894,8 @@
       
         
       
+        
+      
     
     
     
@@ -1014,14 +1016,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/statistical/" class="md-nav__link">
+      <a href="../api/variability/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Statistical
+    Variability
   
 
     
@@ -1042,14 +1044,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/variability/" class="md-nav__link">
+      <a href="../api/linear/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Variability & trend
+    Linear trend
   
 
     
@@ -1133,7 +1135,7 @@
   <span class="md-ellipsis">
     
   
-    Parametric fits
+    Non-linear parametric fits
   
 
     
@@ -1154,14 +1156,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/detection/" class="md-nav__link">
+      <a href="../api/rainbow/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Detection-based
+    Multiband parametric fit
   
 
     
@@ -1190,6 +1192,34 @@
     
   
     Multiband
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Detection-based
   
 
     
@@ -2896,8 +2926,8 @@ for name, val in zip(villar.names, result_v):
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
 <pre>WARNING: Logging before InitGoogleLogging() is written to STDERR
-E20260610 14:59:27.637265 140718322666368 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
-E20260610 14:59:27.638678 140718322666368 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
+E20260610 15:10:30.779177 140016450505600 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
+E20260610 15:10:30.780441 140016450505600 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
 </pre>
 </div>
 </div>
@@ -3018,8 +3048,8 @@ plt.show()</div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>E20260610 14:59:27.689836 140718322666368 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
-E20260610 14:59:27.691199 140718322666368 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
+<pre>E20260610 15:10:30.827968 140016450505600 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
+E20260610 15:10:30.829240 140016450505600 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
 </pre>
 </div>
 </div>
@@ -3059,7 +3089,7 @@ E20260610 14:59:27.691199 140718322666368 program_evaluator.h:286] Accumulated c
 <tr>
 <td><code>'lmsder'</code></td>
 <td>Fast</td>
-<td>Levenberg–Marquardt via GSL; requires GSL</td>
+<td>Levenberg–Marquardt via GSL; not available on Windows</td>
 </tr>
 <tr>
 <td><code>'nuts'</code></td>
@@ -3104,13 +3134,13 @@ This combines global search robustness with fast local refinement:</p>
 <td><code>'nuts-lmsder'</code></td>
 <td>NUTS</td>
 <td>LM</td>
-<td>Requires GSL</td>
+<td>Not available on Windows</td>
 </tr>
 <tr>
 <td><code>'mcmc-lmsder'</code></td>
 <td>MCMC</td>
 <td>LM</td>
-<td>Requires GSL</td>
+<td>Not available on Windows</td>
 </tr>
 </tbody>
 </table>
@@ -3178,7 +3208,7 @@ descent is likely to get stuck.</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="see-also">See also<a class="anchor-link" href="#see-also">¶</a></h2><ul>
 <li>All three features work on <strong>flux</strong> light curves only (not magnitude).</li>
-<li>For linear trend and intercept, see <a href="../api/variability/#light_curve.LinearFit"><code>LinearFit</code></a> and <a href="../api/variability/#light_curve.LinearTrend"><code>LinearTrend</code></a>.</li>
+<li>For linear trend and intercept, see <a href="../api/linear/#light_curve.LinearFit"><code>LinearFit</code></a> and <a href="../api/linear/#light_curve.LinearTrend"><code>LinearTrend</code></a>.</li>
 <li>For multi-band transient fitting with a physical blackbody model, see the
 <a href="../rainbow/">Rainbow tutorial</a>.</li>
 <li><a href="../api/fitting/">API reference</a></li>

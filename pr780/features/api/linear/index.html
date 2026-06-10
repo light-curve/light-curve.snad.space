@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://light-curve.snad.space/embed/onnxruntime/">
+        <link rel="canonical" href="https://light-curve.snad.space/features/api/linear/">
       
       
-        <link rel="prev" href="../pre-executed/classification/">
+        <link rel="prev" href="../variability/">
       
       
-        <link rel="next" href="../api/">
+        <link rel="next" href="../time/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/logo.png">
+      <link rel="icon" href="../../../assets/logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>onnxruntime tips - light-curve</title>
+        <title>Linear trend - light-curve</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,13 +51,13 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#onnxruntime-tips" class="md-skip">
+        <a href="#linear-trend-features" class="md-skip">
           Skip to content
         </a>
       
@@ -100,9 +100,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="light-curve" class="md-header__button md-logo" aria-label="light-curve" data-md-component="logo">
+    <a href="../../.." title="light-curve" class="md-header__button md-logo" aria-label="light-curve" data-md-component="logo">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              onnxruntime tips
+              Linear trend
             
           </span>
         </div>
@@ -230,7 +230,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -249,7 +249,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../installation/" class="md-tabs__link">
+      <a href="../../../installation/" class="md-tabs__link">
         
   
   
@@ -266,11 +266,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../features/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -288,13 +290,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../embed/" class="md-tabs__link">
           
   
   
@@ -316,7 +316,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../dmdt/" class="md-tabs__link">
+        <a href="../../../dmdt/" class="md-tabs__link">
           
   
   
@@ -336,7 +336,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../changelog/" class="md-tabs__link">
+      <a href="../../../changelog/" class="md-tabs__link">
         
   
   
@@ -355,7 +355,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../citing/" class="md-tabs__link">
+      <a href="../../../citing/" class="md-tabs__link">
         
   
   
@@ -374,7 +374,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../developer/contributing/" class="md-tabs__link">
+      <a href="../../../developer/contributing/" class="md-tabs__link">
         
   
   
@@ -409,9 +409,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="light-curve" class="md-nav__button md-logo" aria-label="light-curve" data-md-component="logo">
+    <a href="../../.." title="light-curve" class="md-nav__button md-logo" aria-label="light-curve" data-md-component="logo">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../../assets/logo.png" alt="logo">
 
     </a>
     light-curve
@@ -438,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -465,7 +465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/" class="md-nav__link">
+      <a href="../../../installation/" class="md-nav__link">
         
   
   
@@ -489,6 +489,8 @@
       
   
   
+    
+  
   
   
     
@@ -516,20 +518,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../features/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -547,13 +552,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -573,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/basics/" class="md-nav__link">
+      <a href="../../basics/" class="md-nav__link">
         
   
   
@@ -601,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/multiband/" class="md-nav__link">
+      <a href="../../multiband/" class="md-nav__link">
         
   
   
@@ -629,7 +634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/batch_processing/" class="md-nav__link">
+      <a href="../../batch_processing/" class="md-nav__link">
         
   
   
@@ -657,7 +662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/periodogram/" class="md-nav__link">
+      <a href="../../periodogram/" class="md-nav__link">
         
   
   
@@ -685,7 +690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/fitting/" class="md-nav__link">
+      <a href="../../fitting/" class="md-nav__link">
         
   
   
@@ -713,7 +718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/rainbow/" class="md-nav__link">
+      <a href="../../rainbow/" class="md-nav__link">
         
   
   
@@ -738,6 +743,8 @@
                 
   
   
+    
+  
   
   
     
@@ -773,18 +780,21 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../features/api/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -802,13 +812,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_8" id="__nav_3_8_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -828,7 +838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/api/base/" class="md-nav__link">
+      <a href="../base/" class="md-nav__link">
         
   
   
@@ -856,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/api/meta/" class="md-nav__link">
+      <a href="../meta/" class="md-nav__link">
         
   
   
@@ -884,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/api/variability/" class="md-nav__link">
+      <a href="../variability/" class="md-nav__link">
         
   
   
@@ -909,10 +919,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../features/api/linear/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linear trend
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -928,6 +965,48 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.LinearFit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LinearFit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.LinearTrend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LinearTrend
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -940,7 +1019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/api/time/" class="md-nav__link">
+      <a href="../time/" class="md-nav__link">
         
   
   
@@ -968,7 +1047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/api/periodogram/" class="md-nav__link">
+      <a href="../periodogram/" class="md-nav__link">
         
   
   
@@ -996,7 +1075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/api/fitting/" class="md-nav__link">
+      <a href="../fitting/" class="md-nav__link">
         
   
   
@@ -1024,7 +1103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/api/rainbow/" class="md-nav__link">
+      <a href="../rainbow/" class="md-nav__link">
         
   
   
@@ -1052,7 +1131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/api/multiband/" class="md-nav__link">
+      <a href="../multiband/" class="md-nav__link">
         
   
   
@@ -1080,7 +1159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/api/detection/" class="md-nav__link">
+      <a href="../detection/" class="md-nav__link">
         
   
   
@@ -1120,8 +1199,6 @@
       
   
   
-    
-  
   
   
     
@@ -1145,23 +1222,20 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../../embed/" class="md-nav__link ">
               
   
   
@@ -1179,13 +1253,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1205,7 +1279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/" class="md-nav__link">
+      <a href="../../../embed/tutorial/" class="md-nav__link">
         
   
   
@@ -1233,7 +1307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pre-executed/similarity_search/" class="md-nav__link">
+      <a href="../../../embed/pre-executed/similarity_search/" class="md-nav__link">
         
   
   
@@ -1261,7 +1335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pre-executed/classification/" class="md-nav__link">
+      <a href="../../../embed/pre-executed/classification/" class="md-nav__link">
         
   
   
@@ -1286,37 +1360,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    onnxruntime tips
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../embed/onnxruntime/" class="md-nav__link">
         
   
   
@@ -1332,59 +1379,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#shared-environments-science-platforms-and-hpc-clusters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Shared environments (science platforms and HPC clusters)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gpu-acceleration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GPU acceleration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#controlling-log-verbosity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Controlling log verbosity
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1397,7 +1391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/" class="md-nav__link">
+      <a href="../../../embed/api/" class="md-nav__link">
         
   
   
@@ -1459,7 +1453,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../dmdt/" class="md-nav__link ">
+            <a href="../../../dmdt/" class="md-nav__link ">
               
   
   
@@ -1503,7 +1497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dmdt/tutorial/" class="md-nav__link">
+      <a href="../../../dmdt/tutorial/" class="md-nav__link">
         
   
   
@@ -1531,7 +1525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dmdt/api/" class="md-nav__link">
+      <a href="../../../dmdt/api/" class="md-nav__link">
         
   
   
@@ -1566,7 +1560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../changelog/" class="md-nav__link">
+      <a href="../../../changelog/" class="md-nav__link">
         
   
   
@@ -1593,7 +1587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../citing/" class="md-nav__link">
+      <a href="../../../citing/" class="md-nav__link">
         
   
   
@@ -1620,7 +1614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../developer/contributing/" class="md-nav__link">
+      <a href="../../../developer/contributing/" class="md-nav__link">
         
   
   
@@ -1667,10 +1661,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#shared-environments-science-platforms-and-hpc-clusters" class="md-nav__link">
+  <a href="#light_curve.LinearFit" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Shared environments (science platforms and HPC clusters)
+        LinearFit
       
     </span>
   </a>
@@ -1678,21 +1672,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gpu-acceleration" class="md-nav__link">
+  <a href="#light_curve.LinearTrend" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GPU acceleration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#controlling-log-verbosity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Controlling log verbosity
+        LinearTrend
       
     </span>
   </a>
@@ -1716,7 +1699,7 @@
 
 
   
-    <a href="https://github.com/light-curve/light-curve-python/edit/main/docs/embed/onnxruntime.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/light-curve/light-curve-python/edit/main/docs/features/api/linear.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
     </a>
@@ -1724,111 +1707,406 @@
   
 
 
-<h1 id="onnxruntime-tips">onnxruntime tips<a class="headerlink" href="#onnxruntime-tips" title="Permanent link">&para;</a></h1>
-<p>Practical configuration tweaks for running <code>light_curve.embed</code> models on HPC clusters, science platforms, and GPU nodes.</p>
-<h2 id="shared-environments-science-platforms-and-hpc-clusters">Shared environments (science platforms and HPC clusters)<a class="headerlink" href="#shared-environments-science-platforms-and-hpc-clusters" title="Permanent link">&para;</a></h2>
-<p>By default, onnxruntime grabs every CPU it can see and attempts to set thread
-affinity accordingly. On shared nodes this can cause two problems: over-subscribing
-your allocation, and outright failure when the host enforces strict CPU access control.
-In the latter case you will see errors like:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pthread_setaffinity_np failed for thread: 8151, index: 18, mask: {73, }, error code: 22
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>error msg: Invalid argument. Specify the number of threads explicitly so the affinity is not set.
-</code></pre></div>
-<p>Fix both by setting thread counts explicitly via <code>SessionOptions</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">onnxruntime</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ort</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">light_curve.embed</span><span class="w"> </span><span class="kn">import</span> <span class="n">Astromer2</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">so</span> <span class="o">=</span> <span class="n">ort</span><span class="o">.</span><span class="n">SessionOptions</span><span class="p">()</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">so</span><span class="o">.</span><span class="n">intra_op_num_threads</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># threads within a single op (e.g. matrix multiply)</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">so</span><span class="o">.</span><span class="n">inter_op_num_threads</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># threads across independent ops in the graph</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">model</span> <span class="o">=</span> <span class="n">Astromer2</span><span class="o">.</span><span class="n">from_hf</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">ort_session_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;sess_options&quot;</span><span class="p">:</span> <span class="n">so</span><span class="p">})</span>
-</code></pre></div>
-<p><strong>Both values must be set explicitly</strong> — onnxruntime only skips the affinity call when a
-thread count is given. Set their sum to the number of CPUs in your job allocation
-(e.g. <code>$SLURM_CPUS_PER_TASK</code>). All models in <code>light_curve.embed</code> have parallel op
-subgraphs (multi-head attention etc.), so both dimensions can benefit from more than one
-thread; the example above is a reasonable starting point rather than a universal optimum.</p>
-<h2 id="gpu-acceleration">GPU acceleration<a class="headerlink" href="#gpu-acceleration" title="Permanent link">&para;</a></h2>
-<h3 id="enabling-the-cuda-provider">Enabling the CUDA provider<a class="headerlink" href="#enabling-the-cuda-provider" title="Permanent link">&para;</a></h3>
-<p>Install <code>onnxruntime-gpu</code> instead of <code>onnxruntime</code>, then request the CUDA provider:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">light_curve.embed</span><span class="w"> </span><span class="kn">import</span> <span class="n">Astromer2</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">Astromer2</span><span class="o">.</span><span class="n">from_hf</span><span class="p">(</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">output</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">ort_session_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;providers&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;CUDAExecutionProvider&quot;</span><span class="p">]},</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">)</span>
-</code></pre></div>
-<p>To confirm the GPU is actually being used, run <code>nvidia-smi</code> while inference is running
-and look for your Python process in the <em>Processes</em> table at the bottom.</p>
-<h3 id="cuda-version-compatibility">CUDA version compatibility<a class="headerlink" href="#cuda-version-compatibility" title="Permanent link">&para;</a></h3>
-<p><code>onnxruntime-gpu</code> from PyPI is built against a specific CUDA version.
-If the installed CUDA libraries do not match, you will see runtime errors like
-<code>libcudnn.so.X: cannot open shared object file</code>.</p>
-<p>Before installing, check two things and make sure they agree:</p>
-<ol>
-<li>
-<p><strong>What your driver supports</strong> — run <code>nvidia-smi</code> and read the <em>CUDA Version</em> in the
-   top-right corner. That is the <em>maximum</em> CUDA version your driver can run.</p>
-</li>
-<li>
-<p><strong>What onnxruntime-gpu requires</strong> — see the
-   <a href="https://onnxruntime.ai/docs/execution-providers/CUDA-ExecutionProvider.html#requirements">CUDA Execution Provider requirements table</a>
-   for the exact CUDA and cuDNN versions needed by each release.
-   Pick a release whose requirements are at or below your driver's maximum.</p>
-</li>
-</ol>
-<p>The easiest way to get a compatible stack is <strong><a href="https://pixi.sh">pixi</a></strong>, which can
-install the CUDA toolkit and cuDNN from the NVIDIA conda channel alongside
-<code>onnxruntime-gpu</code> from PyPI:</p>
-<div class="highlight"><span class="filename">pixi.toml</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[workspace]</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my-project&quot;</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">channels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;conda-forge&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;nvidia/label/cuda-12.6.3&quot;</span><span class="p">]</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">platforms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;linux-64&quot;</span><span class="p">]</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">[dependencies]</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=3.10&quot;</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">cuda-toolkit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;12.*&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;nvidia/label/cuda-12.6.3&quot;</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">cudnn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;9.*&quot;</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">huggingface_hub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;*&quot;</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="k">[pypi-dependencies]</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="n">onnxruntime-gpu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;*&quot;</span>
-</code></pre></div>
-<p>Choose the <code>nvidia/label/cuda-X.Y.Z</code> channel to match the CUDA version required by
-your chosen <code>onnxruntime-gpu</code> release. Pin the version if needed:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[pypi-dependencies]</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">onnxruntime-gpu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=1.18,&lt;1.20&quot;</span>
-</code></pre></div>
-<h3 id="other-providers">Other providers<a class="headerlink" href="#other-providers" title="Permanent link">&para;</a></h3>
-<p>onnxruntime supports additional hardware via execution providers:
-DirectML (Windows/AMD), CoreML (Apple Silicon), OpenVINO (Intel), TensorRT, and others.
-See the <a href="https://onnxruntime.ai/docs/execution-providers/">onnxruntime execution providers docs</a>
-for installation and provider names to pass in <code>providers</code>.</p>
-<h2 id="controlling-log-verbosity">Controlling log verbosity<a class="headerlink" href="#controlling-log-verbosity" title="Permanent link">&para;</a></h2>
-<p>When using a non-CPU execution provider you may see warnings like:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>[W:onnxruntime:, transformer_memcpy.cc:111 ApplyImpl] 6 Memcpy nodes are added to the graph
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>main_graph for CUDAExecutionProvider. It might have negative impact on performance ...
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>[W:onnxruntime:, session_state.cc:1367 VerifyEachNodeIsAssignedToAnEp] Some nodes were not
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>assigned to the preferred execution providers which may or may not have a negative impact on
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.
-</code></pre></div>
-<p>These are informational — onnxruntime deliberately keeps certain ops (e.g. shape ops) on CPU,
-which is normal. To silence them, raise the log severity to <code>ERROR</code> (3) via <code>SessionOptions</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">onnxruntime</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ort</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">light_curve.embed</span><span class="w"> </span><span class="kn">import</span> <span class="n">Astromer2</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">so</span> <span class="o">=</span> <span class="n">ort</span><span class="o">.</span><span class="n">SessionOptions</span><span class="p">()</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">so</span><span class="o">.</span><span class="n">log_severity_level</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># 0=Verbose, 1=Info, 2=Warning (default), 3=Error, 4=Fatal</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">model</span> <span class="o">=</span> <span class="n">Astromer2</span><span class="o">.</span><span class="n">from_hf</span><span class="p">(</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="n">output</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="n">ort_session_kwargs</span><span class="o">=</span><span class="p">{</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>        <span class="s2">&quot;providers&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;CUDAExecutionProvider&quot;</span><span class="p">],</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>        <span class="s2">&quot;sess_options&quot;</span><span class="p">:</span> <span class="n">so</span><span class="p">,</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="p">},</span>
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="p">)</span>
-</code></pre></div>
+<h1 id="linear-trend-features">Linear trend features<a class="headerlink" href="#linear-trend-features" title="Permanent link">&para;</a></h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.LinearFit" class="doc doc-heading">
+            <code>light_curve.LinearFit</code>
+
+
+<a href="#light_curve.LinearFit" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Slope, its error and reduced <span class="arithmatex">\(\chi^2\)</span> of the light curve in the linear fit</p>
+<p>Least squares fit of the linear stochastic model with Gaussian noise described by observation
+errors <span class="arithmatex">\(\{\delta_i\}\)</span>:</p>
+<div class="arithmatex">\[
+m_i = c + \mathrm{slope} t_i + \delta_i \varepsilon_i
+\]</div>
+<p>where <span class="arithmatex">\(c\)</span> is a constant,
+<span class="arithmatex">\(\{\varepsilon_i\}\)</span> are standard distributed random variables.</p>
+<p>Feature values are <span class="arithmatex">\(\mathrm{slope}\)</span>, <span class="arithmatex">\(\sigma_\mathrm{slope}\)</span> and
+<span class="arithmatex">\(\frac{\sum{((m_i - c - \mathrm{slope} t_i) / \delta_i)^2}}{N - 2}\)</span>.</p>
+<ul>
+<li>Depends on: <strong>time</strong>, <strong>magnitude</strong>, <strong>magnitude error</strong></li>
+<li>Minimum number of observations: <strong>3</strong></li>
+<li>Number of features: <strong>3</strong></li>
+</ul>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'identity'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.LinearFit.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.LinearFit.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.LinearFit.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.LinearFit.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.LinearFit.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.LinearTrend" class="doc doc-heading">
+            <code>light_curve.LinearTrend</code>
+
+
+<a href="#light_curve.LinearTrend" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>The slope, its error and noise level of the light curve in the linear fit</p>
+<p>Least squares fit of the linear stochastic model with constant Gaussian noise <span class="arithmatex">\(\Sigma\)</span> assuming
+observation errors to be zero:</p>
+<div class="arithmatex">\[
+m_i = c + \mathrm{slope} t_i + \Sigma \varepsilon_i,
+\]</div>
+<p>where <span class="arithmatex">\(c\)</span> is a constant,
+<span class="arithmatex">\(\{\varepsilon_i\}\)</span> are standard distributed random variables. <span class="arithmatex">\(\mathrm{slope}\)</span>,
+<span class="arithmatex">\(\sigma_\mathrm{slope}\)</span> and <span class="arithmatex">\(\Sigma\)</span> are returned.</p>
+<ul>
+<li>Depends on: <strong>time</strong>, <strong>magnitude</strong></li>
+<li>Minimum number of observations: <strong>3</strong></li>
+<li>Number of features: <strong>3</strong></li>
+</ul>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'identity'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.LinearTrend.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.LinearTrend.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.LinearTrend.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.LinearTrend.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.LinearTrend.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
 
 
 
@@ -1879,16 +2157,16 @@ which is normal. To silence them, raise the log severity to <code>ERROR</code> (
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "content.action.edit", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "content.action.edit", "header.autohide"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
       
-        <script src="../../javascripts/katex.js"></script>
+        <script src="../../../javascripts/katex.js"></script>
       
     
   </body>

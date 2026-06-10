@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://light-curve.snad.space/features/api/multiband/">
       
       
-        <link rel="prev" href="../detection/">
+        <link rel="prev" href="../rainbow/">
       
       
-        <link rel="next" href="../../../embed/">
+        <link rel="next" href="../detection/">
       
       
         
@@ -772,6 +772,8 @@
       
         
       
+        
+      
     
     
     
@@ -892,14 +894,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../statistical/" class="md-nav__link">
+      <a href="../variability/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Statistical
+    Variability
   
 
     
@@ -920,14 +922,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../variability/" class="md-nav__link">
+      <a href="../linear/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Variability & trend
+    Linear trend
   
 
     
@@ -1011,7 +1013,7 @@
   <span class="md-ellipsis">
     
   
-    Parametric fits
+    Non-linear parametric fits
   
 
     
@@ -1032,14 +1034,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../detection/" class="md-nav__link">
+      <a href="../rainbow/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Detection-based
+    Multiband parametric fit
   
 
     
@@ -1120,10 +1122,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#rust-based-multiband-support" class="md-nav__link">
+  <a href="#multiband-support-in-standard-features" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rust-based multiband support
+        Multiband support in standard features
       
     </span>
   </a>
@@ -1131,10 +1133,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rust-based-pure-multiband-features" class="md-nav__link">
+  <a href="#pure-multiband-features" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rust-based pure multiband features
+        Pure multiband features
       
     </span>
   </a>
@@ -1185,32 +1187,38 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#experimental-pure-python-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Experimental pure-Python features
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#light_curve.RainbowFit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        RainbowFit
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Detection-based
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1697,10 +1705,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#rust-based-multiband-support" class="md-nav__link">
+  <a href="#multiband-support-in-standard-features" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rust-based multiband support
+        Multiband support in standard features
       
     </span>
   </a>
@@ -1708,10 +1716,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rust-based-pure-multiband-features" class="md-nav__link">
+  <a href="#pure-multiband-features" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rust-based pure multiband features
+        Pure multiband features
       
     </span>
   </a>
@@ -1762,28 +1770,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#experimental-pure-python-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Experimental pure-Python features
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#light_curve.RainbowFit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        RainbowFit
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1810,20 +1796,20 @@
 
 
 <h1 id="multiband-features-api">Multiband features API<a class="headerlink" href="#multiband-features-api" title="Permanent link">&para;</a></h1>
-<h2 id="rust-based-multiband-support">Rust-based multiband support<a class="headerlink" href="#rust-based-multiband-support" title="Permanent link">&para;</a></h2>
-<p>All standard Rust feature extractors accept a <code>bands=</code> constructor argument to enable multiband
+<h2 id="multiband-support-in-standard-features">Multiband support in standard features<a class="headerlink" href="#multiband-support-in-standard-features" title="Permanent link">&para;</a></h2>
+<p>All standard feature extractors accept a <code>bands=</code> constructor argument to enable multiband
 mode.  Full API documentation is available in the per-category reference pages:</p>
 <ul>
 <li><a href="../meta/">Meta features (<code>Extractor</code>, <code>Bins</code>)</a> — <code>Extractor</code> supports mixed
   single-band + multiband, <code>Bins</code> supports <code>bands=</code> for per-passband binning.</li>
 <li><a href="../periodogram/">Periodogram</a> — <code>Periodogram</code> supports <code>bands=</code> and
   <code>multiband_normalization=</code>.</li>
-<li><a href="../statistical/">Statistical</a>, <a href="../variability/">Variability</a>,
-  <a href="../time/">Time sampling</a>, <a href="../fitting/">Parametric fits</a> —
+<li><a href="../variability/">Variability</a>, <a href="../linear/">Linear trend</a>,
+  <a href="../time/">Time sampling</a>, <a href="../fitting/">Non-linear parametric fits</a> —
   all accept <code>bands=</code>.</li>
 </ul>
 <hr />
-<h2 id="rust-based-pure-multiband-features">Rust-based pure multiband features<a class="headerlink" href="#rust-based-pure-multiband-features" title="Permanent link">&para;</a></h2>
+<h2 id="pure-multiband-features">Pure multiband features<a class="headerlink" href="#pure-multiband-features" title="Permanent link">&para;</a></h2>
 <p>These features are inherently multiband — they always require <code>bands</code> and have no single-band mode.</p>
 
 
@@ -2491,249 +2477,6 @@ across bands; zero means all bands have the same mean magnitude.</p>
               <td>
                 <div class="doc-md-description">
                   
-                </div>
-              </td>
-            </tr>
-      </tbody>
-    </table>
-
-
-
-
-
-
-
-
-
-
-
-<div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-
-
-
-  </div>
-
-    </div>
-
-</div><hr />
-<h2 id="experimental-pure-python-features">Experimental pure-Python features<a class="headerlink" href="#experimental-pure-python-features" title="Permanent link">&para;</a></h2>
-
-
-<div class="doc doc-object doc-class">
-
-
-
-<h2 id="light_curve.RainbowFit" class="doc doc-heading">
-            <code>light_curve.RainbowFit</code>
-
-
-<a href="#light_curve.RainbowFit" class="headerlink" title="Permanent link">&para;</a></h2>
-
-
-    <div class="doc doc-contents first">
-    <p class="doc doc-class-bases">
-      Bases: <code><span title="light_curve.light_curve_py.features.rainbow._base.BaseRainbowFit">BaseRainbowFit</span></code></p>
-
-
-
-        <p>Multiband blackbody fit to the light curve using functions to be chosen by the user
-Note, that <code>m</code> and corresponded <code>sigma</code> are assumed to be flux densities.
-Based on Russeil et al. 2023, arXiv:2310.02916.</p>
-
-
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td>
-                <code>band_wave_cm</code>
-            </td>
-            <td>
-                  <code><span title="dict">dict</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Dictionary of band names and their effective wavelengths in cm.</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>with_baseline</code>
-            </td>
-            <td>
-                  <code><span title="bool">bool</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Whether to include an offset in the fit, individual for each band.
-If it is true, one more fit paramter per passband is added -
-the additive constant with the same units as input flux.</p>
-              </div>
-            </td>
-            <td>
-                  <code>True</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>bolometric</code>
-            </td>
-            <td>
-                  <code>str or BaseBolometricTerm subclass</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>The shape of bolometric term. Default is 'bazin'.
-Other options are: 'sigmoid'</p>
-              </div>
-            </td>
-            <td>
-                  <code>&#39;bazin&#39;</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>temperature</code>
-            </td>
-            <td>
-                  <code>str or BaseTemperatureTerm subclass</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>The shape of temperature term. Default is 'sigmoid'.
-Other options are: 'constant', 'delayed_sigmoid'.
-The sigmoid terms are parametrized by the mid temperature <code>T = (Tmin + Tmax) / 2</code>
-and a relative amplitude <code>T_amplitude = (Tmax - Tmin) / (Tmax + Tmin)</code>; a weak
-prior anchors <code>T_amplitude</code> to 0 (constant temperature) unless the data require a
-temperature change.</p>
-              </div>
-            </td>
-            <td>
-                  <code>&#39;sigmoid&#39;</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>spectral</code>
-            </td>
-            <td>
-                  <code>str or BaseSpectralTerm subclass</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>The spectral SED model. Default is 'planck' (standard blackbody, no extra fit
-parameters). The other terms describe SEDs that deviate from a blackbody; each
-reduces to Planck at a null parameter value, with a weak Gaussian prior anchoring
-it there so a true blackbody is recovered unbiased:</p>
-<ul>
-<li>'blanketed' — UV-extincted blackbody <code>B_nu(T) * exp(-tau)</code>; adds <code>lambda_scale</code>
-  (blanketing strength, ~0 to 1). The extinction reach is anchored to the
-  characteristic temperature <code>T</code> (shared with the temperature term) so the
-  blanketing depth does not vary as the source cools.</li>
-<li>'modified_bb' — Planck tilted by a power law <code>(lambda / lambda_ref) ** beta</code>;
-  adds <code>beta</code> (0 =&gt; Planck).</li>
-<li>'logparabola' — Planck times <code>exp(a*L + b*L**2)</code>, <code>L = ln(lambda / lambda_ref)</code>;
-  adds <code>sp_a</code>, <code>sp_b</code> (0 =&gt; Planck).</li>
-<li>'genwien' — generalized Wien <code>B_nu ~ nu**3 * exp(-x**spec_k)</code>, <code>x = h*nu/(k_B*T)</code>;
-  adds <code>spec_k</code> (1 =&gt; Wien tail). The fitted <code>T</code> is not a physical temperature
-  for this term (see the class docstring).</li>
-</ul>
-              </div>
-            </td>
-            <td>
-                  <code>&#39;planck&#39;</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>optimizer</code>
-            </td>
-            <td>
-                  <code><span title="str">str</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Optimizer backend: 'iminuit' (default, robust Migrad) or 'least_squares' (scipy
-Trust Region Reflective). The latter shares the same analytic Jacobian and is
-usually faster; it transparently falls back to iminuit for upper-limit fits, term
-combinations without analytic derivatives, or when it fails to converge.</p>
-              </div>
-            </td>
-            <td>
-                  <code>&#39;iminuit&#39;</code>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-
-<p><span class="doc-section-title">Methods:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-            <tr class="doc-section-item">
-              <td><code><span title="light_curve.RainbowFit.__call__">__call__</span></code></td>
-              <td>
-                <div class="doc-md-description">
-                  <p>Evaluate the feature. Positional arguments are numpy arrays of the same length,
-<code>band</code> must consist of the same strings as keys in <code>band_wave_cm</code>. If <code>sorted</code> is True,
-<code>t</code> must be sorted in ascending order. If <code>check</code> is True, the input is checked for
-NaNs and Infs. If <code>fill_value</code> is not None, it is used to fill the output array if
-the feature cannot be evaluated.</p>
-                </div>
-              </td>
-            </tr>
-            <tr class="doc-section-item">
-              <td><code><span title="light_curve.RainbowFit.model">model</span></code></td>
-              <td>
-                <div class="doc-md-description">
-                  <p>Evaluate Rainbow model on the given arrays of times and bands. <code>*params</code> are
-fit parameters, basically the output of <code>__call__</code> method but without the last
-parameter (reduced Chi^2 of the fit). See parameter names in the <code>.name</code> attribute.</p>
-                </div>
-              </td>
-            </tr>
-            <tr class="doc-section-item">
-              <td><code><span title="light_curve.RainbowFit.peak_time">peak_time</span></code></td>
-              <td>
-                <div class="doc-md-description">
-                  <p>Return bolometric peak time for given set of parameters</p>
-                </div>
-              </td>
-            </tr>
-            <tr class="doc-section-item">
-              <td><code><span title="light_curve.RainbowFit.fit_and_get_errors">fit_and_get_errors</span></code></td>
-              <td>
-                <div class="doc-md-description">
-                  <p>The same as <code>__call__</code> but also returns the parameter errors. Optionally sets the <code>print_level</code>
-(verbosity) for Minuit fitter. If <code>get_initial</code> is True, returns the initial parameters instead
-of fitted ones (useful for debugging)</p>
                 </div>
               </td>
             </tr>
