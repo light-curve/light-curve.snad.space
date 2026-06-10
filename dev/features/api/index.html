@@ -772,6 +772,8 @@
       
         
       
+        
+      
     
     
     
@@ -892,14 +894,14 @@
   
   
     <li class="md-nav__item">
-      <a href="statistical/" class="md-nav__link">
+      <a href="variability/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Statistical
+    Variability
   
 
     
@@ -920,14 +922,14 @@
   
   
     <li class="md-nav__item">
-      <a href="variability/" class="md-nav__link">
+      <a href="linear/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Variability & trend
+    Linear trend
   
 
     
@@ -1011,7 +1013,7 @@
   <span class="md-ellipsis">
     
   
-    Parametric fits
+    Non-linear parametric fits
   
 
     
@@ -1032,14 +1034,14 @@
   
   
     <li class="md-nav__item">
-      <a href="detection/" class="md-nav__link">
+      <a href="rainbow/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Detection-based
+    Multiband parametric fit
   
 
     
@@ -1068,6 +1070,34 @@
     
   
     Multiband
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Detection-based
   
 
     
@@ -1645,32 +1675,36 @@
 <td><code>Extractor</code>, <code>Bins</code></td>
 </tr>
 <tr>
-<td><a href="statistical/">Statistical</a></td>
-<td>Amplitude, BeyondNStd, Cusum, Kurtosis, LinearFit, Mean, Skew, …</td>
+<td><a href="variability/">Variability</a></td>
+<td>Amplitude, BeyondNStd, Chi2Pvar, Eta, EtaE, ExcessVariance, Kurtosis, …</td>
 </tr>
 <tr>
-<td><a href="variability/">Variability &amp; trend</a></td>
-<td>EtaE, ExcessVariance, ReducedChi2, …</td>
+<td><a href="linear/">Linear trend</a></td>
+<td>LinearFit, LinearTrend</td>
 </tr>
 <tr>
 <td><a href="time/">Time sampling</a></td>
-<td>ObservationCount, TimeMean, TimeStandardDeviation</td>
+<td>Duration, ObservationCount, TimeMean, TimeStandardDeviation, …</td>
 </tr>
 <tr>
 <td><a href="periodogram/">Periodogram</a></td>
 <td>Periodogram</td>
 </tr>
 <tr>
-<td><a href="fitting/">Parametric fits</a></td>
-<td>BazinFit, VillarFit</td>
+<td><a href="fitting/">Non-linear parametric fits</a></td>
+<td>BazinFit, LinexpFit, VillarFit</td>
 </tr>
 <tr>
-<td><a href="detection/">Detection-based</a></td>
-<td>Duration, MaximumTimeInterval, …</td>
+<td><a href="rainbow/">Multiband parametric fit</a></td>
+<td>RainbowFit</td>
 </tr>
 <tr>
 <td><a href="multiband/">Multiband</a></td>
-<td>ColorOfMaximum, ColorOfMedian, ColorOfMinimum, ColorSpread, RainbowFit</td>
+<td>ColorOfMaximum, ColorOfMedian, ColorOfMinimum, ColorSpread</td>
+</tr>
+<tr>
+<td><a href="detection/">Detection-based</a></td>
+<td>FluxNNotDetBeforeFd, MagnitudeNNotDetBeforeFd</td>
 </tr>
 </tbody>
 </table>
@@ -1699,9 +1733,9 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">light_curve</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">lc</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">light_curve</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">licu</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">ext</span> <span class="o">=</span> <span class="n">lc</span><span class="o">.</span><span class="n">Extractor</span><span class="p">(</span><span class="n">lc</span><span class="o">.</span><span class="n">Amplitude</span><span class="p">(),</span> <span class="n">lc</span><span class="o">.</span><span class="n">LinearFit</span><span class="p">())</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">ext</span> <span class="o">=</span> <span class="n">licu</span><span class="o">.</span><span class="n">Extractor</span><span class="p">(</span><span class="n">licu</span><span class="o">.</span><span class="n">Amplitude</span><span class="p">(),</span> <span class="n">licu</span><span class="o">.</span><span class="n">LinearFit</span><span class="p">())</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">ext</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>        <span class="c1"># [&#39;amplitude&#39;, &#39;linear_fit_slope&#39;, ...]</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">ext</span><span class="o">.</span><span class="n">descriptions</span><span class="p">)</span> <span class="c1"># [&#39;Half amplitude of magnitude sample&#39;, ...]</span>
 </code></pre></div>
@@ -1812,19 +1846,19 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">s</span> <span class="o">=</span> <span class="n">extractor</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span>  <span class="c1"># returns str</span>
 </code></pre></div>
 <h3 id="feature_from_json-deserialize"><code>feature_from_json()</code> — deserialize<a class="headerlink" href="#feature_from_json-deserialize" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">light_curve</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">lc</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">light_curve</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">licu</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">extractor</span> <span class="o">=</span> <span class="n">lc</span><span class="o">.</span><span class="n">feature_from_json</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">extractor</span> <span class="o">=</span> <span class="n">licu</span><span class="o">.</span><span class="n">feature_from_json</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </code></pre></div>
 <p>Returns a <code>JSONDeserializedFeature</code> that behaves identically to the original extractor (same <code>names</code>, <code>descriptions</code>, and <code>__call__</code> / <code>many</code> interface).</p>
 <p><strong>Round-trip example:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">light_curve</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">lc</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">light_curve</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">licu</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">original</span> <span class="o">=</span> <span class="n">lc</span><span class="o">.</span><span class="n">Extractor</span><span class="p">(</span><span class="n">lc</span><span class="o">.</span><span class="n">Amplitude</span><span class="p">(),</span> <span class="n">lc</span><span class="o">.</span><span class="n">LinearFit</span><span class="p">())</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">original</span> <span class="o">=</span> <span class="n">licu</span><span class="o">.</span><span class="n">Extractor</span><span class="p">(</span><span class="n">licu</span><span class="o">.</span><span class="n">Amplitude</span><span class="p">(),</span> <span class="n">licu</span><span class="o">.</span><span class="n">LinearFit</span><span class="p">())</span>
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">s</span> <span class="o">=</span> <span class="n">original</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span>
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">restored</span> <span class="o">=</span> <span class="n">lc</span><span class="o">.</span><span class="n">feature_from_json</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">restored</span> <span class="o">=</span> <span class="n">licu</span><span class="o">.</span><span class="n">feature_from_json</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="k">assert</span> <span class="n">restored</span><span class="o">.</span><span class="n">names</span> <span class="o">==</span> <span class="n">original</span><span class="o">.</span><span class="n">names</span>
 <a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
 <a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>

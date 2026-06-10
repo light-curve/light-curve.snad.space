@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://light-curve.snad.space/dev/features/api/variability/">
       
       
-        <link rel="prev" href="../statistical/">
+        <link rel="prev" href="../meta/">
       
       
-        <link rel="next" href="../time/">
+        <link rel="next" href="../linear/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Variability & trend - light-curve</title>
+        <title>Variability - light-curve</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#variability-trend-features" class="md-skip">
+        <a href="#variability-features" class="md-skip">
           Skip to content
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Variability & trend
+              Variability
             
           </span>
         </div>
@@ -772,6 +772,8 @@
       
         
       
+        
+      
     
     
     
@@ -889,34 +891,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../statistical/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Statistical
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -936,7 +910,7 @@
   <span class="md-ellipsis">
     
   
-    Variability & trend
+    Variability
   
 
     
@@ -954,7 +928,7 @@
   <span class="md-ellipsis">
     
   
-    Variability & trend
+    Variability
   
 
     
@@ -980,6 +954,61 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#light_curve.Amplitude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amplitude
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.AndersonDarlingNormal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AndersonDarlingNormal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.BeyondNStd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BeyondNStd
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.Chi2Pvar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chi2Pvar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.Cusum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cusum
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#light_curve.Eta" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1002,6 +1031,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#light_curve.ExcessVariance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ExcessVariance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.InterPercentileRange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InterPercentileRange
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.Kurtosis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kurtosis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#light_curve.LaflerKinmanStringLength" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1013,21 +1075,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#light_curve.LinearFit" class="md-nav__link">
+  <a href="#light_curve.MagnitudePercentageRatio" class="md-nav__link">
     <span class="md-ellipsis">
       
-        LinearFit
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#light_curve.LinearTrend" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LinearTrend
+        MagnitudePercentageRatio
       
     </span>
   </a>
@@ -1045,10 +1096,192 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#light_curve.Mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mean
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.MeanVariance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MeanVariance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.Median" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Median
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.MedianAbsoluteDeviation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MedianAbsoluteDeviation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.MedianBufferRangePercentage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MedianBufferRangePercentage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.OtsuSplit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OtsuSplit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.PercentAmplitude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PercentAmplitude
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.PercentDifferenceMagnitudePercentile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PercentDifferenceMagnitudePercentile
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.ReducedChi2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ReducedChi2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.Roms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Roms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.Skew" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skew
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.StandardDeviation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StandardDeviation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.StetsonK" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StetsonK
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.WeightedMean" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WeightedMean
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linear trend
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1124,7 +1357,7 @@
   <span class="md-ellipsis">
     
   
-    Parametric fits
+    Non-linear parametric fits
   
 
     
@@ -1145,14 +1378,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../detection/" class="md-nav__link">
+      <a href="../rainbow/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Detection-based
+    Multiband parametric fit
   
 
     
@@ -1181,6 +1414,34 @@
     
   
     Multiband
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Detection-based
   
 
     
@@ -1675,6 +1936,61 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#light_curve.Amplitude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amplitude
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.AndersonDarlingNormal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AndersonDarlingNormal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.BeyondNStd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BeyondNStd
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.Chi2Pvar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chi2Pvar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.Cusum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cusum
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#light_curve.Eta" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1697,6 +2013,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#light_curve.ExcessVariance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ExcessVariance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.InterPercentileRange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InterPercentileRange
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.Kurtosis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kurtosis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#light_curve.LaflerKinmanStringLength" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1708,21 +2057,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#light_curve.LinearFit" class="md-nav__link">
+  <a href="#light_curve.MagnitudePercentageRatio" class="md-nav__link">
     <span class="md-ellipsis">
       
-        LinearFit
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#light_curve.LinearTrend" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LinearTrend
+        MagnitudePercentageRatio
       
     </span>
   </a>
@@ -1734,6 +2072,160 @@
     <span class="md-ellipsis">
       
         MaximumSlope
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.Mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mean
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.MeanVariance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MeanVariance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.Median" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Median
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.MedianAbsoluteDeviation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MedianAbsoluteDeviation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.MedianBufferRangePercentage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MedianBufferRangePercentage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.OtsuSplit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OtsuSplit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.PercentAmplitude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PercentAmplitude
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.PercentDifferenceMagnitudePercentile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PercentDifferenceMagnitudePercentile
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.ReducedChi2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ReducedChi2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.Roms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Roms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.Skew" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skew
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.StandardDeviation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StandardDeviation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.StetsonK" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StetsonK
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.WeightedMean" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WeightedMean
       
     </span>
   </a>
@@ -1765,7 +2257,1022 @@
   
 
 
-<h1 id="variability-trend-features">Variability &amp; trend features<a class="headerlink" href="#variability-trend-features" title="Permanent link">&para;</a></h1>
+<h1 id="variability-features">Variability features<a class="headerlink" href="#variability-features" title="Permanent link">&para;</a></h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.Amplitude" class="doc doc-heading">
+            <code>light_curve.Amplitude</code>
+
+
+<a href="#light_curve.Amplitude" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Half amplitude of magnitude</p>
+<div class="arithmatex">\[
+\mathrm{amplitude} \equiv \frac{\left( \max{(m)} - \min{(m)} \right)}{2}
+\]</div>
+<ul>
+<li>Depends on: <strong>magnitude</strong></li>
+<li>Minimum number of observations: <strong>1</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'identity'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Amplitude.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Amplitude.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Amplitude.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.Amplitude.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.Amplitude.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.AndersonDarlingNormal" class="doc doc-heading">
+            <code>light_curve.AndersonDarlingNormal</code>
+
+
+<a href="#light_curve.AndersonDarlingNormal" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Unbiased Anderson–Darling normality test statistic</p>
+<div class="arithmatex">\[
+A^2 \equiv \left(1 + \frac4{N} - \frac{25}{N^2}\right) \left(-N - \frac1{N} \sum_{i=0}^{N-1} {(2i + 1)\ln\Phi_i + (2(N - i) - 1)\ln(1 - \Phi_i)}\right),
+\]</div>
+<p>where <span class="arithmatex">\(\Phi_i \equiv \Phi((m_i - \langle m \rangle) / \sigma_m)\)</span> is the standard cumulative distribution,
+<span class="arithmatex">\(N\)</span> is the number of observations,
+<span class="arithmatex">\(\langle m \rangle\)</span> is the mean magnitude
+and <span class="arithmatex">\(\sigma_m = \sqrt{\sum_i (m_i - \langle m \rangle)^2 / (N-1)}\)</span> is the magnitude standard deviation.</p>
+<ul>
+<li>Depends on: <strong>magnitude</strong></li>
+<li>Minimum number of observations: <strong>4</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+<p><a href="https://en.wikipedia.org/wiki/Anderson–Darling_test">Wikipedia</a></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'lg'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.AndersonDarlingNormal.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.AndersonDarlingNormal.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.AndersonDarlingNormal.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.AndersonDarlingNormal.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.AndersonDarlingNormal.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.BeyondNStd" class="doc doc-heading">
+            <code>light_curve.BeyondNStd</code>
+
+
+<a href="#light_curve.BeyondNStd" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Fraction of observations beyond <span class="arithmatex">\(n\,\sigma\_m\)</span> from the mean magnitude <span class="arithmatex">\(\langle m \rangle\)</span></p>
+<div class="arithmatex">\[
+\mathrm{beyond}~n\,\sigma\_m \equiv \frac{\sum\_i I\_{|m - \langle m \rangle| &gt; n\,\sigma\_m}(m_i)}{N},
+\]</div>
+<p>where <span class="arithmatex">\(I\)</span> is the <a href="https://en.wikipedia.org/wiki/Indicator_function">indicator function</a>,
+<span class="arithmatex">\(N\)</span> is the number of observations,
+<span class="arithmatex">\(\langle m \rangle\)</span> is the mean magnitude
+and <span class="arithmatex">\(\sigma_m = \sqrt{\sum_i (m_i - \langle m \rangle)^2 / (N-1)}\)</span> is the magnitude standard deviation.</p>
+<ul>
+<li>Depends on: <strong>magnitude</strong></li>
+<li>Minimum number of observations: <strong>2</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+<p>D’Isanto et al. 2016 <a href="https://doi.org/10.1093/mnras/stw157">DOI:10.1093/mnras/stw157</a></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>nstd</code>
+            </td>
+            <td>
+                  <code>positive float</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>N — how many standard deviations from the mean</p>
+              </div>
+            </td>
+            <td>
+                  <code>1.0</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'identity'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.BeyondNStd.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.BeyondNStd.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.BeyondNStd.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.BeyondNStd.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.BeyondNStd.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.Chi2Pvar" class="doc doc-heading">
+            <code>light_curve.Chi2Pvar</code>
+
+
+<a href="#light_curve.Chi2Pvar" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Probability of variability based on <span class="arithmatex">\(\chi^2\)</span> distribution</p>
+<div class="arithmatex">\[
+p_{\rm var} \equiv Q\!\left(\frac{N-1}{2},\,\frac{\chi^2}{2}\right),
+\]</div>
+<p>where <span class="arithmatex">\(Q(a, x)\)</span> is the regularized upper incomplete gamma function,
+<span class="arithmatex">\(N\)</span> is the number of observations, and</p>
+<div class="arithmatex">\[
+\chi^2 \equiv \sum_i\left(\frac{m_i - \bar{m}}{\delta_i}\right)^2
+\]</div>
+<p>is the chi-squared statistic with <span class="arithmatex">\(N-1\)</span> degrees of freedom.
+The weighted mean <span class="arithmatex">\(\bar{m}\)</span> is computed as described in [WeightedMean].</p>
+<p><span class="arithmatex">\(p_{\rm var}\)</span> is the probability that the observed scatter exceeds what is
+expected from measurement uncertainties alone, i.e.\ the probability that
+the source is intrinsically variable.</p>
+<ul>
+<li>Depends on: <strong>magnitude</strong>, <strong>magnitude error</strong></li>
+<li>Minimum number of observations: <strong>2</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+<p><a href="https://ui.adsabs.harvard.edu/abs/2014A%26A...566A..43K/abstract">Kim et al. 2014</a></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'identity'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Chi2Pvar.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Chi2Pvar.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Chi2Pvar.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.Chi2Pvar.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.Chi2Pvar.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.Cusum" class="doc doc-heading">
+            <code>light_curve.Cusum</code>
+
+
+<a href="#light_curve.Cusum" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Cusum — a range of cumulative sums</p>
+<div class="arithmatex">\[
+\mathrm{cusum} \equiv \max(S) - \min(S),
+\]</div>
+<p>where</p>
+<div class="arithmatex">\[
+S_j \equiv \frac1{N\sigma_m} \sum_{i=0}^j{\left(m\_i - \langle m \rangle\right)},
+\]</div>
+<p><span class="arithmatex">\(N\)</span> is the number of observations,
+<span class="arithmatex">\(\langle m \rangle\)</span> is the mean magnitude
+and <span class="arithmatex">\(\sigma_m = \sqrt{\sum_i (m_i - \langle m \rangle)^2 / (N-1)}\)</span> is the magnitude standard deviation.</p>
+<ul>
+<li>Depends on: <strong>magnitude</strong></li>
+<li>Minimum number of observations: <strong>2</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+<p>Kim et al. 2014, <a href="https://doi.org/10.1051/0004-6361/201323252">DOI:10.1051/0004-6361/201323252</a></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'identity'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Cusum.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Cusum.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Cusum.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.Cusum.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.Cusum.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
 
 
 <div class="doc doc-object doc-class">
@@ -2170,6 +3677,618 @@ order. If None (default), single-band mode is used.</p>
 
 
 
+<h2 id="light_curve.ExcessVariance" class="doc doc-heading">
+            <code>light_curve.ExcessVariance</code>
+
+
+<a href="#light_curve.ExcessVariance" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Measure of the variability amplitude</p>
+<div class="arithmatex">\[
+\frac{\sigma_m^2 - \langle \delta^2 \rangle}{\langle m \rangle^2},
+\]</div>
+<p>where <span class="arithmatex">\(\langle \delta^2 \rangle\)</span> is the mean of squared error, <span class="arithmatex">\(\sigma_m\)</span> is the magnitude
+standard deviation. Note that this definition differs from
+<a href="https://doi.org/10.3847/1538-4357/aa9188">Sánchez et al. 2017</a></p>
+<ul>
+<li>Depends on: <strong>magnitude</strong>, <strong>error</strong></li>
+<li>Minimum number of observations: <strong>2</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+<p>Sánchez et al. 2017 <a href="https://doi.org/10.3847/1538-4357/aa9188">DOI:10.3847/1538-4357/aa9188</a></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'identity'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.ExcessVariance.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.ExcessVariance.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.ExcessVariance.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.ExcessVariance.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.ExcessVariance.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.InterPercentileRange" class="doc doc-heading">
+            <code>light_curve.InterPercentileRange</code>
+
+
+<a href="#light_curve.InterPercentileRange" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Inter-percentile range</p>
+<div class="arithmatex">\[
+Q(1 - p) - Q(p),
+\]</div>
+<p>where <span class="arithmatex">\(Q(p)\)</span> is the <span class="arithmatex">\(p\)</span>th quantile of the magnitude distribution.</p>
+<p>Special cases are <a href="https://en.wikipedia.org/wiki/Interquartile_range">the interquartile range</a>
+which is inter-percentile range for <span class="arithmatex">\(p = 0.25\)</span> and
+<a href="https://en.wikipedia.org/wiki/Interdecile_range">the interdecile range</a> which is
+inter-percentile range for <span class="arithmatex">\(p = 0.1\)</span>.</p>
+<ul>
+<li>Depends on: <strong>magnitude</strong></li>
+<li>Minimum number of observations: <strong>1</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>quantile</code>
+            </td>
+            <td>
+                  <code>positive float</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Range is (100% × quantile, 100% × (1 - quantile))</p>
+              </div>
+            </td>
+            <td>
+                  <code>0.25</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'identity'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.InterPercentileRange.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.InterPercentileRange.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.InterPercentileRange.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.InterPercentileRange.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.InterPercentileRange.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.Kurtosis" class="doc doc-heading">
+            <code>light_curve.Kurtosis</code>
+
+
+<a href="#light_curve.Kurtosis" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Excess kurtosis of magnitude</p>
+<div class="arithmatex">\[
+G_2 \equiv \frac{N\,(N + 1)}{(N - 1)(N - 2)(N - 3)} \frac{\sum_i(m_i - \langle m \rangle)^4}{\sigma_m^4}
+\- 3\frac{(N - 1)^2}{(N - 2)(N - 3)},
+\]</div>
+<p>where <span class="arithmatex">\(N\)</span> is the number of observations,
+<span class="arithmatex">\(\langle m \rangle\)</span> is the mean magnitude,
+<span class="arithmatex">\(\sigma_m = \sqrt{\sum_i (m_i - \langle m \rangle)^2 / (N-1)}\)</span> is the magnitude standard deviation.</p>
+<ul>
+<li>Depends on: <strong>magnitude</strong></li>
+<li>Minimum number of observations: <strong>4</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+<p><a href="https://en.wikipedia.org/wiki/Kurtosis#Estimators_of_population_kurtosis">Wikipedia</a></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'arcsinh'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Kurtosis.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Kurtosis.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Kurtosis.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.Kurtosis.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.Kurtosis.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
 <h2 id="light_curve.LaflerKinmanStringLength" class="doc doc-heading">
             <code>light_curve.LaflerKinmanStringLength</code>
 
@@ -2374,11 +4493,11 @@ order. If None (default), single-band mode is used.</p>
 
 
 
-<h2 id="light_curve.LinearFit" class="doc doc-heading">
-            <code>light_curve.LinearFit</code>
+<h2 id="light_curve.MagnitudePercentageRatio" class="doc doc-heading">
+            <code>light_curve.MagnitudePercentageRatio</code>
 
 
-<a href="#light_curve.LinearFit" class="headerlink" title="Permanent link">&para;</a></h2>
+<a href="#light_curve.MagnitudePercentageRatio" class="headerlink" title="Permanent link">&para;</a></h2>
 
 
     <div class="doc doc-contents first">
@@ -2387,21 +4506,18 @@ order. If None (default), single-band mode is used.</p>
 
 
 
-        <p>Slope, its error and reduced <span class="arithmatex">\(\chi^2\)</span> of the light curve in the linear fit</p>
-<p>Least squares fit of the linear stochastic model with Gaussian noise described by observation
-errors <span class="arithmatex">\(\{\delta_i\}\)</span>:</p>
+        <p>Magnitude percentage ratio</p>
 <div class="arithmatex">\[
-m_i = c + \mathrm{slope} t_i + \delta_i \varepsilon_i
+\mathrm{magnitude~}q\mathrm{~to~}n\mathrm{~ratio} \equiv \frac{Q(1-n) - Q(n)}{Q(1-d) - Q(d)},
 \]</div>
-<p>where <span class="arithmatex">\(c\)</span> is a constant,
-<span class="arithmatex">\(\{\varepsilon_i\}\)</span> are standard distributed random variables.</p>
-<p>Feature values are <span class="arithmatex">\(\mathrm{slope}\)</span>, <span class="arithmatex">\(\sigma_\mathrm{slope}\)</span> and
-<span class="arithmatex">\(\frac{\sum{((m_i - c - \mathrm{slope} t_i) / \delta_i)^2}}{N - 2}\)</span>.</p>
+<p>where <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(d\)</span> denotes user defined percentage, <span class="arithmatex">\(Q\)</span> is the quantile function of magnitude
+distribution.</p>
 <ul>
-<li>Depends on: <strong>time</strong>, <strong>magnitude</strong>, <strong>magnitude error</strong></li>
-<li>Minimum number of observations: <strong>3</strong></li>
-<li>Number of features: <strong>3</strong></li>
+<li>Depends on: <strong>magnitude</strong></li>
+<li>Minimum number of observations: <strong>1</strong></li>
+<li>Number of features: <strong>1</strong></li>
 </ul>
+<p>D’Isanto et al. 2016 <a href="https://doi.org/10.1093/mnras/stw157">DOI:10.1093/mnras/stw157</a></p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -2415,6 +4531,38 @@ m_i = c + \mathrm{slope} t_i + \delta_i \varepsilon_i
         </tr>
       </thead>
       <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>quantile_numerator</code>
+            </td>
+            <td>
+                  <code>positive float</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Numerator inter-percentile range is (100% × q, 100% × (1 - q))</p>
+              </div>
+            </td>
+            <td>
+                  <code>0.40</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>quantile_denominator</code>
+            </td>
+            <td>
+                  <code>positive float</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Denominator inter-percentile range is (100% × q, 100% × (1 - q))</p>
+              </div>
+            </td>
+            <td>
+                  <code>0.05</code>
+            </td>
+          </tr>
           <tr class="doc-section-item">
             <td>
                 <code>transform</code>
@@ -2476,7 +4624,7 @@ order. If None (default), single-band mode is used.</p>
       </thead>
       <tbody>
           <tr class="doc-section-item">
-            <td><code><span title="light_curve.LinearFit.names">names</span></code></td>
+            <td><code><span title="light_curve.MagnitudePercentageRatio.names">names</span></code></td>
             <td>
                   <code>list of str</code>
             </td>
@@ -2487,7 +4635,7 @@ order. If None (default), single-band mode is used.</p>
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code><span title="light_curve.LinearFit.descriptions">descriptions</span></code></td>
+            <td><code><span title="light_curve.MagnitudePercentageRatio.descriptions">descriptions</span></code></td>
             <td>
                   <code>list of str</code>
             </td>
@@ -2498,7 +4646,7 @@ order. If None (default), single-band mode is used.</p>
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code><span title="light_curve.LinearFit.bands">bands</span></code></td>
+            <td><code><span title="light_curve.MagnitudePercentageRatio.bands">bands</span></code></td>
             <td>
                   <code>numpy.ndarray of str or None</code>
             </td>
@@ -2522,7 +4670,7 @@ order. If None (default), single-band mode is used.</p>
       </thead>
       <tbody>
             <tr class="doc-section-item">
-              <td><code><span title="light_curve.LinearFit.__call__">__call__</span></code></td>
+              <td><code><span title="light_curve.MagnitudePercentageRatio.__call__">__call__</span></code></td>
               <td>
                 <div class="doc-md-description">
                   <p>Extract features and return them as a numpy array</p>
@@ -2530,206 +4678,7 @@ order. If None (default), single-band mode is used.</p>
               </td>
             </tr>
             <tr class="doc-section-item">
-              <td><code><span title="light_curve.LinearFit.many">many</span></code></td>
-              <td>
-                <div class="doc-md-description">
-                  <p>Extract features from multiple light curves in parallel</p>
-                </div>
-              </td>
-            </tr>
-      </tbody>
-    </table>
-
-
-
-
-
-
-
-
-
-
-
-<div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-
-
-
-  </div>
-
-    </div>
-
-</div><hr />
-
-
-<div class="doc doc-object doc-class">
-
-
-
-<h2 id="light_curve.LinearTrend" class="doc doc-heading">
-            <code>light_curve.LinearTrend</code>
-
-
-<a href="#light_curve.LinearTrend" class="headerlink" title="Permanent link">&para;</a></h2>
-
-
-    <div class="doc doc-contents first">
-    <p class="doc doc-class-bases">
-      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
-
-
-
-        <p>The slope, its error and noise level of the light curve in the linear fit</p>
-<p>Least squares fit of the linear stochastic model with constant Gaussian noise <span class="arithmatex">\(\Sigma\)</span> assuming
-observation errors to be zero:</p>
-<div class="arithmatex">\[
-m_i = c + \mathrm{slope} t_i + \Sigma \varepsilon_i,
-\]</div>
-<p>where <span class="arithmatex">\(c\)</span> is a constant,
-<span class="arithmatex">\(\{\varepsilon_i\}\)</span> are standard distributed random variables. <span class="arithmatex">\(\mathrm{slope}\)</span>,
-<span class="arithmatex">\(\sigma_\mathrm{slope}\)</span> and <span class="arithmatex">\(\Sigma\)</span> are returned.</p>
-<ul>
-<li>Depends on: <strong>time</strong>, <strong>magnitude</strong></li>
-<li>Minimum number of observations: <strong>3</strong></li>
-<li>Number of features: <strong>3</strong></li>
-</ul>
-
-
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td>
-                <code>transform</code>
-            </td>
-            <td>
-                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Transformer to apply to the feature values. If str, must be one of:</p>
-<ul>
-<li><code>'default'</code> - use default transformer for the feature, same as giving
-   True. The default for this feature is <code>'identity'</code></li>
-<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
-<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
-<li><code>'identity'</code> - Identity feature transformer</li>
-<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
-<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
-<li><code>'sqrt'</code> - Square root feature transformer</li>
-</ul>
-<p>If bool, True uses the default transformer, False disables it.
-If None, no transformation is applied (default)</p>
-              </div>
-            </td>
-            <td>
-                  <code>None</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>bands</code>
-            </td>
-            <td>
-                  <code>list of str or None</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Passband names for multiband mode. If provided, the feature is evaluated
-independently per passband and the outputs are concatenated in passband
-order. If None (default), single-band mode is used.</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-
-<p><span class="doc-section-title">Attributes:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td><code><span title="light_curve.LinearTrend.names">names</span></code></td>
-            <td>
-                  <code>list of str</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Feature names</p>
-              </div>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td><code><span title="light_curve.LinearTrend.descriptions">descriptions</span></code></td>
-            <td>
-                  <code>list of str</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Feature descriptions</p>
-              </div>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td><code><span title="light_curve.LinearTrend.bands">bands</span></code></td>
-            <td>
-                  <code>numpy.ndarray of str or None</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Passband names for multiband mode, or None for single-band mode</p>
-              </div>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-
-<p><span class="doc-section-title">Methods:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-            <tr class="doc-section-item">
-              <td><code><span title="light_curve.LinearTrend.__call__">__call__</span></code></td>
-              <td>
-                <div class="doc-md-description">
-                  <p>Extract features and return them as a numpy array</p>
-                </div>
-              </td>
-            </tr>
-            <tr class="doc-section-item">
-              <td><code><span title="light_curve.LinearTrend.many">many</span></code></td>
+              <td><code><span title="light_curve.MagnitudePercentageRatio.many">many</span></code></td>
               <td>
                 <div class="doc-md-description">
                   <p>Extract features from multiple light curves in parallel</p>
@@ -2927,6 +4876,2751 @@ order. If None (default), single-band mode is used.</p>
             </tr>
             <tr class="doc-section-item">
               <td><code><span title="light_curve.MaximumSlope.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.Mean" class="doc doc-heading">
+            <code>light_curve.Mean</code>
+
+
+<a href="#light_curve.Mean" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Mean magnitude</p>
+<div class="arithmatex">\[
+\langle m \rangle \equiv \frac1{N} \sum_i m_i.
+\]</div>
+<p>This is non-weighted mean, see <a href="crate::WeightedMean">WeightedMean</a> for weighted mean.</p>
+<ul>
+<li>Depends on: <strong>magnitude</strong></li>
+<li>Minimum number of observations: <strong>1</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'identity'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Mean.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Mean.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Mean.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.Mean.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.Mean.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.MeanVariance" class="doc doc-heading">
+            <code>light_curve.MeanVariance</code>
+
+
+<a href="#light_curve.MeanVariance" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Standard deviation to mean ratio</p>
+<div class="arithmatex">\[
+\frac{\sigma_m}{\langle m \rangle}
+\]</div>
+<ul>
+<li>Depends on: <strong>magnitude</strong></li>
+<li>Minimum number of observations: <strong>2</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'identity'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.MeanVariance.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.MeanVariance.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.MeanVariance.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.MeanVariance.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.MeanVariance.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.Median" class="doc doc-heading">
+            <code>light_curve.Median</code>
+
+
+<a href="#light_curve.Median" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Median magnitude</p>
+<div class="arithmatex">\[
+\mathrm{Median}(m_i)
+\]</div>
+<ul>
+<li>Depends on: <strong>magnitude</strong></li>
+<li>Minimum number of observations: <strong>1</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'identity'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Median.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Median.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Median.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.Median.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.Median.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.MedianAbsoluteDeviation" class="doc doc-heading">
+            <code>light_curve.MedianAbsoluteDeviation</code>
+
+
+<a href="#light_curve.MedianAbsoluteDeviation" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Median of the absolute value of the difference between magnitude and its median</p>
+<div class="arithmatex">\[
+\mathrm{median~absolute~deviation} \equiv \mathrm{Median}\left(|m_i - \mathrm{Median}(m)|\right).
+\]</div>
+<ul>
+<li>Depends on: <strong>magnitude</strong></li>
+<li>Minimum number of observations: <strong>1</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+<p>D’Isanto et al. 2016 <a href="https://doi.org/10.1093/mnras/stw157">DOI:10.1093/mnras/stw157</a></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'identity'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.MedianAbsoluteDeviation.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.MedianAbsoluteDeviation.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.MedianAbsoluteDeviation.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.MedianAbsoluteDeviation.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.MedianAbsoluteDeviation.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.MedianBufferRangePercentage" class="doc doc-heading">
+            <code>light_curve.MedianBufferRangePercentage</code>
+
+
+<a href="#light_curve.MedianBufferRangePercentage" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Fraction of observations inside <span class="arithmatex">\(\mathrm{Median}(m) \pm q \times (\max(m) - \min(m)) / 2\)</span> interval</p>
+<ul>
+<li>Depends on: <strong>magnitude</strong></li>
+<li>Minimum number of observations: <strong>1</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+<p>D’Isanto et al. 2016 <a href="https://doi.org/10.1093/mnras/stw157">DOI:10.1093/mnras/stw157</a></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>quantile</code>
+            </td>
+            <td>
+                  <code>positive float</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Relative range size</p>
+              </div>
+            </td>
+            <td>
+                  <code>0.10</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'identity'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.MedianBufferRangePercentage.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.MedianBufferRangePercentage.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.MedianBufferRangePercentage.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.MedianBufferRangePercentage.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.MedianBufferRangePercentage.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.OtsuSplit" class="doc doc-heading">
+            <code>light_curve.OtsuSplit</code>
+
+
+<a href="#light_curve.OtsuSplit" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Otsu threshholding algorithm</p>
+<p>Difference of subset means, standard deviation of the lower subset, standard deviation of the upper
+subset and lower-to-all observation count ratio for two subsets of magnitudes obtained by Otsu's
+method split. Otsu's method is used to perform automatic thresholding. The algorithm returns a
+single threshold that separate values into two classes. This threshold is determined by minimizing
+intra-class intensity variance, or equivalently, by maximizing inter-class variance.
+The algorithm returns the minimum threshold which corresponds to the absolute maximum of the inter-class variance.</p>
+<ul>
+<li>Depends on: <strong>magnitude</strong></li>
+<li>Minimum number of observations: <strong>2</strong></li>
+<li>Number of features: <strong>4</strong></li>
+</ul>
+<p>Otsu, Nobuyuki 1979. <a href="https://doi.org/10.1109/tsmc.1979.4310076">DOI:10.1109/tsmc.1979.4310076</a></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.OtsuSplit.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.OtsuSplit.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.OtsuSplit.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.OtsuSplit.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.OtsuSplit.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.PercentAmplitude" class="doc doc-heading">
+            <code>light_curve.PercentAmplitude</code>
+
+
+<a href="#light_curve.PercentAmplitude" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Maximum deviation of magnitude from its median</p>
+<div class="arithmatex">\[
+\mathrm{percent~amplitude} \equiv \max_i\left|m_i - \mathrm{Median}(m)\right|
+    = \max(\max(m) - \mathrm{Median}(m), \mathrm{Median}(m) - \min(m)).
+\]</div>
+<ul>
+<li>Depends on: <strong>magnitude</strong></li>
+<li>Minimum number of observations: <strong>1</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+<p>D’Isanto et al. 2016 <a href="https://doi.org/10.1093/mnras/stw157">DOI:10.1093/mnras/stw157</a></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'identity'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.PercentAmplitude.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.PercentAmplitude.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.PercentAmplitude.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.PercentAmplitude.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.PercentAmplitude.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.PercentDifferenceMagnitudePercentile" class="doc doc-heading">
+            <code>light_curve.PercentDifferenceMagnitudePercentile</code>
+
+
+<a href="#light_curve.PercentDifferenceMagnitudePercentile" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Ratio of <span class="arithmatex">\(p\)</span>th inter-percentile range to the median</p>
+<div class="arithmatex">\[
+p\mathrm{~percent~difference~magnitude~percentile} \equiv \frac{Q(1-p) - Q(p)}{\mathrm{Median}(m)}.
+\]</div>
+<ul>
+<li>Depends on: <strong>magnitude</strong></li>
+<li>Minimum number of observations: <strong>1</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+<p>D’Isanto et al. 2016 <a href="https://doi.org/10.1093/mnras/stw157">DOI:10.1093/mnras/stw157</a></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>quantile</code>
+            </td>
+            <td>
+                  <code>positive float</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Relative range size</p>
+              </div>
+            </td>
+            <td>
+                  <code>0.05</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'clipped_lg'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.PercentDifferenceMagnitudePercentile.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.PercentDifferenceMagnitudePercentile.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.PercentDifferenceMagnitudePercentile.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.PercentDifferenceMagnitudePercentile.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.PercentDifferenceMagnitudePercentile.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.ReducedChi2" class="doc doc-heading">
+            <code>light_curve.ReducedChi2</code>
+
+
+<a href="#light_curve.ReducedChi2" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Reduced <span class="arithmatex">\(\chi^2\)</span> of magnitude measurements</p>
+<div class="arithmatex">\[
+\mathrm{reduced~}\chi^2 \equiv \frac1{N-1} \sum_i\left(\frac{m_i - \bar{m}}{\delta\_i}\right)^2,
+\]</div>
+<p>where <span class="arithmatex">\(N\)</span> is the number of observations,
+and <span class="arithmatex">\(\bar{m}\)</span> is the weighted mean magnitude.</p>
+<ul>
+<li>Depends on: <strong>magnitude</strong>, <strong>magnitude error</strong></li>
+<li>Minimum number of observations: <strong>2</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+<p>This is a good measure of variability which takes into account observations uncertainties.</p>
+<p><a href="https://en.wikipedia.org/wiki/Reduced_chi-squared_statistic">Wikipedia</a></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'ln1p'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.ReducedChi2.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.ReducedChi2.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.ReducedChi2.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.ReducedChi2.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.ReducedChi2.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.Roms" class="doc doc-heading">
+            <code>light_curve.Roms</code>
+
+
+<a href="#light_curve.Roms" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Robust median statistic</p>
+<div class="arithmatex">\[
+\frac1{N-1} \sum_{i=0}^{N-1} \frac{|m_i - \mathrm{median}(m_i)|}{\sigma_i}
+\]</div>
+<p>For non-variable data, it should be less than one.</p>
+<ul>
+<li>Depends on: <strong>magnitude</strong>, <strong>errors</strong></li>
+<li>Minimum number of observations: <strong>2</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+<p>Enoch, Brown, Burgasser 2003. <a href="https://www.doi.org/10.1086/376598">DOI:10.1086/376598</a></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'identity'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Roms.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Roms.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Roms.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.Roms.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.Roms.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.Skew" class="doc doc-heading">
+            <code>light_curve.Skew</code>
+
+
+<a href="#light_curve.Skew" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Skewness of magnitude <span class="arithmatex">\(G_1\)</span></p>
+<div class="arithmatex">\[
+G_1 \equiv \frac{N}{(N - 1)(N - 2)} \frac{\sum_i(m_i - \langle m \rangle)^3}{\sigma_m^3},
+\]</div>
+<p>where <span class="arithmatex">\(N\)</span> is the number of observations,
+<span class="arithmatex">\(\langle m \rangle\)</span> is the mean magnitude,
+<span class="arithmatex">\(\sigma_m = \sqrt{\sum_i (m_i - \langle m \rangle)^2 / (N-1)}\)</span> is the magnitude standard deviation.</p>
+<ul>
+<li>Depends on: <strong>magnitude</strong></li>
+<li>Minimum number of observations: <strong>3</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+<p><a href="https://en.wikipedia.org/wiki/Skewness#Sample_skewness">Wikipedia</a></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'arcsinh'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Skew.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Skew.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Skew.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.Skew.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.Skew.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.StandardDeviation" class="doc doc-heading">
+            <code>light_curve.StandardDeviation</code>
+
+
+<a href="#light_curve.StandardDeviation" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Standard deviation of magnitude <span class="arithmatex">\(\sigma_m\)</span></p>
+<div class="arithmatex">\[
+\sigma_m \equiv \sqrt{\sum_i (m_i - \langle m \rangle)^2 / (N-1)},
+\]</div>
+<p><span class="arithmatex">\(N\)</span> is the number of observations
+and <span class="arithmatex">\(\langle m \rangle\)</span> is the mean magnitude.</p>
+<ul>
+<li>Depends on: <strong>magnitude</strong></li>
+<li>Minimum number of observations: <strong>2</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+<p><a href="https://en.wikipedia.org/wiki/Standard_deviation">Wikipedia</a></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'identity'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.StandardDeviation.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.StandardDeviation.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.StandardDeviation.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.StandardDeviation.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.StandardDeviation.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.StetsonK" class="doc doc-heading">
+            <code>light_curve.StetsonK</code>
+
+
+<a href="#light_curve.StetsonK" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Stetson <span class="arithmatex">\(K\)</span> coefficient described light curve shape</p>
+<div class="arithmatex">\[
+\mathrm{Stetson}~K \equiv \frac{\sum_i\left|\frac{m_i - \bar{m}}{\delta_i}\right|}{\sqrt{N\\,\chi^2}},
+\]</div>
+<p>where N is the number of observations,
+<span class="arithmatex">\(\bar{m}\)</span> is the weighted mean magnitude
+and <span class="arithmatex">\(\chi^2 = \sum_i\left(\frac{m_i - \langle m \rangle}{\delta\_i}\right)^2\)</span>.</p>
+<ul>
+<li>Depends on: <strong>magnitude</strong>, <strong>magnitude error</strong></li>
+<li>Minimum number of observations: <strong>2</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+<p>P. B. Stetson, 1996. <a href="https://doi.org/10.1086/133808">DOI:10.1086/133808</a></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'identity'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.StetsonK.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.StetsonK.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.StetsonK.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.StetsonK.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.StetsonK.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.WeightedMean" class="doc doc-heading">
+            <code>light_curve.WeightedMean</code>
+
+
+<a href="#light_curve.WeightedMean" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Weighted mean magnitude</p>
+<div class="arithmatex">\[
+\bar{m} \equiv \frac{\sum_i m_i / \delta_i^2}{\sum_i 1 / \delta_i^2}.
+\]</div>
+<p>See <a href="crate::Mean">Mean</a> for non-weighted mean.</p>
+<ul>
+<li>Depends on: <strong>magnitude</strong>, <strong>magnitude error</strong></li>
+<li>Minimum number of observations: <strong>1</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'identity'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.WeightedMean.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.WeightedMean.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.WeightedMean.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.WeightedMean.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.WeightedMean.many">many</span></code></td>
               <td>
                 <div class="doc-md-description">
                   <p>Extract features from multiple light curves in parallel</p>

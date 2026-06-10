@@ -883,6 +883,8 @@
       
         
       
+        
+      
     
     
     
@@ -1003,14 +1005,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/statistical/" class="md-nav__link">
+      <a href="../api/variability/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Statistical
+    Variability
   
 
     
@@ -1031,14 +1033,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/variability/" class="md-nav__link">
+      <a href="../api/linear/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Variability & trend
+    Linear trend
   
 
     
@@ -1122,7 +1124,7 @@
   <span class="md-ellipsis">
     
   
-    Parametric fits
+    Non-linear parametric fits
   
 
     
@@ -1143,14 +1145,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/detection/" class="md-nav__link">
+      <a href="../api/rainbow/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Detection-based
+    Multiband parametric fit
   
 
     
@@ -1179,6 +1181,34 @@
     
   
     Multiband
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Detection-based
   
 
     
@@ -2533,7 +2563,7 @@ reading names and descriptions, and batch processing.</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="single-feature">Single feature<a class="anchor-link" href="#single-feature">¶</a></h2><p>Each feature class is callable. It accepts <code>(t, m, sigma)</code> arrays and returns a NumPy array.
 The <code>.names</code> attribute lists the output column names.</p>
-<p>Here we use <a href="../api/statistical/#light_curve.Amplitude"><code>Amplitude</code></a> — the half peak-to-peak amplitude:</p>
+<p>Here we use <a href="../api/variability/#light_curve.Amplitude"><code>Amplitude</code></a> — the half peak-to-peak amplitude:</p>
 </div>
 </div>
 </div>
@@ -2907,7 +2937,7 @@ The <code>generate_data</code> helper creates a toy <code>NestedFrame</code> —
 
 <span class="n">ndf</span> <span class="o">=</span> <span class="n">generate_data</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
-<span class="n">feature</span> <span class="o">=</span> <span class="n">licu</span><span class="o">.</span><span class="n">Extractor</span><span class="p">(</span><span class="n">licu</span><span class="o">.</span><span class="n">WeightedMean</span><span class="p">(</span><span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">"g"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">]),</span> <span class="n">licu</span><span class="o">.</span><span class="n">StandardDeviation</span><span class="p">(</span><span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">"g"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">]))</span>
+<span class="n">feature</span> <span class="o">=</span> <span class="n">licu</span><span class="o">.</span><span class="n">Extractor</span><span class="p">(</span><span class="n">licu</span><span class="o">.</span><span class="n">ObservationCount</span><span class="p">(</span><span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">"g"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">]),</span> <span class="n">licu</span><span class="o">.</span><span class="n">StandardDeviation</span><span class="p">(</span><span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">"g"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">]))</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">many</span><span class="p">(</span><span class="n">pa</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ndf</span><span class="p">[</span><span class="s2">"nested"</span><span class="p">]),</span> <span class="n">arrow_fields</span><span class="o">=</span><span class="p">{</span><span class="s2">"t"</span><span class="p">:</span> <span class="s2">"t"</span><span class="p">,</span> <span class="s2">"m"</span><span class="p">:</span> <span class="s2">"flux"</span><span class="p">,</span> <span class="s2">"band"</span><span class="p">:</span> <span class="s2">"band"</span><span class="p">})</span>
 <span class="n">ndf</span> <span class="o">=</span> <span class="n">ndf</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="o">**</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">T</span><span class="p">)))</span>
 <span class="n">ndf</span><span class="p">[[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="o">*</span><span class="n">feature</span><span class="o">.</span><span class="n">names</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -2918,7 +2948,7 @@ from nested_pandas.datasets import generate_data
 
 ndf = generate_data(100, 50, seed=42)
 
-feature = licu.Extractor(licu.WeightedMean(bands=["g", "r"]), licu.StandardDeviation(bands=["g", "r"]))
+feature = licu.Extractor(licu.ObservationCount(bands=["g", "r"]), licu.StandardDeviation(bands=["g", "r"]))
 result = feature.many(pa.array(ndf["nested"]), arrow_fields={"t": "t", "m": "flux", "band": "band"})
 ndf = ndf.assign(**dict(zip(feature.names, result.T)))
 ndf[["a", "b", *feature.names]].head()</div>
@@ -2939,8 +2969,8 @@ ndf[["a", "b", *feature.names]].head()</div>
 <th></th>
 <th>a</th>
 <th>b</th>
-<th>weighted_mean_g</th>
-<th>weighted_mean_r</th>
+<th>observation_count_g</th>
+<th>observation_count_r</th>
 <th>standard_deviation_g</th>
 <th>standard_deviation_r</th>
 </tr>
@@ -2950,8 +2980,8 @@ ndf[["a", "b", *feature.names]].head()</div>
 <th>0</th>
 <td>0.374540</td>
 <td>0.062858</td>
-<td>52.958977</td>
-<td>42.652380</td>
+<td>29.0</td>
+<td>21.0</td>
 <td>28.647131</td>
 <td>29.084164</td>
 </tr>
@@ -2959,8 +2989,8 @@ ndf[["a", "b", *feature.names]].head()</div>
 <th>1</th>
 <td>0.950714</td>
 <td>1.272821</td>
-<td>46.441722</td>
-<td>47.747152</td>
+<td>27.0</td>
+<td>23.0</td>
 <td>26.316460</td>
 <td>32.761964</td>
 </tr>
@@ -2968,8 +2998,8 @@ ndf[["a", "b", *feature.names]].head()</div>
 <th>2</th>
 <td>0.731994</td>
 <td>0.628712</td>
-<td>53.614085</td>
-<td>47.292577</td>
+<td>23.0</td>
+<td>27.0</td>
 <td>29.437034</td>
 <td>27.870809</td>
 </tr>
@@ -2977,8 +3007,8 @@ ndf[["a", "b", *feature.names]].head()</div>
 <th>3</th>
 <td>0.598658</td>
 <td>1.017141</td>
-<td>57.844222</td>
-<td>52.371628</td>
+<td>22.0</td>
+<td>28.0</td>
 <td>27.637694</td>
 <td>28.605570</td>
 </tr>
@@ -2986,8 +3016,8 @@ ndf[["a", "b", *feature.names]].head()</div>
 <th>4</th>
 <td>0.156019</td>
 <td>1.815133</td>
-<td>37.540749</td>
-<td>43.774627</td>
+<td>23.0</td>
+<td>27.0</td>
 <td>26.461527</td>
 <td>28.822292</td>
 </tr>

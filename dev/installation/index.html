@@ -858,6 +858,8 @@
       
         
       
+        
+      
     
     
     
@@ -975,14 +977,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../features/api/statistical/" class="md-nav__link">
+      <a href="../features/api/variability/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Statistical
+    Variability
   
 
     
@@ -1003,14 +1005,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../features/api/variability/" class="md-nav__link">
+      <a href="../features/api/linear/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Variability & trend
+    Linear trend
   
 
     
@@ -1094,7 +1096,7 @@
   <span class="md-ellipsis">
     
   
-    Parametric fits
+    Non-linear parametric fits
   
 
     
@@ -1115,14 +1117,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../features/api/detection/" class="md-nav__link">
+      <a href="../features/api/rainbow/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Detection-based
+    Multiband parametric fit
   
 
     
@@ -1151,6 +1153,34 @@
     
   
     Multiband
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/api/detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Detection-based
   
 
     
@@ -1813,7 +1843,7 @@ and <strong>CMake</strong> (for the Ceres solver). GSL is optional but enables t
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/light-curve/light-curve-python
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">cd</span><span class="w"> </span>light-curve-python/light-curve
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>pip<span class="w"> </span>install<span class="w"> </span>maturin
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>maturin<span class="w"> </span>develop<span class="w"> </span>--extras<span class="o">=</span>dev<span class="w">      </span><span class="c1"># dev build with test deps</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>maturin<span class="w"> </span>develop<span class="w"> </span>--group<span class="o">=</span>dev<span class="w">       </span><span class="c1"># dev build with test deps</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>maturin<span class="w"> </span>develop<span class="w"> </span>--release<span class="w">         </span><span class="c1"># optimised build</span>
 </code></pre></div>
 <p>See <a href="../developer/contributing/">Contributing</a> for the full developer guide.</p>

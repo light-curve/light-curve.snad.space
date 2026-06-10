@@ -916,6 +916,8 @@
       
         
       
+        
+      
     
     
     
@@ -1036,14 +1038,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/statistical/" class="md-nav__link">
+      <a href="../api/variability/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Statistical
+    Variability
   
 
     
@@ -1064,14 +1066,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/variability/" class="md-nav__link">
+      <a href="../api/linear/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Variability & trend
+    Linear trend
   
 
     
@@ -1155,7 +1157,7 @@
   <span class="md-ellipsis">
     
   
-    Parametric fits
+    Non-linear parametric fits
   
 
     
@@ -1176,14 +1178,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/detection/" class="md-nav__link">
+      <a href="../api/rainbow/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Detection-based
+    Multiband parametric fit
   
 
     
@@ -1212,6 +1214,34 @@
     
   
     Multiband
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Detection-based
   
 
     
@@ -2557,7 +2587,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="multi-band-feature-extraction">Multi-band feature extraction<a class="anchor-link" href="#multi-band-feature-extraction">¶</a></h1><p><code>light-curve</code> supports multi-band light curves natively in every Rust-backed feature extractor.
+<h1 id="multi-band-feature-extraction">Multi-band feature extraction<a class="anchor-link" href="#multi-band-feature-extraction">¶</a></h1><p><code>light-curve</code> supports multi-band light curves natively in every feature extractor.
 Pass <code>bands=["g", "r", ...]</code> to the constructor to switch a feature into <strong>multiband mode</strong>:
 the feature is evaluated independently per passband and the outputs are concatenated,
 with names like <code>amplitude_g</code>, <code>amplitude_r</code>.</p>
@@ -3265,6 +3295,8 @@ Mean amplitude_r: 0.7061
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="7-arrow-input-for-multiband-many">7. Arrow input for multiband <code>.many()</code><a class="anchor-link" href="#7-arrow-input-for-multiband-many">¶</a></h2><p>For zero-copy data exchange from polars / pyarrow / nanoarrow, pass an Arrow
 <code>List&lt;Struct&lt;...&gt;&gt;</code> array and include <code>"band"</code> in the <code>arrow_fields</code> dict.</p>
+<p>See the <a href="../batch_processing/">batch processing tutorial</a> for more complete examples
+including nested-pandas and Polars.</p>
 </div>
 </div>
 </div>
