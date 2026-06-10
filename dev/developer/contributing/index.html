@@ -2093,11 +2093,13 @@ Python 3.13t is not supported. To build for free-threaded Python, use
 <ol>
 <li>Create a <code>release-vX.Y.Z</code> branch from <code>main</code>.</li>
 <li>Update <code>CHANGELOG.md</code> with the new version and date.</li>
-<li>Update the version in <code>Cargo.toml</code> (the Python package version is read from there).</li>
-<li>Commit, push the branch, and merge it into <code>main</code> via a PR.</li>
-<li>Tag the merge commit and push: <code>git tag vX.Y.Z &amp;&amp; git push origin vX.Y.Z</code>.</li>
+<li>Update the version in <code>Cargo.toml</code> (the Python package version is read from there), then run
+   <code>cargo update</code> to update <code>Cargo.lock</code>.</li>
+<li>Commit, push the branch, and open a PR into <code>main</code>.</li>
+<li>Tag the branch HEAD and push: <code>git tag vX.Y.Z &amp;&amp; git push origin vX.Y.Z</code>.</li>
 <li>CI (<code>publish.yml</code>) builds wheels via cibuildwheel and uploads to PyPI.</li>
-<li>Once the release appears on PyPI, create a GitHub release from the tag (copy the relevant <code>CHANGELOG.md</code> section as the release notes).</li>
+<li>Once the release appears on PyPI, merge the PR into <code>main</code>.</li>
+<li>Create a GitHub release from the tag (copy the relevant <code>CHANGELOG.md</code> section as the release notes).</li>
 </ol>
 
 
