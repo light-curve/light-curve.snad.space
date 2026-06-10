@@ -1782,7 +1782,11 @@ Other options are: 'sigmoid'</p>
             <td>
               <div class="doc-md-description">
                 <p>The shape of temperature term. Default is 'sigmoid'.
-Other options are: 'constant', 'delayed_sigmoid'</p>
+Other options are: 'constant', 'delayed_sigmoid'.
+The sigmoid terms are parametrized by the mid temperature <code>T = (Tmin + Tmax) / 2</code>
+and a relative amplitude <code>T_amplitude = (Tmax - Tmin) / (Tmax + Tmin)</code>; a weak
+prior anchors <code>T_amplitude</code> to 0 (constant temperature) unless the data require a
+temperature change.</p>
               </div>
             </td>
             <td>
@@ -1798,13 +1802,46 @@ Other options are: 'constant', 'delayed_sigmoid'</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>The spectral SED model. Default is 'planck' (standard blackbody,
-no extra fit parameters). Use 'blanketed' for a UV-extincted blackbody.
-It adds one parameter to fit: <code>lambda_scale</code> (blanketing strength from ~0 to 1)</p>
+                <p>The spectral SED model. Default is 'planck' (standard blackbody, no extra fit
+parameters). The other terms describe SEDs that deviate from a blackbody; each
+reduces to Planck at a null parameter value, with a weak Gaussian prior anchoring
+it there so a true blackbody is recovered unbiased:</p>
+<ul>
+<li>'blanketed' — UV-extincted blackbody <code>B_nu(T) * exp(-tau)</code>; adds <code>lambda_scale</code>
+  (blanketing strength, ~0 to 1). The extinction reach is anchored to the
+  characteristic temperature <code>T</code> (shared with the temperature term) so the
+  blanketing depth does not vary as the source cools.</li>
+<li>'modified_bb' — Planck tilted by a power law <code>(lambda / lambda_ref) ** beta</code>;
+  adds <code>beta</code> (0 =&gt; Planck).</li>
+<li>'logparabola' — Planck times <code>exp(a*L + b*L**2)</code>, <code>L = ln(lambda / lambda_ref)</code>;
+  adds <code>sp_a</code>, <code>sp_b</code> (0 =&gt; Planck).</li>
+<li>'genwien' — generalized Wien <code>B_nu ~ nu**3 * exp(-x**spec_k)</code>, <code>x = h*nu/(k_B*T)</code>;
+  adds <code>spec_k</code> (1 =&gt; Wien tail). The fitted <code>T</code> is not a physical temperature
+  for this term (see the class docstring).</li>
+</ul>
               </div>
             </td>
             <td>
                   <code>&#39;planck&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>optimizer</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optimizer backend: 'iminuit' (default, robust Migrad) or 'least_squares' (scipy
+Trust Region Reflective). The latter shares the same analytic Jacobian and is
+usually faster; it transparently falls back to iminuit for upper-limit fits, term
+combinations without analytic derivatives, or when it fails to converge.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;iminuit&#39;</code>
             </td>
           </tr>
       </tbody>
