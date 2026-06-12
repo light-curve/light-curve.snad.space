@@ -2921,13 +2921,22 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h3>
 <p>--</p>
 <h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
-<p>--</p>
+<ul>
+<li>Multiband feature evaluation is up to ~4× faster thanks to reduced per-call overhead and the
+  <code>light-curve-feature</code> 0.17 → 0.18.1 upgrade
+  (<a href="https://github.com/light-curve/light-curve-python/pull/783">#783</a>).</li>
+</ul>
 <h3 id="deprecated">Deprecated<a class="headerlink" href="#deprecated" title="Permanent link">&para;</a></h3>
 <p>--</p>
 <h3 id="removed">Removed<a class="headerlink" href="#removed" title="Permanent link">&para;</a></h3>
 <p>--</p>
 <h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h3>
-<p>--</p>
+<ul>
+<li>Via <code>light-curve-feature</code> 0.18.1: <code>Periodogram</code> with weight-using phase features (e.g.
+  <code>features=[StetsonK()]</code>) silently ignored <code>sigma</code>; <code>MultiColorPeriodogram</code> reported wrong
+  <code>w_required</code> / <code>variability_required</code>
+  (<a href="https://github.com/light-curve/light-curve-feature/pull/300">light-curve-feature#300</a>).</li>
+</ul>
 <h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
 <p>--</p>
 <h2 id="0130-2026-06-10">[0.13.0] 2026-06-10<a class="headerlink" href="#0130-2026-06-10" title="Permanent link">&para;</a></h2>
