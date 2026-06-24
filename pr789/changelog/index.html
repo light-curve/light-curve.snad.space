@@ -2920,6 +2920,9 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <h2 id="unreleased">[Unreleased]<a class="headerlink" href="#unreleased" title="Permanent link">&para;</a></h2>
 <h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h3>
 <ul>
+<li><code>light_curve.embed.ATAT</code>: ONNX-backed multiband (LSST ugrizY) transformer embedding model
+  trained on ELAsTiCC, exposing <code>token</code> / <code>mean</code> / <code>sequence</code> outputs
+  (<a href="https://github.com/light-curve/light-curve-python/pull/788">#788</a>).</li>
 <li>Docs: unversioned deep links (e.g. <code>/embed/api/</code>) now redirect to the same page under the
   default docs version (<code>/&lt;default&gt;/embed/api/</code>, where <code>&lt;default&gt;</code> is <code>latest</code> if a release has
   been published, otherwise <code>dev</code>) via a root <code>404.html</code> handler on the docs site. Genuinely
