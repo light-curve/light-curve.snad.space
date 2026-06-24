@@ -1599,7 +1599,11 @@
 and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
 <h2 id="unreleased">[Unreleased]<a class="headerlink" href="#unreleased" title="Permanent link">&para;</a></h2>
 <h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h3>
-<p>--</p>
+<ul>
+<li><code>light_curve.embed.ATAT</code>: ONNX-backed multiband (LSST ugrizY) transformer embedding model
+  trained on ELAsTiCC, exposing <code>token</code> / <code>mean</code> / <code>sequence</code> outputs
+  (<a href="https://github.com/light-curve/light-curve-python/pull/788">#788</a>).</li>
+</ul>
 <h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Multiband feature evaluation is up to ~4× faster thanks to reduced per-call overhead and the
