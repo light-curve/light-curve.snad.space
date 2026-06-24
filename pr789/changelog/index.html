@@ -2922,7 +2922,9 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li>Docs: unversioned deep links (e.g. <code>/embed/api/</code>) now redirect to the same page under the
   default docs version (<code>/&lt;default&gt;/embed/api/</code>, where <code>&lt;default&gt;</code> is <code>latest</code> if a release has
-  been published, otherwise <code>dev</code>) via a root <code>404.html</code> handler on the docs site.</li>
+  been published, otherwise <code>dev</code>) via a root <code>404.html</code> handler on the docs site. Genuinely
+  missing pages get a branded "page not found" page (matching the site's light/dark theme)
+  instead of GitHub's default 404.</li>
 </ul>
 <h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
 <ul>
