@@ -3356,11 +3356,6 @@ convert from a different zero-point at call time — common values are 31.4
 <p>Valid model band indices are 0–5, corresponding to LSST <em>u g r i z Y</em>.
 Pass a <code>band_groups</code> dict (e.g. <code>{"u": 0, "g": 1, ...}</code>) to use string
 band labels instead of integers.</p>
-<p>.. important::</p>
-<div class="highlight"><pre><span></span><code>Observation times **must be in days** (e.g. MJD).  The model&#39;s internal
-time modulator uses ``T_max = 1500`` days, so it is calibrated for light
-curves spanning up to roughly four years.
-</code></pre></div>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
