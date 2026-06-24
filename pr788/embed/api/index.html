@@ -2431,6 +2431,191 @@ produce the same number of windows.</p>
 
 
 
+<div class="doc doc-object doc-function">
+
+
+<h3 id="light_curve.embed.AstraCLR.from_hf" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">from_hf</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#light_curve.embed.AstraCLR.from_hf" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Load the model from the HuggingFace Hub.</p>
+<p>Downloads (and caches) the ONNX model from
+<code>https://huggingface.co/light-curve/astra-clr</code>, creates an
+<code>onnxruntime.InferenceSession</code>, and returns a ready-to-use instance.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>band_groups</code>
+            </td>
+            <td>
+                  <code>Mapping, list of Mapping, or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Band label → model integer mapping.  When <code>None</code> (default), the
+caller must supply integer band indices (0=<em>g</em>, 1=<em>r</em>, 2=<em>i</em>).
+Please note that some ZTF data products, e.g. "ordinal" ZTF data
+releases (non-zubercal) would have <code>filterid</code> field encoded as
+(1=<em>g</em>, 2=<em>r</em>, 3=<em>i</em>), please use <code>{1: 0, 2: 1, 3: 2}</code> for such
+cases, and <code>{"g": 0, "r": 1, "i": 2}</code> for ZTF string band labels.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>allow_extra_bands</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Silently ignore observations with unknown band labels when
+<code>True</code>.  Default is <code>False</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction</code>
+            </td>
+            <td>
+                  <code>str, list of str, or Reduction</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Windowing / subsampling strategy per band.  Default is
+<code>"beginning"</code> (first observations).</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;beginning&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction_kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Extra keyword arguments forwarded to :func:<code>reduction_from_str</code>
+when <code>reduction</code> is given as a string.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>ort_session_kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Keyword arguments forwarded to <code>onnxruntime.InferenceSession</code>:
+<code>"sess_options"</code>, <code>"providers"</code>, <code>"provider_options"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="light_curve.embed.AstraCLR (light_curve.embed.astra_clr.AstraCLR)" href="#light_curve.embed.AstraCLR">AstraCLR</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Instance with a live ONNX inference session.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ImportError">ImportError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If <code>huggingface_hub</code> is not installed.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ImportError">ImportError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If no <code>onnxruntime</code> variant is installed.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
 
 
   </div>
@@ -2582,6 +2767,203 @@ band.</p>
 
 
 
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="light_curve.embed.Astromer1.from_hf" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">from_hf</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#light_curve.embed.Astromer1.from_hf" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Load a model from the HuggingFace Hub.</p>
+<p>Downloads (and caches) the ONNX model file, creates an
+<code>onnxruntime.InferenceSession</code>, and returns a ready-to-use instance.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>output</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Named ONNX output to return.  One of:</p>
+<ul>
+<li><code>"mean"</code> (default) — masked mean pooling over valid timesteps,
+  output shape <code>(bands, reductions, 1, 256)</code></li>
+<li><code>"max"</code> — masked max pooling over valid timesteps,
+  output shape <code>(bands, reductions, 1, 256)</code></li>
+<li><code>"sequence"</code> — per-timestep embeddings (no aggregation),
+  output shape <code>(bands, reductions, 200, 256)</code></li>
+</ul>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;mean&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>sequence of str or int or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Ordered band labels to embed.  <code>None</code> (default) treats the whole
+light curve as one band.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction</code>
+            </td>
+            <td>
+                  <code>str, list of str, or Reduction</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Windowing / subsampling strategy.  Defaults to
+<code>"non-overlapping-windows"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;non-overlapping-windows&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction_kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Extra keyword arguments forwarded to :func:<code>reduction_from_str</code>
+when <code>reduction</code> is given as a string.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>ort_session_kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Additional keyword arguments forwarded to <code>onnxruntime.InferenceSession</code>:
+"sess_options", "providers", "provider_options".</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>instance of the calling class</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Instance with a live ONNX inference session.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ValueError">ValueError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If <code>output</code> is not one of the recognised output names.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ImportError">ImportError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If <code>huggingface_hub</code> is not installed.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ImportError">ImportError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If no <code>onnxruntime</code> variant is installed.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
 
 
 
@@ -2735,6 +3117,203 @@ embeddings on HuggingFace.</p>
 
 
 
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="light_curve.embed.Astromer2.from_hf" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">from_hf</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#light_curve.embed.Astromer2.from_hf" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Load a model from the HuggingFace Hub.</p>
+<p>Downloads (and caches) the ONNX model file, creates an
+<code>onnxruntime.InferenceSession</code>, and returns a ready-to-use instance.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>output</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Named ONNX output to return.  One of:</p>
+<ul>
+<li><code>"mean"</code> (default) — masked mean pooling over valid timesteps,
+  output shape <code>(bands, reductions, 1, 256)</code></li>
+<li><code>"max"</code> — masked max pooling over valid timesteps,
+  output shape <code>(bands, reductions, 1, 256)</code></li>
+<li><code>"sequence"</code> — per-timestep embeddings (no aggregation),
+  output shape <code>(bands, reductions, 200, 256)</code></li>
+</ul>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;mean&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>sequence of str or int or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Ordered band labels to embed.  <code>None</code> (default) treats the whole
+light curve as one band.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction</code>
+            </td>
+            <td>
+                  <code>str, list of str, or Reduction</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Windowing / subsampling strategy.  Defaults to
+<code>"non-overlapping-windows"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;non-overlapping-windows&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction_kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Extra keyword arguments forwarded to :func:<code>reduction_from_str</code>
+when <code>reduction</code> is given as a string.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>ort_session_kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Additional keyword arguments forwarded to <code>onnxruntime.InferenceSession</code>:
+"sess_options", "providers", "provider_options".</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>instance of the calling class</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Instance with a live ONNX inference session.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ValueError">ValueError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If <code>output</code> is not one of the recognised output names.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ImportError">ImportError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If <code>huggingface_hub</code> is not installed.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ImportError">ImportError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If no <code>onnxruntime</code> variant is installed.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
 
 
 
@@ -2977,6 +3556,241 @@ https://doi.org/10.1051/0004-6361/202451418</p>
 
 
 
+<div class="doc doc-object doc-function">
+
+
+<h3 id="light_curve.embed.ATAT.from_hf" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">from_hf</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#light_curve.embed.ATAT.from_hf" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Load a model from the HuggingFace Hub.</p>
+<p>Downloads (and caches) the ONNX model file, creates an
+<code>onnxruntime.InferenceSession</code>, and returns a ready-to-use instance.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>output</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Named ONNX output to return.  One of:</p>
+<ul>
+<li><code>"token"</code> (default) — CLS-token embedding,
+  output shape <code>(band_groups, reductions, 1, 192)</code></li>
+<li><code>"mean"</code> — masked mean pooling over valid observations,
+  output shape <code>(band_groups, reductions, 1, 192)</code></li>
+<li><code>"sequence"</code> — per-observation embeddings (CLS token excluded),
+  output shape <code>(band_groups, reductions, 390, 192)</code></li>
+</ul>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;token&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>band_groups</code>
+            </td>
+            <td>
+                  <code>Mapping, list of Mapping, or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Band label → model integer mapping.  <code>None</code> (default) expects
+integer band indices 0–5 (LSST <em>u g r i z Y</em>).</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>allow_extra_bands</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If <code>False</code> (default), raises an error if the input light curve
+contains bands not used by the model: either <code>dict</code> keys in
+<code>band_groups</code> or integers 0–5 (LSST ugrizy) when <code>band_groups</code>
+is <code>None</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction</code>
+            </td>
+            <td>
+                  <code>str, list of str, or Reduction</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Per-band windowing / subsampling strategy.  Defaults to
+<code>"non-overlapping-windows"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;non-overlapping-windows&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction_kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Extra keyword arguments forwarded to :func:<code>reduction_from_str</code>
+when <code>reduction</code> is given as a string.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>mag_zp</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>AB zero-point of the input fluxes.  Fluxes are rescaled to ZP = 27.5
+(ELAsTiCC / SNANA FITS convention) before inference.  Common values:
+31.4 (LSST nJy, default), 27.5 (no rescaling needed), 8.9 (Jy).</p>
+              </div>
+            </td>
+            <td>
+                  <code>31.4</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>ort_session_kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Additional keyword arguments forwarded to
+<code>onnxruntime.InferenceSession</code>: "sess_options", "providers",
+"provider_options".</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>instance of the calling class</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Instance with a live ONNX inference session.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ValueError">ValueError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If <code>output</code> is not one of the recognized output names.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ImportError">ImportError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If <code>huggingface_hub</code> is not installed.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ImportError">ImportError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If no <code>onnxruntime</code> variant is installed.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
 
 
   </div>
@@ -3204,6 +4018,259 @@ https://ui.adsabs.harvard.edu/abs/2025arXiv251100614T/abstract</p>
 
 
 
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="light_curve.embed.ATCAT.from_hf" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">from_hf</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#light_curve.embed.ATCAT.from_hf" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Load a model from the HuggingFace Hub.</p>
+<p>Downloads (and caches) the ONNX model file, creates an
+<code>onnxruntime.InferenceSession</code>, and returns a ready-to-use instance.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>output</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Named ONNX output to return.  One of:</p>
+<ul>
+<li><code>"last"</code> — embedding of the last valid timestep,
+  output shape <code>(band_groups, reductions, 1, 384)</code></li>
+<li><code>"mean"</code> (default) — masked mean pooling over valid timesteps,
+  output shape <code>(band_groups, reductions, 1, 384)</code></li>
+<li><code>"sequence"</code> — per-timestep embeddings (no aggregation),
+  output shape <code>(band_groups, reductions, 243, 384)</code></li>
+</ul>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;last&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>use_fp16</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to load the model in float16 precision if supported.
+Defaults to <code>False</code> (float32) for maximum compatibility; set to
+<code>True</code> to use original model precision and reduce memory usage
+if your hardware supports it.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>band_groups</code>
+            </td>
+            <td>
+                  <code>sequence of str or int or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Ordered band labels to embed.  <code>None</code> (default) treats the whole
+light curve as one band.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>allow_extra_bands</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If <code>False</code> (default), raises an error if the input light curve contains
+any bands which may not be used by the model: either bands specified as
+<code>dict</code> keys in <code>band_groups</code> or integers 0,1,2,3,4,5 (LSST ugrizy)
+if <code>band_groups</code> is <code>None</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction</code>
+            </td>
+            <td>
+                  <code>str, list of str, or Reduction</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Windowing / subsampling strategy.  Defaults to
+<code>"non-overlapping-windows"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;non-overlapping-windows&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction_kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Extra keyword arguments forwarded to :func:<code>reduction_from_str</code>
+when <code>reduction</code> is given as a string.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>mag_zp</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>AB zero-point of the input fluxes.  Fluxes are rescaled to ZP = 27.5
+(ELAsTiCC / SNANA FITS convention) before inference.  Common values:
+31.4 (LSST nJy, default), 27.5 (no rescaling needed), 8.9 (Jy).</p>
+              </div>
+            </td>
+            <td>
+                  <code>31.4</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>ort_session_kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Additional keyword arguments forwarded to <code>onnxruntime.InferenceSession</code>:
+"sess_options", "providers", "provider_options".</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>instance of the calling class</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Instance with a live ONNX inference session.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ValueError">ValueError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If <code>output</code> is not one of the recognized output names.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ImportError">ImportError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If <code>huggingface_hub</code> is not installed.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ImportError">ImportError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If no <code>onnxruntime</code> variant is installed.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
 
 
 
