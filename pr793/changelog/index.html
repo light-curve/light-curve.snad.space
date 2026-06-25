@@ -2957,18 +2957,15 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li><code>light_curve.embed.Chronos2</code> and <code>light_curve.embed.ChronosBolt</code>: ONNX-backed univariate
   (magnitude-only) Chronos time-series foundation models, exposing <code>mean</code> / <code>sequence</code> outputs.
-  <code>Chronos2</code> is 768-dim; <code>ChronosBolt</code> has tiny/mini/small/base sizes (256/384/512/768-dim).</li>
+  <code>Chronos2</code> is 768-dim; <code>ChronosBolt</code> has tiny/mini/small/base sizes (256/384/512/768-dim)
+  (<a href="https://github.com/light-curve/light-curve-python/pull/792">#792</a>).</li>
 <li><code>light_curve.embed.ATAT</code>: ONNX-backed multiband (LSST ugrizY) transformer embedding model
   trained on ELAsTiCC, exposing <code>token</code> / <code>mean</code> / <code>sequence</code> outputs
   (<a href="https://github.com/light-curve/light-curve-python/pull/788">#788</a>).</li>
 <li><code>light_curve.embed.Astromer1ZTF</code>: Astromer 1 encoder fine-tuned on ZTF DR20 <em>g</em>-band (QZO
   quasar catalog, Nakoneczny et al. 2025); same single-band interface and 256-dim output as
-  <code>Astromer1</code>. Load with <code>Astromer1ZTF.from_hf()</code>.</li>
-<li>Docs: unversioned deep links (e.g. <code>/embed/api/</code>) now redirect to the same page under the
-  default docs version (<code>/&lt;default&gt;/embed/api/</code>, where <code>&lt;default&gt;</code> is <code>latest</code> if a release has
-  been published, otherwise <code>dev</code>) via a root <code>404.html</code> handler on the docs site. Genuinely
-  missing pages get a branded "page not found" page (matching the site's light/dark theme)
-  instead of GitHub's default 404.</li>
+  <code>Astromer1</code>. Load with <code>Astromer1ZTF.from_hf()</code>
+  (<a href="https://github.com/light-curve/light-curve-python/pull/791">#791</a>).</li>
 <li>Multiband features now accept <strong>integer band arrays</strong>.
   Integer band dispatch is ~2.4× faster than string band dispatch (14 µs vs 35 µs at
   3 bands × 1000 observations per band)
