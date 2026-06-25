@@ -2923,6 +2923,9 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li><code>light_curve.embed.ATAT</code>: ONNX-backed multiband (LSST ugrizY) transformer embedding model
   trained on ELAsTiCC, exposing <code>token</code> / <code>mean</code> / <code>sequence</code> outputs
   (<a href="https://github.com/light-curve/light-curve-python/pull/788">#788</a>).</li>
+<li><code>light_curve.embed.Astromer1ZTF</code>: Astromer 1 encoder fine-tuned on ZTF DR20 <em>g</em>-band (QZO
+  quasar catalog, Nakoneczny et al. 2025); same single-band interface and 256-dim output as
+  <code>Astromer1</code>. Load with <code>Astromer1ZTF.from_hf()</code>.</li>
 <li>Docs: unversioned deep links (e.g. <code>/embed/api/</code>) now redirect to the same page under the
   default docs version (<code>/&lt;default&gt;/embed/api/</code>, where <code>&lt;default&gt;</code> is <code>latest</code> if a release has
   been published, otherwise <code>dev</code>) via a root <code>404.html</code> handler on the docs site. Genuinely

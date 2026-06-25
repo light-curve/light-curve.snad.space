@@ -1421,6 +1421,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#light_curve.embed.Astromer1ZTF" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Astromer1ZTF
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#light_curve.embed.Astromer2" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1836,6 +1847,17 @@
     <span class="md-ellipsis">
       
         Astromer1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.embed.Astromer1ZTF" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Astromer1ZTF
       
     </span>
   </a>
@@ -2779,6 +2801,361 @@ band.</p>
   </span>
 
 <a href="#light_curve.embed.Astromer1.from_hf" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Load a model from the HuggingFace Hub.</p>
+<p>Downloads (and caches) the ONNX model file, creates an
+<code>onnxruntime.InferenceSession</code>, and returns a ready-to-use instance.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>output</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Named ONNX output to return.  One of:</p>
+<ul>
+<li><code>"mean"</code> (default) — masked mean pooling over valid timesteps,
+  output shape <code>(bands, reductions, 1, 256)</code></li>
+<li><code>"max"</code> — masked max pooling over valid timesteps,
+  output shape <code>(bands, reductions, 1, 256)</code></li>
+<li><code>"sequence"</code> — per-timestep embeddings (no aggregation),
+  output shape <code>(bands, reductions, 200, 256)</code></li>
+</ul>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;mean&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>sequence of str or int or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Ordered band labels to embed.  <code>None</code> (default) treats the whole
+light curve as one band.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction</code>
+            </td>
+            <td>
+                  <code>str, list of str, or Reduction</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Windowing / subsampling strategy.  Defaults to
+<code>"non-overlapping-windows"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;non-overlapping-windows&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction_kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Extra keyword arguments forwarded to :func:<code>reduction_from_str</code>
+when <code>reduction</code> is given as a string.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>ort_session_kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Additional keyword arguments forwarded to <code>onnxruntime.InferenceSession</code>:
+"sess_options", "providers", "provider_options".</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>instance of the calling class</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Instance with a live ONNX inference session.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ValueError">ValueError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If <code>output</code> is not one of the recognised output names.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ImportError">ImportError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If <code>huggingface_hub</code> is not installed.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ImportError">ImportError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If no <code>onnxruntime</code> variant is installed.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.embed.Astromer1ZTF" class="doc doc-heading">
+            <code>light_curve.embed.Astromer1ZTF</code>
+
+
+<a href="#light_curve.embed.Astromer1ZTF" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><span title="light_curve.embed.astromer._AstromerModel">_AstromerModel</span></code></p>
+
+
+
+        <p>Astromer 1 embedding model fine-tuned on ZTF DR20 <em>g</em>-band.</p>
+<p>The Astromer 1 encoder retrained on ZTF DR20 <em>g</em>-band light curves for the
+QZO quasar catalog (Nakoneczny et al. 2025).  Architecture matches the
+original Astromer 1 (2 layers, 4 attention heads); accepts single-band
+<em>g</em>-band photometry and returns a 256-dimensional embedding.</p>
+<p>The ONNX model is hosted on HuggingFace at
+<code>https://huggingface.co/light-curve/astromer1-ztfdr20</code>
+(<code>astromer1_ztfdr20.onnx</code>).  Three named outputs are available; select
+with the <code>output</code> parameter:</p>
+<ul>
+<li><code>"mean"</code> (default) — masked mean pooling → shape <code>(batch, 256)</code></li>
+<li><code>"max"</code> — masked max pooling → shape <code>(batch, 256)</code></li>
+<li><code>"sequence"</code> — per-timestep features → shape <code>(batch, 200, 256)</code></li>
+</ul>
+<p>Use :meth:<code>from_hf</code> to download and load the model directly.</p>
+
+
+<details class="model-license" open>
+  <summary>Model license</summary>
+  <p>GPL-3.0 (upstream ZTF DR20 weights license).</p>
+</details>
+
+<details class="references" open>
+  <summary>References</summary>
+  <p>Nakoneczny et al. (2025), <em>QZO: A Catalog of 5 Million Quasars from the
+Zwicky Transient Facility</em>, ApJ 992, 153.
+https://ui.adsabs.harvard.edu/abs/2025ApJ...992..153N/abstract</p>
+<p>Original Astromer 1 architecture — Donoso-Oliva et al. (2023), <em>ASTROMER:
+A transformer-based embedding for the representation of light curves</em>,
+A&amp;A 670, A54.
+https://ui.adsabs.harvard.edu/abs/2023A%26A...670A..54D/abstract</p>
+</details>
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>session</code>
+            </td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>ONNX inference session for the Astromer 1 (ZTF DR20) model file.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>output</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Which named output to return: <code>"mean"</code>, <code>"max"</code>, or <code>"sequence"</code>.
+Defaults to <code>"mean"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;mean&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>sequence of str or int</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Band labels.  <code>None</code> (default) treats the whole light curve as one
+band.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction</code>
+            </td>
+            <td>
+                  <code>str, list of str, or Reduction</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Windowing strategy.  Defaults to :class:<code>NonOverlappingWindows</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;non-overlapping-windows&#39;</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="light_curve.embed.Astromer1ZTF.from_hf" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">from_hf</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#light_curve.embed.Astromer1ZTF.from_hf" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
     <div class="doc doc-contents ">

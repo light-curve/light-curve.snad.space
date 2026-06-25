@@ -1,12 +1,7 @@
 [
   {
-    "version": "dev",
-    "title": "dev",
-    "aliases": []
-  },
-  {
-    "version": "pr790",
-    "title": "pr790",
+    "version": "pr792",
+    "title": "pr792",
     "aliases": []
   },
   {
@@ -15,8 +10,13 @@
     "aliases": []
   },
   {
-    "version": "pr792",
-    "title": "pr792",
+    "version": "pr790",
+    "title": "pr790",
+    "aliases": []
+  },
+  {
+    "version": "dev",
+    "title": "dev",
     "aliases": []
   }
 ]
