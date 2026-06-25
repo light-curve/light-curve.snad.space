@@ -1,12 +1,17 @@
 [
   {
-    "version": "dev",
-    "title": "dev",
+    "version": "pr793",
+    "title": "pr793",
     "aliases": []
   },
   {
-    "version": "pr793",
-    "title": "pr793",
+    "version": "latest",
+    "title": "latest",
+    "aliases": []
+  },
+  {
+    "version": "dev",
+    "title": "dev",
     "aliases": []
   }
 ]
