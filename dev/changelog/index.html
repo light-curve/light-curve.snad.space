@@ -2934,6 +2934,10 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
   been published, otherwise <code>dev</code>) via a root <code>404.html</code> handler on the docs site. Genuinely
   missing pages get a branded "page not found" page (matching the site's light/dark theme)
   instead of GitHub's default 404.</li>
+<li>Multiband features now accept <strong>integer band arrays</strong>.
+  Integer band dispatch is ~2.4× faster than string band dispatch (14 µs vs 35 µs at
+  3 bands × 1000 observations per band)
+  (<a href="https://github.com/light-curve/light-curve-python/pull/790">#790</a>).</li>
 </ul>
 <h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2976,12 +2980,14 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Arrow (<code>many()</code>) input now supports multiband features
   (<a href="https://github.com/light-curve/light-curve-python/pull/762">#762</a>).</li>
 <li>New <strong>pure-multiband</strong> Rust feature extractors (always require <code>bands</code>, no single-band mode)
-  (<a href="https://github.com/light-curve/light-curve-python/pull/762">#762</a>):</li>
+  (<a href="https://github.com/light-curve/light-curve-python/pull/762">#762</a>):<ul>
 <li><code>ColorOfMaximum(bands)</code> — <code>max(band[0]) − max(band[1])</code> for exactly two passbands.</li>
 <li><code>ColorOfMedian(bands)</code> — <code>median(band[0]) − median(band[1])</code> for exactly two passbands.</li>
 <li><code>ColorOfMinimum(bands)</code> — <code>min(band[0]) − min(band[1])</code> for exactly two passbands.</li>
 <li><code>ColorSpread(bands)</code> — population standard deviation of per-passband inverse-variance-weighted
-    mean magnitudes, for two or more passbands.</li>
+  mean magnitudes, for two or more passbands.</li>
+</ul>
+</li>
 <li><code>RainbowFit</code> gains new spectral SED models: modified blackbody, log-parabola, and
   generalized Wien; a <code>scipy</code> least-squares optimizer is also now available as an alternative to
   <code>iminuit</code>

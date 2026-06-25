@@ -2762,6 +2762,10 @@ Band counts: {'g': 80, 'r': 80, 'i': 80}
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="2-per-band-feature-extraction">2. Per-band feature extraction<a class="anchor-link" href="#2-per-band-feature-extraction">¶</a></h2><p>Pass <code>bands=</code> to any feature constructor to enter multiband mode.
 The output array has <code>len(bands) * n_features_per_band</code> elements.</p>
+<p>Band labels can be <strong>strings</strong> <em>or</em> <strong>integer IDs</strong> (any NumPy integer dtype).
+Integer IDs are useful when survey data stores passbands as filter numbers
+(e.g. ZTF: 1 = g, 2 = r, 3 = i) and are slightly faster because they avoid
+string hashing during band dispatch.</p>
 </div>
 </div>
 </div>
@@ -2845,21 +2849,29 @@ i-band amplitude: 0.662 mag
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># LinearFit per band — 3 parameters × 3 bands = 9 values</span>
-<span class="n">lf</span> <span class="o">=</span> <span class="n">licu</span><span class="o">.</span><span class="n">LinearFit</span><span class="p">(</span><span class="n">bands</span><span class="o">=</span><span class="n">band_labels</span><span class="p">)</span>
-<span class="n">result_lf</span> <span class="o">=</span> <span class="n">lf</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">band</span><span class="p">,</span> <span class="nb">sorted</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># LinearFit per band using integer band IDs — no code changes needed in make_multiband_lc</span>
+<span class="c1"># numpy infers dtype=int64 from integer labels, which the feature accepts directly</span>
+<span class="n">int_band_labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># e.g. ZTF filter IDs: 1=g, 2=r, 3=i</span>
+<span class="n">t_int</span><span class="p">,</span> <span class="n">m_int</span><span class="p">,</span> <span class="n">sigma_int</span><span class="p">,</span> <span class="n">band_int</span> <span class="o">=</span> <span class="n">make_multiband_lc</span><span class="p">(</span><span class="n">int_band_labels</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="n">rng</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Feature names:"</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">lf</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">result_lf</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="n">name</span><span class="si">:</span><span class="s2">30s</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">val</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">lf_int</span> <span class="o">=</span> <span class="n">licu</span><span class="o">.</span><span class="n">LinearFit</span><span class="p">(</span><span class="n">bands</span><span class="o">=</span><span class="n">int_band_labels</span><span class="p">)</span>
+<span class="n">result_int</span> <span class="o">=</span> <span class="n">lf_int</span><span class="p">(</span><span class="n">t_int</span><span class="p">,</span> <span class="n">m_int</span><span class="p">,</span> <span class="n">sigma_int</span><span class="p">,</span> <span class="n">band_int</span><span class="p">,</span> <span class="nb">sorted</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Feature names with integer band IDs:"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">lf_int</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">result_int</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="n">name</span><span class="si">:</span><span class="s2">35s</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">val</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-5"># LinearFit per band — 3 parameters × 3 bands = 9 values
-lf = licu.LinearFit(bands=band_labels)
-result_lf = lf(t, m, sigma, band, sorted=True)
+<div class="clipboard-copy-txt" id="cell-5"># LinearFit per band using integer band IDs — no code changes needed in make_multiband_lc
+# numpy infers dtype=int64 from integer labels, which the feature accepts directly
+int_band_labels = [1, 2, 3]  # e.g. ZTF filter IDs: 1=g, 2=r, 3=i
+t_int, m_int, sigma_int, band_int = make_multiband_lc(int_band_labels, rng=rng)
 
-print("Feature names:")
-for name, val in zip(lf.names, result_lf):
-    print(f"  {name:30s} = {val:.4f}")</div>
+lf_int = licu.LinearFit(bands=int_band_labels)
+result_int = lf_int(t_int, m_int, sigma_int, band_int, sorted=True)
+
+print("Feature names with integer band IDs:")
+for name, val in zip(lf_int.names, result_int):
+    print(f"  {name:35s} = {val:.4f}")</div>
 </div>
 </div>
 </div>
@@ -2871,16 +2883,16 @@ for name, val in zip(lf.names, result_lf):
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Feature names:
-  linear_fit_slope_g             = 0.0014
-  linear_fit_slope_sigma_g       = 0.0002
-  linear_fit_reduced_chi2_g      = 31.5374
-  linear_fit_slope_r             = 0.0002
-  linear_fit_slope_sigma_r       = 0.0002
-  linear_fit_reduced_chi2_r      = 41.1661
-  linear_fit_slope_i             = -0.0003
-  linear_fit_slope_sigma_i       = 0.0002
-  linear_fit_reduced_chi2_i      = 33.9391
+<pre>Feature names with integer band IDs:
+  linear_fit_slope_1                  = 0.0011
+  linear_fit_slope_sigma_1            = 0.0002
+  linear_fit_reduced_chi2_1           = 35.8685
+  linear_fit_slope_2                  = 0.0014
+  linear_fit_slope_sigma_2            = 0.0002
+  linear_fit_reduced_chi2_2           = 37.2112
+  linear_fit_slope_3                  = 0.0009
+  linear_fit_slope_sigma_3            = 0.0002
+  linear_fit_reduced_chi2_3           = 32.5998
 </pre>
 </div>
 </div>
@@ -3137,7 +3149,7 @@ print("Values:              ", result_bins)
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Bins multiband names: ['bins_window5.0_offset0.0_amplitude_g', 'bins_window5.0_offset0.0_amplitude_r', 'bins_window5.0_offset0.0_mean_g', 'bins_window5.0_offset0.0_mean_r']
-Values:               [ 0.37137882  0.22892773 14.95052223 15.01740324]
+Values:               [ 0.26937461  0.25340544 15.02650096 15.00719902]
 </pre>
 </div>
 </div>
@@ -3204,7 +3216,7 @@ print("Best period (days):", 1.0 / result_pg[0] if result_pg[0] &gt; 0 else "N/A
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Periodogram names: ['multicolor_periodogram_period_0', 'multicolor_periodogram_period_s_to_n_0', 'multicolor_periodogram_period_1', 'multicolor_periodogram_period_s_to_n_1']
-Best period (days): 0.6845785794088373
+Best period (days): 0.6378936694123972
 </pre>
 </div>
 </div>
@@ -3278,8 +3290,8 @@ print(f"Mean amplitude_r: {results[:, 1].mean():.4f}")
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Shape: (500, 2)
-Mean amplitude_g: 0.6975
-Mean amplitude_r: 0.7061
+Mean amplitude_g: 0.7023
+Mean amplitude_r: 0.7087
 </pre>
 </div>
 </div>
@@ -3433,18 +3445,23 @@ Arrow and list results match ✓
 <td><code>n_bands × k</code> values per call</td>
 </tr>
 <tr>
+<td>Any Rust feature (integer IDs)</td>
+<td><code>Feature(bands=[0, 1, 2])</code></td>
+<td>same, slightly faster — band arrays must be integer dtype</td>
+</tr>
+<tr>
 <td><code>Extractor</code></td>
 <td>Mix freely</td>
 <td>Single-band and multiband combined</td>
 </tr>
 <tr>
 <td><code>ColorOfMedian</code> / <code>ColorOfMaximum</code> / <code>ColorOfMinimum</code></td>
-<td><code>cls(["g", "r"])</code></td>
+<td><code>cls(["g", "r"])</code> or <code>cls([0, 1])</code></td>
 <td>1 value — cross-band statistic</td>
 </tr>
 <tr>
 <td><code>ColorSpread</code></td>
-<td><code>ColorSpread(["g", "r", "i"])</code></td>
+<td><code>ColorSpread(["g", "r", "i"])</code> or <code>ColorSpread([0, 1, 2])</code></td>
 <td>1 value — std dev of band means</td>
 </tr>
 <tr>
