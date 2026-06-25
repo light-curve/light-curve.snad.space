@@ -1600,6 +1600,9 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <h2 id="unreleased">[Unreleased]<a class="headerlink" href="#unreleased" title="Permanent link">&para;</a></h2>
 <h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h3>
 <ul>
+<li><code>light_curve.embed.Chronos2</code> and <code>light_curve.embed.ChronosBolt</code>: ONNX-backed univariate
+  (magnitude-only) Chronos time-series foundation models, exposing <code>mean</code> / <code>sequence</code> outputs.
+  <code>Chronos2</code> is 768-dim; <code>ChronosBolt</code> has tiny/mini/small/base sizes (256/384/512/768-dim).</li>
 <li><code>light_curve.embed.ATAT</code>: ONNX-backed multiband (LSST ugrizY) transformer embedding model
   trained on ELAsTiCC, exposing <code>token</code> / <code>mean</code> / <code>sequence</code> outputs
   (<a href="https://github.com/light-curve/light-curve-python/pull/788">#788</a>).</li>
@@ -1611,8 +1614,8 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
   been published, otherwise <code>dev</code>) via a root <code>404.html</code> handler on the docs site. Genuinely
   missing pages get a branded "page not found" page (matching the site's light/dark theme)
   instead of GitHub's default 404.</li>
-<li>Multiband features now accept <strong>integer band arrays</strong>: any numpy integer dtype.</li>
-<li>Integer band dispatch is ~2.4× faster than string band dispatch (14 µs vs 35 µs at
+<li>Multiband features now accept <strong>integer band arrays</strong>.
+  Integer band dispatch is ~2.4× faster than string band dispatch (14 µs vs 35 µs at
   3 bands × 1000 observations per band)
   (<a href="https://github.com/light-curve/light-curve-python/pull/790">#790</a>).</li>
 </ul>

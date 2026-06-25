@@ -1465,6 +1465,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#light_curve.embed.Chronos2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chronos2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.embed.ChronosBolt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ChronosBolt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#reduction-strategies" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1891,6 +1913,28 @@
     <span class="md-ellipsis">
       
         ATCAT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.embed.Chronos2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chronos2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.embed.ChronosBolt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ChronosBolt
       
     </span>
   </a>
@@ -4633,6 +4677,659 @@ when <code>reduction</code> is given as a string.</p>
             <td>
               <div class="doc-md-description">
                 <p>If no <code>onnxruntime</code> variant is installed.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.embed.Chronos2" class="doc doc-heading">
+            <code>light_curve.embed.Chronos2</code>
+
+
+<a href="#light_curve.embed.Chronos2" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><span title="light_curve.embed.chronos._ChronosModel">_ChronosModel</span></code></p>
+
+
+
+        <p>Chronos 2 univariate light-curve embedding model.</p>
+<p>A T5-style transformer encoder pretrained on a large corpus of real and
+synthetic time series.  It maps a magnitude sequence to 768-dimensional
+patch embeddings (native context up to 8192 observations).</p>
+<p>The ONNX model is hosted on HuggingFace at
+<code>https://huggingface.co/light-curve/chronos2</code> (<code>chronos2.onnx</code>).</p>
+<p>Use :meth:<code>from_hf</code> to download and load the model directly.</p>
+
+
+<details class="model-license" open>
+  <summary>Model license</summary>
+  <p>Apache-2.0 (upstream amazon/chronos-2 license).</p>
+</details>
+
+<details class="references" open>
+  <summary>References</summary>
+  <p>Ansari et al. (2024), <em>Chronos: Learning the Language of Time Series</em>,
+Transactions on Machine Learning Research.
+https://huggingface.co/amazon/chronos-2</p>
+</details>
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>session</code>
+            </td>
+            <td>
+                  <code><span title="ort.InferenceSession">InferenceSession</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>ONNX inference session for the Chronos 2 model file.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>output</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p><code>"mean"</code> (default) or <code>"sequence"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;mean&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction</code>
+            </td>
+            <td>
+                  <code>str, list of str, or Reduction</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Observation-selection strategy for light curves longer than 8192.
+Defaults to <code>"end"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;end&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction_kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Extra keyword arguments forwarded to :func:<code>reduction_from_str</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="light_curve.embed.Chronos2.from_hf" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">from_hf</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#light_curve.embed.Chronos2.from_hf" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Load a model from the HuggingFace Hub.</p>
+<p>Downloads (and caches) the ONNX model file, creates an
+<code>onnxruntime.InferenceSession</code>, and returns a ready-to-use instance.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>output</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Named ONNX output to return: <code>"mean"</code> (default, masked mean pool
+over valid context patches → <code>(..., 1, embed_dim)</code>) or
+<code>"sequence"</code> (per-patch encoder states → <code>(..., n_patches,
+embed_dim)</code>).</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;mean&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction</code>
+            </td>
+            <td>
+                  <code>str, list of str, or Reduction</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Strategy for selecting observations when a light curve exceeds
+<code>max_obs</code>.  Defaults to <code>"end"</code> (the most recent <code>max_obs</code>
+observations, matching the model's native right-aligned context).</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;end&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction_kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Extra keyword arguments forwarded to :func:<code>reduction_from_str</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>ort_session_kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Keyword arguments forwarded to <code>onnxruntime.InferenceSession</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>instance of the calling class</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Instance with a live ONNX inference session.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ValueError">ValueError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If <code>output</code> is not one of the recognised output names.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ImportError">ImportError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If <code>huggingface_hub</code> or an <code>onnxruntime</code> variant is missing.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.embed.ChronosBolt" class="doc doc-heading">
+            <code>light_curve.embed.ChronosBolt</code>
+
+
+<a href="#light_curve.embed.ChronosBolt" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><span title="light_curve.embed.chronos._ChronosModel">_ChronosModel</span></code></p>
+
+
+
+        <p>Chronos-Bolt univariate light-curve embedding model.</p>
+<p>A faster, patch-based Chronos variant available in four sizes with
+different embedding dimensions (native context up to 2048 observations):</p>
+<p>===== =========
+size  embed_dim
+===== =========
+tiny  256
+mini  384
+small 512
+base  768
+===== =========</p>
+<p>The ONNX models are hosted on HuggingFace at
+<code>https://huggingface.co/light-curve/chronos-bolt-&lt;size&gt;</code>.</p>
+<p>Use :meth:<code>from_hf</code> (with <code>size=</code>) to download and load the model.</p>
+
+
+<details class="model-license" open>
+  <summary>Model license</summary>
+  <p>Apache-2.0 (upstream amazon/chronos-bolt license).</p>
+</details>
+
+<details class="references" open>
+  <summary>References</summary>
+  <p>Ansari et al. (2024), <em>Chronos: Learning the Language of Time Series</em>,
+Transactions on Machine Learning Research.
+https://huggingface.co/amazon/chronos-bolt-base</p>
+</details>
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>session</code>
+            </td>
+            <td>
+                  <code><span title="ort.InferenceSession">InferenceSession</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>ONNX inference session for the Chronos-Bolt model file.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>size</code>
+            </td>
+            <td>
+                  <code>(<span title="tiny">tiny</span>, <span title="mini">mini</span>, <span title="small">small</span>, <span title="base">base</span>)</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Which model size this session corresponds to (sets <code>embed_dim</code>).</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#34;tiny&#34;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>output</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p><code>"mean"</code> (default) or <code>"sequence"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;mean&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction</code>
+            </td>
+            <td>
+                  <code>str, list of str, or Reduction</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Observation-selection strategy for light curves longer than 2048.
+Defaults to <code>"end"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;end&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction_kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Extra keyword arguments forwarded to :func:<code>reduction_from_str</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="light_curve.embed.ChronosBolt.from_hf" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">from_hf</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#light_curve.embed.ChronosBolt.from_hf" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Load a Chronos-Bolt model of the given <code>size</code> from the HuggingFace Hub.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>size</code>
+            </td>
+            <td>
+                  <code>(<span title="tiny">tiny</span>, <span title="mini">mini</span>, <span title="small">small</span>, <span title="base">base</span>)</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Model size to load.  Defaults to <code>"base"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#34;tiny&#34;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>output</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p><code>"mean"</code> (default) or <code>"sequence"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;mean&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction</code>
+            </td>
+            <td>
+                  <code>str, list of str, or Reduction</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Observation-selection strategy for light curves longer than 2048.
+Defaults to <code>"end"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;end&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction_kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Extra keyword arguments forwarded to :func:<code>reduction_from_str</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>ort_session_kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Keyword arguments forwarded to <code>onnxruntime.InferenceSession</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="light_curve.embed.ChronosBolt (light_curve.embed.chronos.ChronosBolt)" href="#light_curve.embed.ChronosBolt">ChronosBolt</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Instance with a live ONNX inference session.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ValueError">ValueError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If <code>size</code> or <code>output</code> is not recognised.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ImportError">ImportError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If <code>huggingface_hub</code> or an <code>onnxruntime</code> variant is missing.</p>
               </div>
             </td>
           </tr>
