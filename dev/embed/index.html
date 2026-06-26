@@ -1664,6 +1664,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#single-band-moment-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single-band: MOMENT-1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#gpu-and-alternative-runtimes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1779,6 +1790,13 @@ the variant that matches your hardware. See the <a href="https://onnxruntime.ai/
 <td>mag</td>
 <td>256–768</td>
 <td>time-series corpus</td>
+</tr>
+<tr>
+<td><code>Moment1</code></td>
+<td>single (magnitude only)</td>
+<td>mag</td>
+<td>512–1024</td>
+<td>Time-series Pile</td>
 </tr>
 </tbody>
 </table>
@@ -1929,12 +1947,30 @@ comes in four sizes (<code>tiny</code>/<code>mini</code>/<code>small</code>/<cod
 <p>Series longer than the native context (8192 for Chronos 2, 2048 for
 Chronos-Bolt) are reduced first; the default <code>reduction="end"</code> keeps the most
 recent observations.</p>
+<h2 id="single-band-moment-1">Single-band: MOMENT-1<a class="headerlink" href="#single-band-moment-1" title="Permanent link">&para;</a></h2>
+<p><a href="https://huggingface.co/AutonLab/MOMENT-1-base">MOMENT</a> is a T5-based time-series
+foundation model.  Like Chronos it embeds a <strong>magnitude sequence only</strong> with
+timestamps discarded.  It comes in three sizes (<code>small</code>/<code>base</code>/<code>large</code> →
+512/768/1024-dim) and uses a <strong>fixed</strong> 512-observation context (64 patches of 8):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">light_curve.embed</span><span class="w"> </span><span class="kn">import</span> <span class="n">Moment1</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="n">mag</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">18.0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>  <span class="c1"># chronological order</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="n">model</span> <span class="o">=</span> <span class="n">Moment1</span><span class="o">.</span><span class="n">from_hf</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="s2">&quot;base&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="n">embedding</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">mag</span><span class="p">)</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">embedding</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># (1, 1, 1, 768)</span>
+</code></pre></div>
+<p>Light curves longer than 512 observations are reduced first; the default
+<code>reduction="end"</code> keeps the most recent 512.  The <code>"sequence"</code> output always has
+64 patches and supports only single-window reductions.</p>
 <h2 id="gpu-and-alternative-runtimes">GPU and alternative runtimes<a class="headerlink" href="#gpu-and-alternative-runtimes" title="Permanent link">&para;</a></h2>
 <p>Pass <code>ort_session_kwargs</code> to select an execution provider:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">model</span> <span class="o">=</span> <span class="n">Astromer2</span><span class="o">.</span><span class="n">from_hf</span><span class="p">(</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="n">output</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="n">ort_session_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;providers&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;CUDAExecutionProvider&quot;</span><span class="p">]},</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">model</span> <span class="o">=</span> <span class="n">Astromer2</span><span class="o">.</span><span class="n">from_hf</span><span class="p">(</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="n">output</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="n">ort_session_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;providers&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;CUDAExecutionProvider&quot;</span><span class="p">]},</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">)</span>
 </code></pre></div>
 <p>See the <a href="onnxruntime/">onnxruntime tips</a> page for CUDA version compatibility,
 thread control on shared HPC nodes, and pixi-based GPU environment setup.</p>
