@@ -5025,15 +5025,8 @@ observations, matching the model's native right-aligned context).</p>
 
         <p>Chronos-Bolt univariate light-curve embedding model.</p>
 <p>A faster, patch-based Chronos variant available in four sizes with
-different embedding dimensions (native context up to 2048 observations):</p>
-<p>===== =========
-size  embed_dim
-===== =========
-tiny  256
-mini  384
-small 512
-base  768
-===== =========</p>
+different embedding dimensions (native context up to 2048 observations):
+<code>tiny</code> (256), <code>mini</code> (384), <code>small</code> (512), and <code>base</code> (768).</p>
 <p>The ONNX models are hosted on HuggingFace at
 <code>https://huggingface.co/light-curve/chronos-bolt-&lt;size&gt;</code>.</p>
 <p>Use :meth:<code>from_hf</code> (with <code>size=</code>) to download and load the model.</p>
@@ -5205,7 +5198,8 @@ Defaults to <code>"end"</code>.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Model size to load.  Defaults to <code>"base"</code>.</p>
+                <p>Model size to load.  Required: the sizes have different embedding
+dimensions, so there is no meaningful default.</p>
               </div>
             </td>
             <td>
