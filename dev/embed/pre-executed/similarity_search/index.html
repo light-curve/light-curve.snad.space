@@ -2593,7 +2593,7 @@ objects with clean photometry (<code>catflags == 0</code>) and at least 1 000 ob
         <span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="p">)</span>
 <span class="p">)</span>
-<span class="n">nf</span> <span class="o">=</span> <span class="n">nf</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">"lightcurve.catflags == 0"</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="sa">f</span><span class="s2">"lightcurve.list_lengths &gt;= </span><span class="si">{</span><span class="n">MIN_OBS</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">nf</span> <span class="o">=</span> <span class="n">nf</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">"lightcurve.catflags == 0"</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="sa">f</span><span class="s2">"lightcurve.len() &gt;= </span><span class="si">{</span><span class="n">MIN_OBS</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Objects after quality cuts: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">nf</span><span class="p">)</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-3">nf = npd.read_parquet(
@@ -2603,7 +2603,7 @@ objects with clean photometry (<code>catflags == 0</code>) and at least 1 000 ob
         anon=True,
     )
 )
-nf = nf.query("lightcurve.catflags == 0").query(f"lightcurve.list_lengths &gt;= {MIN_OBS}")
+nf = nf.query("lightcurve.catflags == 0").query(f"lightcurve.len() &gt;= {MIN_OBS}")
 print(f"Objects after quality cuts: {len(nf):,}")</div>
 </div>
 </div>
