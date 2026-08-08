@@ -1,22 +1,7 @@
 [
   {
-    "version": "latest",
-    "title": "latest",
-    "aliases": []
-  },
-  {
-    "version": "dev",
-    "title": "dev",
-    "aliases": []
-  },
-  {
-    "version": "pr817",
-    "title": "pr817",
-    "aliases": []
-  },
-  {
-    "version": "pr818",
-    "title": "pr818",
+    "version": "pr824",
+    "title": "pr824",
     "aliases": []
   },
   {
@@ -25,8 +10,23 @@
     "aliases": []
   },
   {
-    "version": "pr824",
-    "title": "pr824",
+    "version": "pr818",
+    "title": "pr818",
+    "aliases": []
+  },
+  {
+    "version": "pr817",
+    "title": "pr817",
+    "aliases": []
+  },
+  {
+    "version": "latest",
+    "title": "latest",
+    "aliases": []
+  },
+  {
+    "version": "dev",
+    "title": "dev",
     "aliases": []
   }
 ]
