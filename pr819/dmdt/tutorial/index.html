@@ -2605,10 +2605,10 @@ It was introduced as an ML input representation by
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">light_curve</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">licu</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">light_curve</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">licu</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mcolors</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">dmdt</span> <span class="o">=</span> <span class="n">licu</span><span class="o">.</span><span class="n">DmDt</span><span class="o">.</span><span class="n">from_borders</span><span class="p">(</span>
     <span class="n">min_lgdt</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>      <span class="c1"># lg Δt_min = 1 day</span>
@@ -2620,10 +2620,10 @@ It was introduced as an ML input representation by
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Map shape: </span><span class="si">{</span><span class="n">dmdt</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-2">import numpy as np
-import light_curve as licu
-import matplotlib.pyplot as plt
+<div class="clipboard-copy-txt" id="cell-2">import light_curve as licu
 import matplotlib.colors as mcolors
+import matplotlib.pyplot as plt
+import numpy as np
 
 dmdt = licu.DmDt.from_borders(
     min_lgdt=0,      # lg Δt_min = 1 day
@@ -2900,8 +2900,8 @@ expects the <strong>variance</strong> σ² — remember to square your error arr
 <span class="n">map_diff</span> <span class="o">=</span> <span class="n">map_pts</span> <span class="o">-</span> <span class="n">map_gaus</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">kw</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">origin</span><span class="o">=</span><span class="s2">"lower"</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s2">"auto"</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
-          <span class="n">cmap</span><span class="o">=</span><span class="s2">"Blues"</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">mcolors</span><span class="o">.</span><span class="n">PowerNorm</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">kw</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"origin"</span><span class="p">:</span> <span class="s2">"lower"</span><span class="p">,</span> <span class="s2">"aspect"</span><span class="p">:</span> <span class="s2">"auto"</span><span class="p">,</span> <span class="s2">"extent"</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+      <span class="s2">"cmap"</span><span class="p">:</span> <span class="s2">"Blues"</span><span class="p">,</span> <span class="s2">"norm"</span><span class="p">:</span> <span class="n">mcolors</span><span class="o">.</span><span class="n">PowerNorm</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">)}</span>
 
 <span class="n">im1</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">map_pts</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>  <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"points()"</span><span class="p">)</span>
@@ -2936,8 +2936,8 @@ map_gaus = dmdt.gausses(t3, m3, err3 ** 2)  # err² = variance
 map_diff = map_pts - map_gaus
 
 fig, axes = plt.subplots(1, 3, figsize=(13, 4), sharey=True)
-kw = dict(origin="lower", aspect="auto", extent=[0, 2, -1.5, 1.5],
-          cmap="Blues", norm=mcolors.PowerNorm(gamma=0.5, vmin=0))
+kw = {"origin": "lower", "aspect": "auto", "extent": [0, 2, -1.5, 1.5],
+      "cmap": "Blues", "norm": mcolors.PowerNorm(gamma=0.5, vmin=0)}
 
 im1 = axes[0].imshow(map_pts.T,  **kw)
 axes[0].set_title("points()")
@@ -3107,10 +3107,10 @@ Three modes are available (combinable):</p>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">light_curve</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">licu</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">light_curve</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">licu</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mcolors</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
@@ -3141,10 +3141,10 @@ Three modes are available (combinable):</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-7">import numpy as np
-import light_curve as licu
-import matplotlib.pyplot as plt
+<div class="clipboard-copy-txt" id="cell-7">import light_curve as licu
 import matplotlib.colors as mcolors
+import matplotlib.pyplot as plt
+import numpy as np
 
 rng = np.random.default_rng(0)
 t = np.sort(rng.uniform(0, 100, 200)).astype(np.float64)
