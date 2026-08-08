@@ -2608,8 +2608,8 @@ All three operate on flux (not magnitude) — use positive flux values.</p>
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">light_curve</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">licu</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
@@ -2625,8 +2625,8 @@ All three operate on flux (not magnitude) — use positive flux values.</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'n_obs: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="si">}</span><span class="s1">,  peak flux: </span><span class="si">{</span><span class="n">flux</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-2">import light_curve as licu
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 rng = np.random.default_rng(1)
 t = np.linspace(-20, 100, 80)
@@ -2926,8 +2926,8 @@ for name, val in zip(villar.names, result_v):
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
 <pre>WARNING: Logging before InitGoogleLogging() is written to STDERR
-E20260801 00:40:00.919487 139939192933248 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
-E20260801 00:40:00.920827 139939192933248 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
+E20260808 16:42:38.224555 139756499540864 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
+E20260808 16:42:38.225520 139756499540864 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
 </pre>
 </div>
 </div>
@@ -3048,8 +3048,8 @@ plt.show()</div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>E20260801 00:40:00.970088 139939192933248 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
-E20260801 00:40:00.971400 139939192933248 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
+<pre>E20260808 16:42:38.264104 139756499540864 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
+E20260808 16:42:38.265063 139756499540864 program_evaluator.h:286] Accumulated cost = inf is not a finite number. Evaluation failed.
 </pre>
 </div>
 </div>
