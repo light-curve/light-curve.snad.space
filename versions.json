@@ -1,27 +1,12 @@
 [
   {
-    "version": "pr826",
-    "title": "pr826",
+    "version": "latest",
+    "title": "latest",
     "aliases": []
   },
   {
-    "version": "pr820",
-    "title": "pr820",
-    "aliases": []
-  },
-  {
-    "version": "pr819",
-    "title": "pr819",
-    "aliases": []
-  },
-  {
-    "version": "pr818",
-    "title": "pr818",
-    "aliases": []
-  },
-  {
-    "version": "pr817",
-    "title": "pr817",
+    "version": "dev",
+    "title": "dev",
     "aliases": []
   },
   {
@@ -30,13 +15,28 @@
     "aliases": []
   },
   {
-    "version": "latest",
-    "title": "latest",
+    "version": "pr817",
+    "title": "pr817",
     "aliases": []
   },
   {
-    "version": "dev",
-    "title": "dev",
+    "version": "pr818",
+    "title": "pr818",
+    "aliases": []
+  },
+  {
+    "version": "pr819",
+    "title": "pr819",
+    "aliases": []
+  },
+  {
+    "version": "pr820",
+    "title": "pr820",
+    "aliases": []
+  },
+  {
+    "version": "pr826",
+    "title": "pr826",
     "aliases": []
   }
 ]
