@@ -2241,7 +2241,8 @@ Python 3.13t is not supported. To build for free-threaded Python, use
 <h2 id="publishing-a-release">Publishing a release<a class="headerlink" href="#publishing-a-release" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Create a <code>release-vX.Y.Z</code> branch from <code>main</code>.</li>
-<li>Update <code>CHANGELOG.md</code> with the new version and date.</li>
+<li>Update <code>CHANGELOG.md</code> with the new version and date — the <strong>UTC</strong> date you expect the release
+   to land on PyPI.</li>
 <li>Update the version in <code>Cargo.toml</code> (the Python package version is read from there), then run
    <code>cargo update</code> to update <code>Cargo.lock</code>.</li>
 <li>Commit, push the branch, and open a PR into <code>main</code>.</li>
