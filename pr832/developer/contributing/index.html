@@ -1,0 +1,2322 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://light-curve.snad.space/developer/contributing/">
+      
+      
+        <link rel="prev" href="../../citing/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/logo/mark-adaptive.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Contribute - light-curve</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.69b53256.css">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Cascadia Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#contributing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="light-curve" class="md-header__button md-logo" aria-label="light-curve" data-md-component="logo">
+      
+  <img src="../../assets/logo/mark-light.svg" alt="logo" class="lc-logo lc-logo--light">
+  <img src="../../assets/logo/mark-dark.svg" alt="" aria-hidden="true" class="lc-logo lc-logo--dark">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            light-curve
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Contribute
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/light-curve/light-curve-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    light-curve/light-curve-python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../installation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Installation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../features/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Feature Extractors
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../embed/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  ML Embeddings
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../dmdt/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  dm–dt maps
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../changelog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Changelog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../citing/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Cite & Contact
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contribute
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="light-curve" class="md-nav__button md-logo" aria-label="light-curve" data-md-component="logo">
+      
+  <img src="../../assets/logo/mark-light.svg" alt="logo" class="lc-logo lc-logo--light">
+  <img src="../../assets/logo/mark-dark.svg" alt="" aria-hidden="true" class="lc-logo lc-logo--dark">
+
+    </a>
+    light-curve
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/light-curve/light-curve-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    light-curve/light-curve-python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../features/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature Extractors
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Feature Extractors
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature extractors: basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/multiband/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-band feature extraction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/batch_processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch processing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/periodogram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Periodogram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/fitting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Single-band parametric fits: BazinFit, LinexpFit, VillarFit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/rainbow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multiband parametric fit: RAINBOW model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../features/api/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/api/base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Base class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/api/meta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meta (Extractor, Bins)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/api/variability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/api/linear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linear trend
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/api/time/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Time sampling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/api/periodogram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Periodogram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/api/fitting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Non-linear parametric fits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/api/rainbow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multiband parametric fit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/api/multiband/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multiband
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/api/detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Detection-based
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../embed/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML Embeddings
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ML Embeddings
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../embed/tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embedding Tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../embed/pre-executed/similarity_search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Similarity search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../embed/pre-executed/classification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Light-curve classification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../embed/onnxruntime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    onnxruntime tips
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../embed/api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../dmdt/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dm–dt maps
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    dm–dt maps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dmdt/tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dm–dt Tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dmdt/api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../citing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cite & Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribute
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#environment-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linting-and-formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linting and formatting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cargo-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cargo features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-a-new-feature-extractor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding a new feature extractor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-the-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updating the documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Branding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docs-preview-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docs preview CI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ci-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI secrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#free-threaded-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Free-threaded Python
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publishing-a-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publishing a release
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#environment-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linting-and-formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linting and formatting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cargo-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cargo features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-a-new-feature-extractor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding a new feature extractor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-the-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updating the documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Branding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docs-preview-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docs preview CI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ci-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI secrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#free-threaded-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Free-threaded Python
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publishing-a-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publishing a release
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+  
+    <a href="https://github.com/light-curve/light-curve-python/edit/main/docs/developer/contributing.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+    </a>
+  
+  
+
+
+<div class="lc-lockup" style="width: min(100%, calc(var(--lc-mark-height) * 1113.23 / 187.589)); aspect-ratio: 1113.23 / 187.589"><svg xmlns="http://www.w3.org/2000/svg" id="uuid-73d07021-d543-4e96-a94f-a17a3379310d-developer-contributing.md-1-light" data-name="pip install lockup, wide mark" width="1113.23" height="187.589" viewBox="79.1126 45.4812 1113.23 187.589" class="lc-logo--light" role="img" aria-label="maturin develop --release">
+  <defs>
+    <style>
+      .uuid-59fd47ad-3492-4540-9cf9-cf433a39596b {
+        font-family: CascadiaMono-Regular, 'Cascadia Mono';
+        font-size: 65px;
+        font-variation-settings: 'wght' 400;
+      }
+
+      .uuid-59fd47ad-3492-4540-9cf9-cf433a39596b, .uuid-a3ea43d0-e9d8-4830-9d08-2271bef93681 {
+        fill: #532969;
+      }
+
+      .uuid-17d8f927-8420-4b8f-a7e9-4a1718935848 {
+        fill: url(#uuid-137c7620-f922-40e1-a771-c8abfce796cd-developer-contributing.md-1-light);
+      }
+
+      .uuid-72f02f00-5001-4a70-8982-2734aebea492 {
+        fill: #ffa324;
+      }
+
+      .uuid-43eb934b-79c0-4950-9e8e-d39d63692323 {
+        fill: #f25613;
+      }
+    </style>
+    <linearGradient id="uuid-137c7620-f922-40e1-a771-c8abfce796cd-developer-contributing.md-1-light" data-name="Brand gradient" x1="87.13578" y1="108.77926" x2="390.10768" y2="229.4832" gradientUnits="userSpaceOnUse">
+      <stop offset=".10658" stop-color="#532969" />
+      <stop offset=".25719" stop-color="#a3195b" />
+      <stop offset=".51404" stop-color="#f25613" />
+      <stop offset=".81169" stop-color="#ffa324" />
+    </linearGradient>
+  </defs>
+  <g>
+    <path class="uuid-72f02f00-5001-4a70-8982-2734aebea492" d="m394.25426,190.74765c7.60409,5.26642,16.53004,3.12513,22.72376-5.4474,4.87054-6.74116,8.17993-21.58621,9.93766-34.84503,3.71505-28.02312,18.31262-39.02142,34.35274-39.39777,12.60213-.29551,32.19245,8.70008,31.17329,48.97594,1.74139-11.6398,3.3413-28.12018-4.41793-43.78585-15.56435-31.42311-59.24546-28.21318-75.15284.26847-10.96343,19.59937-7.77343,32.89248-11.94774,51.50425-3.0305,13.51092-10.68783,11.09838-13.76582,6.54566,1.92329,4.59563,4.68635,11.61372,7.09687,16.18173Z" />
+    <path class="uuid-43eb934b-79c0-4950-9e8e-d39d63692323" d="m461.19558,110.73386c-16.04011.37635-30.22728,10.851-34.25647,37.30079-2.36061,15.49633-5.66061,30.42634-10.05492,36.32727-6.56831,8.82031-15.28751,11.19975-23.16433,5.74444,2.01614,3.82212,4.58032,8.02377,7.11266,11.5116,9.74752,13.42421,23.49762,11.70287,32.98896,1.31408,13.15929-14.40415,11.50934-48.89786,24.19778-64.4704,7.5249-9.23461,19.60551-8.78226,26.24988-.94055,5.21543,6.15659,7.55698,13.74048,8.17258,22.51229,1.43605-41.76015-18.644-49.59504-31.24613-49.29952Z" />
+    <path class="uuid-72f02f00-5001-4a70-8982-2734aebea492" d="m313.08029,173.2701c-14.07313,4.81081-24.70205,18.20434-27.43813,36.50231-17.27842-.82276-51.04619-.76954-54.05155,23.28816h101.7418c5.00731,0,8.56111-1.78814,12.24841-4.22065,9.51123-6.27456,13.19174-17.71029,13.68072-27.27594,1.36807-26.76291-26.46608-35.03329-46.18125-28.29387Z" />
+    <path class="uuid-72f02f00-5001-4a70-8982-2734aebea492" d="m190.33072,75.59468c-.74943,1.38019-.41077,3.61237.18763,4.59559.5984.98335,3.27057,3.42023,6.79759,3.63395,3.52702.21385,4.34856.00628,5.00021-.25291.60359-2.51485.9357-5.16108.9357-7.97663h-12.92113Z" />
+    <path class="uuid-72f02f00-5001-4a70-8982-2734aebea492" d="m121.70864,105.07213c6.97867-19.56468,25.54642-46.97787,44.26799-59.59092-69.01537,34.36621-91.9626,109.48614-62.87572,165.98829-12.70045,3.18426-21.58328,10.13097-23.98834,21.6009h44.18365s.01038-.00874.01147-.00983h40.36494c-.00437-.00369.68577-.00696.6814-.01065-58.39935-48.85148-52.54857-100.21033-42.64537-127.97778Z" />
+    <path class="uuid-17d8f927-8420-4b8f-a7e9-4a1718935848" d="m377.41396,184.06715c0-17.13244-22.05277-33.61268-41.9654-36.67036-18.48997-2.83904-40.72764,1.21687-62.97404,20.99144-36.93787,32.83376-68.61717,43.99206-99.39901,26.20714-27.21111-15.72221-38.94883-48.92194-36.68142-77.59532,1.82297-23.05645,12.46499-53.60868,28.9281-70.67199.27947-.28966.44952-.55774.65448-.8469-10.94066,6.75785-35.09762,30.98968-45.10159,60.48882-10.00425,29.49901-6.9407,59.69132,6.07083,84.99144,11.54298,22.44489,29.92644,38.47702,34.44405,42.10899h70.2007c5.14305-18.16776,21.38882-24.75157,54.6074-22.57121,1.92383-12.1844,7.52435-26.72019,22.06014-34.75759,14.53579-8.0374,42.36738-5.6433,48.03072,14.18804,7.03567,24.63685-8.7415,39.67979-22.59322,43.14075,35.48436-.63932,43.7412-36.57688,43.71826-49.00326Z" />
+    <path class="uuid-a3ea43d0-e9d8-4830-9d08-2271bef93681" d="m484.72946,136.76839c-6.64437-7.84171-20.09371-8.03726-27.6186,1.19734-12.68843,15.57254-10.61056,49.68134-23.76985,64.08549-9.49133,10.38879-21.89487,11.50344-32.14687-.60031-4.89064-5.774-9.01973-15.2145-14.32331-28.10352-5.20002-12.63734-10.89426-27.21232-24.27273-38.8629-23.42824-20.40236-60.59773-22.6802-98.73274,9.13391-14.76751,12.31978-36.93795,33.16933-65.11096,30.64407-20.03317-1.79565-43.29274-28.16839-41.32412-61.77356,27.54705-4.80739,41.3924-14.36646,44.8861-28.91754-.0071.00082-.01202.00164-.01912.00273-6.61815.91931-12.31699-1.73265-12.31699-5.88265,0-.73987.14311-1.43222.35068-2.09671h-31.983s-.62653-9.57545,7.62868-30.11352c-18.74888,18.90019-28.59417,48.08812-30.44809,71.53596-2.26741,28.67338,9.38482,62.59974,36.59593,78.32194,30.78184,17.78492,63.95781,6.49839,100.89568-26.33537,22.24637-19.77455,43.63317-23.63586,62.12307-20.79673,19.9127,3.05761,33.64366,18.03802,42.27069,35.86018,1.26509,2.61349,9.19317,20.29573,17.32485,32.44634,7.36909,11.01112,17.64658,16.29179,27.73768,16.54702,12.0477.30466,23.95065-6.53212,30.88562-18.17561,8.28088-13.90257,11.18932-33.90102,14.34679-48.76654,3.01962-14.21649,8.21315-18.06336,14.16217-17.54089,5.23782.46006,7.73192,4.86434,10.57069,11.45586-.6156-8.77181-2.49683-17.10841-7.71226-23.26499Z" />
+  </g>
+  <text class="uuid-59fd47ad-3492-4540-9cf9-cf433a39596b" transform="translate(538.30258 138.2649)"><tspan x="0" y="0">maturin develop</tspan></text>
+  <text class="uuid-59fd47ad-3492-4540-9cf9-cf433a39596b" transform="translate(538.30258 218.73267)"><tspan x="0" y="0">--release</tspan></text>
+</svg><svg xmlns="http://www.w3.org/2000/svg" id="uuid-4118568c-2442-426a-a3cb-3ce303860d44-developer-contributing.md-1-dark" data-name="pip install lockup, wide mark" width="1113.23" height="187.589" viewBox="79.1126 45.4812 1113.23 187.589" class="lc-logo--dark" aria-hidden="true">
+  <defs>
+    <style>
+      .uuid-102483ea-63f2-4435-8ec7-41bb8e18212c {
+        fill: url(#uuid-c3e54fea-6484-4a5f-9965-867029317f8b-developer-contributing.md-1-dark);
+      }
+
+      .uuid-4dd3a71a-ec5f-4a49-8223-03d43c14e43c {
+        font-family: CascadiaMono-Regular, 'Cascadia Mono';
+        font-size: 65px;
+        font-variation-settings: 'wght' 400;
+      }
+
+      .uuid-4dd3a71a-ec5f-4a49-8223-03d43c14e43c, .uuid-2373efa9-50dd-4256-b3bd-4cd0badf1cd8 {
+        fill: #ffa324;
+      }
+
+      .uuid-ea52aee1-309b-4953-a018-d415077f1ae1 {
+        fill: #653280;
+      }
+
+      .uuid-5269421b-00c2-44d8-ad3d-941ffe9f81bd {
+        fill: #f25613;
+      }
+    </style>
+    <linearGradient id="uuid-c3e54fea-6484-4a5f-9965-867029317f8b-developer-contributing.md-1-dark" data-name="Brand gradient" x1="87.13578" y1="108.77926" x2="390.10768" y2="229.4832" gradientUnits="userSpaceOnUse">
+      <stop offset=".10658" stop-color="#653280" />
+      <stop offset=".25719" stop-color="#a3195b" />
+      <stop offset=".51404" stop-color="#f25613" />
+      <stop offset=".81169" stop-color="#ffa324" />
+    </linearGradient>
+  </defs>
+  <g>
+    <path class="uuid-2373efa9-50dd-4256-b3bd-4cd0badf1cd8" d="m394.25426,190.74765c7.60409,5.26642,16.53004,3.12513,22.72376-5.4474,4.87054-6.74116,8.17993-21.58621,9.93766-34.84503,3.71505-28.02312,18.31262-39.02142,34.35274-39.39777,12.60213-.29551,32.19245,8.70008,31.17329,48.97594,1.74139-11.6398,3.3413-28.12018-4.41793-43.78585-15.56435-31.42311-59.24546-28.21318-75.15284.26847-10.96343,19.59937-7.77343,32.89248-11.94774,51.50425-3.0305,13.51092-10.68783,11.09838-13.76582,6.54566,1.92329,4.59563,4.68635,11.61372,7.09687,16.18173Z" />
+    <path class="uuid-5269421b-00c2-44d8-ad3d-941ffe9f81bd" d="m461.19558,110.73386c-16.04011.37635-30.22728,10.851-34.25647,37.30079-2.36061,15.49633-5.66061,30.42634-10.05492,36.32727-6.56831,8.82031-15.28751,11.19975-23.16433,5.74444,2.01614,3.82212,4.58032,8.02377,7.11266,11.5116,9.74752,13.42421,23.49762,11.70287,32.98896,1.31408,13.15929-14.40415,11.50934-48.89786,24.19778-64.4704,7.5249-9.23461,19.60551-8.78226,26.24988-.94055,5.21543,6.15659,7.55698,13.74048,8.17258,22.51229,1.43605-41.76015-18.644-49.59504-31.24613-49.29952Z" />
+    <path class="uuid-2373efa9-50dd-4256-b3bd-4cd0badf1cd8" d="m313.08029,173.2701c-14.07313,4.81081-24.70205,18.20434-27.43813,36.50231-17.27842-.82276-51.04619-.76954-54.05155,23.28816h101.7418c5.00731,0,8.56111-1.78814,12.24841-4.22065,9.51123-6.27456,13.19174-17.71029,13.68072-27.27594,1.36807-26.76291-26.46608-35.03329-46.18125-28.29387Z" />
+    <path class="uuid-2373efa9-50dd-4256-b3bd-4cd0badf1cd8" d="m190.33072,75.59468c-.74943,1.38019-.41077,3.61237.18763,4.59559.5984.98335,3.27057,3.42023,6.79759,3.63395,3.52702.21385,4.34856.00628,5.00021-.25291.60359-2.51485.9357-5.16108.9357-7.97663h-12.92113Z" />
+    <path class="uuid-2373efa9-50dd-4256-b3bd-4cd0badf1cd8" d="m121.70864,105.07213c6.97867-19.56468,25.54642-46.97787,44.26799-59.59092-69.01537,34.36621-91.9626,109.48614-62.87572,165.98829-12.70045,3.18426-21.58328,10.13097-23.98834,21.6009h44.18365s.01038-.00874.01147-.00983h40.36494c-.00437-.00369.68577-.00696.6814-.01065-58.39935-48.85148-52.54857-100.21033-42.64537-127.97778Z" />
+    <path class="uuid-102483ea-63f2-4435-8ec7-41bb8e18212c" d="m377.41396,184.06715c0-17.13244-22.05277-33.61268-41.9654-36.67036-18.48997-2.83904-40.72764,1.21687-62.97404,20.99144-36.93787,32.83376-68.61717,43.99206-99.39901,26.20714-27.21111-15.72221-38.94883-48.92194-36.68142-77.59532,1.82297-23.05645,12.46499-53.60868,28.9281-70.67199.27947-.28966.44952-.55774.65448-.8469-10.94066,6.75785-35.09762,30.98968-45.10159,60.48882-10.00425,29.49901-6.9407,59.69132,6.07083,84.99144,11.54298,22.44489,29.92644,38.47702,34.44405,42.10899h70.2007c5.14305-18.16776,21.38882-24.75157,54.6074-22.57121,1.92383-12.1844,7.52435-26.72019,22.06014-34.75759,14.53579-8.0374,42.36738-5.6433,48.03072,14.18804,7.03567,24.63685-8.7415,39.67979-22.59322,43.14075,35.48436-.63932,43.7412-36.57688,43.71826-49.00326Z" />
+    <path class="uuid-ea52aee1-309b-4953-a018-d415077f1ae1" d="m484.72946,136.76839c-6.64437-7.84171-20.09371-8.03726-27.6186,1.19734-12.68843,15.57254-10.61056,49.68134-23.76985,64.08549-9.49133,10.38879-21.89487,11.50344-32.14687-.60031-4.89064-5.774-9.01973-15.2145-14.32331-28.10352-5.20002-12.63734-10.89426-27.21232-24.27273-38.8629-23.42824-20.40236-60.59773-22.6802-98.73274,9.13391-14.76751,12.31978-36.93795,33.16933-65.11096,30.64407-20.03317-1.79565-43.29274-28.16839-41.32412-61.77356,27.54705-4.80739,41.3924-14.36646,44.8861-28.91754-.0071.00082-.01202.00164-.01912.00273-6.61815.91931-12.31699-1.73265-12.31699-5.88265,0-.73987.14311-1.43222.35068-2.09671h-31.983s-.62653-9.57545,7.62868-30.11352c-18.74888,18.90019-28.59417,48.08812-30.44809,71.53596-2.26741,28.67338,9.38482,62.59974,36.59593,78.32194,30.78184,17.78492,63.95781,6.49839,100.89568-26.33537,22.24637-19.77455,43.63317-23.63586,62.12307-20.79673,19.9127,3.05761,33.64366,18.03802,42.27069,35.86018,1.26509,2.61349,9.19317,20.29573,17.32485,32.44634,7.36909,11.01112,17.64658,16.29179,27.73768,16.54702,12.0477.30466,23.95065-6.53212,30.88562-18.17561,8.28088-13.90257,11.18932-33.90102,14.34679-48.76654,3.01962-14.21649,8.21315-18.06336,14.16217-17.54089,5.23782.46006,7.73192,4.86434,10.57069,11.45586-.6156-8.77181-2.49683-17.10841-7.71226-23.26499Z" />
+  </g>
+  <text class="uuid-4dd3a71a-ec5f-4a49-8223-03d43c14e43c" transform="translate(538.30258 138.2649)"><tspan x="0" y="0">maturin develop</tspan></text>
+  <text class="uuid-4dd3a71a-ec5f-4a49-8223-03d43c14e43c" transform="translate(538.30258 218.73267)"><tspan x="0" y="0">--release</tspan></text>
+</svg></div>
+
+<h1 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h1>
+<h2 id="environment-setup">Environment setup<a class="headerlink" href="#environment-setup" title="Permanent link">&para;</a></h2>
+<p>Requires:</p>
+<ul>
+<li><strong>Rust</strong> ≥ 1.85 — install via <a href="https://rustup.rs/">rustup</a> and keep updated with <code>rustup update</code></li>
+<li><strong>Python</strong> ≥ 3.10</li>
+<li><strong>CMake</strong> — needed to build the Ceres solver (skip with <code>--no-default-features</code> if you don't need fitting features)</li>
+<li><strong>GSL</strong> (optional) — enables the <code>"lmsder"</code> fitting backend; install via your system package manager (<code>libgsl-dev</code> on Debian/Ubuntu, <code>gsl</code> on Homebrew)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/light-curve/light-curve-python.git
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>light-curve-python/light-curve
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>venv/bin/activate
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>pip<span class="w"> </span>install<span class="w"> </span>maturin
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>maturin<span class="w"> </span>develop<span class="w"> </span>--group<span class="w"> </span>dev<span class="w">   </span><span class="c1"># builds Rust extension + installs dev deps</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>pre-commit<span class="w"> </span>install<span class="w">            </span><span class="c1"># install pre-commit hooks</span>
+</code></pre></div>
+<p>After this initial setup: activate the venv with <code>source venv/bin/activate</code>, then rebuild
+Rust code with <code>maturin develop</code> after any Rust change. Python-only changes need no rebuild.</p>
+<p>For a faster iteration cycle (no system deps):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>maturin<span class="w"> </span>develop<span class="w"> </span>--no-default-features<span class="w"> </span>--features<span class="o">=</span>abi3,mimalloc
+</code></pre></div>
+<h2 id="running-tests">Running tests<a class="headerlink" href="#running-tests" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pytest<span class="w">                                               </span><span class="c1"># all tests (benchmarks disabled by default)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>pytest<span class="w"> </span>--benchmark-enable<span class="w">                            </span><span class="c1"># with benchmarks</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>pytest<span class="w"> </span>tests/light_curve_ext/test_feature.py<span class="w">        </span><span class="c1"># single test file</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>pytest<span class="w"> </span>-k<span class="w"> </span><span class="s2">&quot;Amplitude&quot;</span><span class="w">                               </span><span class="c1"># filter by name</span>
+</code></pre></div>
+<p>Tests also cover the README examples via <code>markdown-pytest</code>.</p>
+<h2 id="linting-and-formatting">Linting and formatting<a class="headerlink" href="#linting-and-formatting" title="Permanent link">&para;</a></h2>
+<p>All linting runs automatically via pre-commit hooks on each commit.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Python</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ruff<span class="w"> </span>check<span class="w"> </span>.<span class="w">            </span><span class="c1"># lint</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>ruff<span class="w"> </span>format<span class="w"> </span>.<span class="w">           </span><span class="c1"># format</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># Rust</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>cargo<span class="w"> </span>fmt<span class="w"> </span>--manifest-path<span class="o">=</span>Cargo.toml
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>cargo<span class="w"> </span>clippy<span class="w"> </span>--all-targets<span class="w"> </span>--<span class="w"> </span>-D<span class="w"> </span>warnings<span class="w">   </span><span class="c1"># warnings are errors</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1"># Everything at once</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>pre-commit<span class="w"> </span>run<span class="w"> </span>--all-files
+</code></pre></div>
+<h2 id="cargo-features">Cargo features<a class="headerlink" href="#cargo-features" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>abi3</code></td>
+<td>✓</td>
+<td>Stable CPython ABI3 — disable for PyPy or free-threaded builds (requires Python 3.14t+)</td>
+</tr>
+<tr>
+<td><code>ceres-source</code></td>
+<td>✓</td>
+<td>Build Ceres solver from source (requires C++ compiler + CMake)</td>
+</tr>
+<tr>
+<td><code>ceres-system</code></td>
+<td></td>
+<td>Link against system-installed Ceres instead of building from source</td>
+</tr>
+<tr>
+<td><code>gsl</code></td>
+<td>✓</td>
+<td>Enable GSL backend for <code>BazinFit</code>/<code>VillarFit</code> (requires <code>libgsl-dev</code>)</td>
+</tr>
+<tr>
+<td><code>mkl</code></td>
+<td></td>
+<td>Intel MKL FFTW backend for the fast periodogram (strongly recommended for Intel CPUs)</td>
+</tr>
+<tr>
+<td><code>mimalloc</code></td>
+<td>✓</td>
+<td>mimalloc memory allocator — up to 2× speedup for cheap features</td>
+</tr>
+</tbody>
+</table>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
+<p>The package has a layered import structure:</p>
+<ol>
+<li><code>light_curve.light_curve_py</code> — pure-Python experimental implementations</li>
+<li><code>light_curve.light_curve_ext</code> — compiled Rust extension (via PyO3/Maturin)</li>
+<li><code>light_curve.__init__</code> — imports Python implementations first, then overrides with faster Rust equivalents</li>
+</ol>
+<p>This means every extractor has a Python fallback, but the Rust version takes precedence at runtime.</p>
+<p><strong>Rust source layout</strong> (inside <code>light-curve/src/</code>):</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>features.rs</code></td>
+<td>All 40+ feature extractors, PyO3 class definitions</td>
+</tr>
+<tr>
+<td><code>dmdt.rs</code></td>
+<td>dm-dt map implementation</td>
+</tr>
+<tr>
+<td><code>ln_prior.rs</code></td>
+<td>Log-prior helpers for MCMC fitting</td>
+</tr>
+<tr>
+<td><code>lib.rs</code></td>
+<td>Module exports and top-level PyO3 wiring</td>
+</tr>
+</tbody>
+</table>
+<h2 id="adding-a-new-feature-extractor">Adding a new feature extractor<a class="headerlink" href="#adding-a-new-feature-extractor" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Implement the feature in the upstream <a href="https://github.com/light-curve/light-curve-feature"><code>light-curve-feature</code></a> Rust crate.</li>
+<li>Add PyO3 bindings in <code>src/features.rs</code> and export in <code>src/lib.rs</code>.</li>
+<li>Optionally add a pure-Python experimental version in <code>light_curve/light_curve_py/features/</code>.</li>
+<li>Add tests in <code>tests/light_curve_ext/test_feature.py</code>.</li>
+<li>Add benchmarks in <code>tests/test_w_bench.py</code>.</li>
+<li>Update <code>CHANGELOG.md</code>.</li>
+</ol>
+<h2 id="updating-the-documentation">Updating the documentation<a class="headerlink" href="#updating-the-documentation" title="Permanent link">&para;</a></h2>
+<p>Docs live in <code>docs/</code> on the <code>main</code> branch. To preview locally:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>pip<span class="w"> </span>install<span class="w"> </span>maturin
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">cd</span><span class="w"> </span>light-curve<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>maturin<span class="w"> </span>develop<span class="w"> </span>--extras<span class="o">=</span>full<span class="w"> </span>--group<span class="o">=</span>docs<span class="w"> </span>-q<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>mkdocs<span class="w"> </span>serve<span class="w">   </span><span class="c1"># live preview at http://127.0.0.1:8000</span>
+</code></pre></div>
+<p><strong>When adding a new feature extractor</strong>, update the docs:</p>
+<ol>
+<li><strong>Feature table</strong> — <code>docs/features/index.md</code>: add a row to the appropriate category table (manually maintained).</li>
+<li><strong>API page</strong> — <code>docs/features/api/&lt;category&gt;.md</code>: add a <code>:::</code> autodoc entry:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>::: light_curve.NewFeatureName
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    options:
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>      heading_level: 3
+</code></pre></div></li>
+<li>Commit and push; CI deploys automatically to the <code>dev</code> version of the site on merge to <code>main</code>.</li>
+</ol>
+<p>The API reference prose (parameter descriptions, equations) is read from the Python
+docstrings, so updating those in the source is enough — no manual copy-paste needed.</p>
+<h2 id="branding">Branding<a class="headerlink" href="#branding" title="Permanent link">&para;</a></h2>
+<p>Logo and brand assets live in a separate repository,
+<a href="https://github.com/light-curve/branding"><code>light-curve/branding</code></a>, together with the
+Illustrator sources and the scripts that derive some of the SVGs. Do not edit the copies
+under <code>docs/assets/logo/</code> — change them upstream and copy the result across, so the two stay
+byte-identical.</p>
+<p>Only the files the site renders are vendored, and MkDocs copies everything under <code>docs/</code>
+into the built site verbatim — so nothing else belongs in <code>docs/assets/logo/</code>.</p>
+<p>Most assets come in a light-background and a dark-background variant. The header, the
+favicon and the README each pick between them by a different mechanism; <code>extra.css</code> and
+<code>overrides/partials/logo.html</code> explain why.</p>
+<p>For colour, style with the role tokens <code>--lc-fg</code> and <code>--lc-fg-accent</code> rather than the raw
+<code>--lc-purple</code> / <code>--lc-magenta</code> / <code>--lc-orange</code> / <code>--lc-amber</code>: no single brand colour is
+legible in both schemes, so the roles swap between them. See the comments in <code>extra.css</code>.</p>
+<p>A page can open with Licu beside two lines of Cascadia Mono by naming the wording:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="sb">```lockup</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="s">pip install</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="s">light-curve</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="sb">```</span>
+</code></pre></div>
+<p><code>docs/hooks.py</code> expands that into the artwork at build time.</p>
+<h3 id="readme-images">README images<a class="headerlink" href="#readme-images" title="Permanent link">&para;</a></h3>
+<p><code>light-curve/README.md</code> is also the PyPI long description, so its image URLs must be
+absolute, and they point at the branding repository. Two constraints are easy to trip over:</p>
+<ul>
+<li>PyPI sanitises the HTML with <code>readme_renderer</code> and <strong>drops <code>&lt;source&gt;</code></strong>, keeping the
+  <code>&lt;img&gt;</code>. The light-background variant therefore has to be the <code>&lt;img&gt;</code> fallback, since
+  PyPI renders on a white page.</li>
+<li>Images must be served with an image content type. <code>raw.githubusercontent.com</code> serves SVG
+  as <code>image/svg+xml</code>, so it works; not every host does.</li>
+</ul>
+<p>To check a README change before pushing, render it the way PyPI will:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>uvx<span class="w"> </span>--from<span class="w"> </span><span class="s1">&#39;readme_renderer[md]&#39;</span><span class="w"> </span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="s2">import readme_renderer.markdown, sys</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="s2">print(readme_renderer.markdown.render(open(&#39;light-curve/README.md&#39;).read(), stream=sys.stderr))</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="s2">&quot;</span>
+</code></pre></div>
+<h2 id="docs-preview-ci">Docs preview CI<a class="headerlink" href="#docs-preview-ci" title="Permanent link">&para;</a></h2>
+<p>Every pull request gets an automatic docs preview at <code>https://light-curve.snad.space/pr&lt;N&gt;/</code>, posted as a comment by the bot.</p>
+<p>The preview is built by the <strong>Docs Preview</strong> job in <code>docs.yml</code>, which uses a <code>pull_request_target</code> trigger so it has write access even for PRs from forks. It explicitly checks out the PR head commit to build the actual PR content.</p>
+<p>Stale previews (from merged or closed PRs) are removed the next time anything is pushed to <code>main</code>.</p>
+<h2 id="ci-secrets">CI secrets<a class="headerlink" href="#ci-secrets" title="Permanent link">&para;</a></h2>
+<p>The test workflow uses three repository secrets. Jobs and steps that require them are
+automatically skipped when the secret is absent, so CI still runs lint, build, and core tests
+on fork pull requests.</p>
+<table>
+<thead>
+<tr>
+<th>Secret</th>
+<th>Used by</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HF_TOKEN</code></td>
+<td><code>prepare-hf-models</code>, test jobs, <code>coverage</code>, <code>slow-tests</code></td>
+<td>Raises the HuggingFace API rate limit for model downloads (models are public; without the token the jobs still run at the unauthenticated limit)</td>
+</tr>
+<tr>
+<td><code>CODECOV_TOKEN</code></td>
+<td><code>coverage</code></td>
+<td>Uploads the coverage report to Codecov (skipped when absent)</td>
+</tr>
+<tr>
+<td><code>CODSPEED_TOKEN</code></td>
+<td><code>benchmarks</code></td>
+<td>Submits benchmark results to CodSpeed (whole job skipped when absent)</td>
+</tr>
+</tbody>
+</table>
+<p>Maintainers of the upstream repository configure these at <strong>repo Settings → Secrets and variables → Actions</strong>.
+Fork contributors can add the same secrets to their own fork if they want full CI coverage.
+To disable CI entirely on a fork, go to <strong>Settings → Actions → General</strong> and select <strong>Disable actions</strong>.</p>
+<h2 id="free-threaded-python">Free-threaded Python<a class="headerlink" href="#free-threaded-python" title="Permanent link">&para;</a></h2>
+<p>Free-threaded CPython (PEP 703) is supported from <strong>Python 3.14t</strong> onward.
+Python 3.13t is not supported. To build for free-threaded Python, use
+<code>--group dev-free-threading</code> instead of <code>--group dev</code> when installing dependencies
+(avoids packages that don't yet support free threading: iminuit, polars, cesium).</p>
+<p>Pre-built free-threaded wheels are not yet published to PyPI.</p>
+<h2 id="publishing-a-release">Publishing a release<a class="headerlink" href="#publishing-a-release" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Create a <code>release-vX.Y.Z</code> branch from <code>main</code>.</li>
+<li>Update <code>CHANGELOG.md</code> with the new version and date — the <strong>UTC</strong> date you expect the release
+   to land on PyPI.</li>
+<li>Update the version in <code>Cargo.toml</code> (the Python package version is read from there), then run
+   <code>cargo update</code> to update <code>Cargo.lock</code>.</li>
+<li>Commit, push the branch, and open a PR into <code>main</code>.</li>
+<li>Tag the branch HEAD and push: <code>git tag vX.Y.Z &amp;&amp; git push origin vX.Y.Z</code>.</li>
+<li>CI (<code>publish.yml</code>) builds wheels via cibuildwheel and uploads to PyPI.</li>
+<li>Once the release appears on PyPI, merge the PR into <code>main</code>.</li>
+<li>Create a GitHub release from the tag (copy the relevant <code>CHANGELOG.md</code> section as the release notes).</li>
+</ol>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "content.action.edit", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+    
+  </body>
+</html>
