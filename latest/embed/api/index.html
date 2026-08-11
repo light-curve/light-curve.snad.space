@@ -20,8 +20,8 @@
         
       
       
-      <link rel="icon" href="../../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <link rel="icon" href="../../assets/logo/mark-adaptive.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -45,9 +45,9 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+        
+        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.69b53256.css">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Cascadia Mono"}</style>
       
     
     
@@ -102,7 +102,8 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="light-curve" class="md-header__button md-logo" aria-label="light-curve" data-md-component="logo">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/logo/mark-light.svg" alt="logo" class="lc-logo lc-logo--light">
+  <img src="../../assets/logo/mark-dark.svg" alt="" aria-hidden="true" class="lc-logo lc-logo--dark">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -411,7 +412,8 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="light-curve" class="md-nav__button md-logo" aria-label="light-curve" data-md-component="logo">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/logo/mark-light.svg" alt="logo" class="lc-logo lc-logo--light">
+  <img src="../../assets/logo/mark-dark.svg" alt="" aria-hidden="true" class="lc-logo lc-logo--dark">
 
     </a>
     light-curve
@@ -1487,6 +1489,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#light_curve.embed.Moment1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Moment1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#reduction-strategies" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1935,6 +1948,17 @@
     <span class="md-ellipsis">
       
         ChronosBolt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.embed.Moment1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Moment1
       
     </span>
   </a>
@@ -5025,15 +5049,8 @@ observations, matching the model's native right-aligned context).</p>
 
         <p>Chronos-Bolt univariate light-curve embedding model.</p>
 <p>A faster, patch-based Chronos variant available in four sizes with
-different embedding dimensions (native context up to 2048 observations):</p>
-<p>===== =========
-size  embed_dim
-===== =========
-tiny  256
-mini  384
-small 512
-base  768
-===== =========</p>
+different embedding dimensions (native context up to 2048 observations):
+<code>tiny</code> (256), <code>mini</code> (384), <code>small</code> (512), and <code>base</code> (768).</p>
 <p>The ONNX models are hosted on HuggingFace at
 <code>https://huggingface.co/light-curve/chronos-bolt-&lt;size&gt;</code>.</p>
 <p>Use :meth:<code>from_hf</code> (with <code>size=</code>) to download and load the model.</p>
@@ -5205,7 +5222,8 @@ Defaults to <code>"end"</code>.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Model size to load.  Defaults to <code>"base"</code>.</p>
+                <p>Model size to load.  Required: the sizes have different embedding
+dimensions, so there is no meaningful default.</p>
               </div>
             </td>
             <td>
@@ -5293,6 +5311,354 @@ Defaults to <code>"end"</code>.</p>
           <tr class="doc-section-item">
             <td>
                   <code><a class="autorefs autorefs-internal" title="light_curve.embed.ChronosBolt (light_curve.embed.chronos.ChronosBolt)" href="#light_curve.embed.ChronosBolt">ChronosBolt</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Instance with a live ONNX inference session.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ValueError">ValueError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If <code>size</code> or <code>output</code> is not recognised.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ImportError">ImportError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If <code>huggingface_hub</code> or an <code>onnxruntime</code> variant is missing.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.embed.Moment1" class="doc doc-heading">
+            <code>light_curve.embed.Moment1</code>
+
+
+<a href="#light_curve.embed.Moment1" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.embed.SingleBandModel (light_curve.embed.model.SingleBandModel)" href="#light_curve.embed.SingleBandModel">SingleBandModel</a></code></p>
+
+
+
+        <p>MOMENT-1 univariate light-curve embedding model.</p>
+<p>A T5-based time-series foundation model (Goswami et al. 2024) pretrained with
+a masked-reconstruction objective on the Time-series Pile.  It embeds a single
+univariate magnitude series: timestamps are discarded and observations are
+treated as sequentially ordered (the same convention used for the Chronos
+models).  The series is capped to the most recent 512 observations and
+left-padded with NaN to that fixed window; reversible instance normalisation
+(RevIN) is applied internally by the model.</p>
+<p>The model comes in three sizes with different embedding dimensions: <code>small</code>
+(512), <code>base</code> (768), and <code>large</code> (1024).  Unlike Chronos, the context
+length is fixed at 512 observations (64 patches of 8), not a dynamic axis.</p>
+<p>The ONNX models are hosted on HuggingFace at
+<code>https://huggingface.co/light-curve/moment1-&lt;size&gt;</code>.</p>
+<p>Use :meth:<code>from_hf</code> (with <code>size=</code>) to download and load the model.</p>
+
+
+<details class="model-license" open>
+  <summary>Model license</summary>
+  <p>MIT (upstream AutonLab/MOMENT-1 license).</p>
+</details>
+
+<details class="references" open>
+  <summary>References</summary>
+  <p>Goswami et al. (2024), <em>MOMENT: A Family of Open Time-series Foundation
+Models</em>, ICML 2024.  https://huggingface.co/AutonLab/MOMENT-1-base</p>
+</details>
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>session</code>
+            </td>
+            <td>
+                  <code><span title="ort.InferenceSession">InferenceSession</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>ONNX inference session for the MOMENT-1 model file.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>size</code>
+            </td>
+            <td>
+                  <code>(<span title="small">small</span>, <span title="base">base</span>, <span title="large">large</span>)</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Which model size this session corresponds to (sets <code>embed_dim</code>).</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#34;small&#34;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>output</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p><code>"mean"</code> (default) or <code>"sequence"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;mean&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction</code>
+            </td>
+            <td>
+                  <code>str, list of str, or Reduction</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Observation-selection strategy for light curves longer than 512.
+Defaults to <code>"end"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;end&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction_kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Extra keyword arguments forwarded to :func:<code>reduction_from_str</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="light_curve.embed.Moment1.from_hf" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">from_hf</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#light_curve.embed.Moment1.from_hf" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Load a MOMENT-1 model of the given <code>size</code> from the HuggingFace Hub.</p>
+<p>Downloads (and caches) the ONNX model file, creates an
+<code>onnxruntime.InferenceSession</code>, and returns a ready-to-use instance.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>size</code>
+            </td>
+            <td>
+                  <code>(<span title="small">small</span>, <span title="base">base</span>, <span title="large">large</span>)</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Model size to load.  Required: the sizes have different embedding
+dimensions, so there is no meaningful default.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#34;small&#34;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>output</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Named ONNX output to return: <code>"mean"</code> (default, masked mean pool
+over valid patches → <code>(..., 1, embed_dim)</code>) or <code>"sequence"</code>
+(per-patch encoder states → <code>(..., 64, embed_dim)</code>).</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;mean&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction</code>
+            </td>
+            <td>
+                  <code>str, list of str, or Reduction</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Observation-selection strategy for light curves longer than 512.
+Defaults to <code>"end"</code> (the most recent 512 observations, matching the
+model's native right-aligned context).</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;end&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reduction_kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Extra keyword arguments forwarded to :func:<code>reduction_from_str</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>ort_session_kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Keyword arguments forwarded to <code>onnxruntime.InferenceSession</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="light_curve.embed.Moment1 (light_curve.embed.moment.Moment1)" href="#light_curve.embed.Moment1">Moment1</a></code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -5831,7 +6197,7 @@ axis rather than aggregated, giving one embedding per strategy.</p>
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "content.action.edit", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
       
