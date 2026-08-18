@@ -1744,7 +1744,7 @@ In the latter case you will see errors like:</p>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">so</span><span class="o">.</span><span class="n">intra_op_num_threads</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># threads within a single op (e.g. matrix multiply)</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">so</span><span class="o">.</span><span class="n">inter_op_num_threads</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># threads across independent ops in the graph</span>
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">model</span> <span class="o">=</span> <span class="n">Astromer2</span><span class="o">.</span><span class="n">from_hf</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">ort_session_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;sess_options&quot;</span><span class="p">:</span> <span class="n">so</span><span class="p">})</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">model</span> <span class="o">=</span> <span class="n">Astromer2</span><span class="o">.</span><span class="n">from_hf</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s2">"mean"</span><span class="p">,</span> <span class="n">ort_session_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"sess_options"</span><span class="p">:</span> <span class="n">so</span><span class="p">})</span>
 </code></pre></div>
 <p><strong>Both values must be set explicitly</strong> — onnxruntime only skips the affinity call when a
 thread count is given. Set their sum to the number of CPUs in your job allocation
@@ -1757,8 +1757,8 @@ thread; the example above is a reasonable starting point rather than a universal
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">light_curve.embed</span><span class="w"> </span><span class="kn">import</span> <span class="n">Astromer2</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">Astromer2</span><span class="o">.</span><span class="n">from_hf</span><span class="p">(</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">output</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">ort_session_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;providers&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;CUDAExecutionProvider&quot;</span><span class="p">]},</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">output</span><span class="o">=</span><span class="s2">"mean"</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">ort_session_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"providers"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"CUDAExecutionProvider"</span><span class="p">]},</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">)</span>
 </code></pre></div>
 <p>To confirm the GPU is actually being used, run <code>nvidia-smi</code> while inference is running
@@ -1784,23 +1784,23 @@ If the installed CUDA libraries do not match, you will see runtime errors like
 install the CUDA toolkit and cuDNN from the NVIDIA conda channel alongside
 <code>onnxruntime-gpu</code> from PyPI:</p>
 <div class="highlight"><span class="filename">pixi.toml</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[workspace]</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my-project&quot;</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">channels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;conda-forge&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;nvidia/label/cuda-12.6.3&quot;</span><span class="p">]</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">platforms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;linux-64&quot;</span><span class="p">]</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my-project"</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">channels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"conda-forge"</span><span class="p">,</span><span class="w"> </span><span class="s2">"nvidia/label/cuda-12.6.3"</span><span class="p">]</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">platforms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"linux-64"</span><span class="p">]</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">[dependencies]</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=3.10&quot;</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">cuda-toolkit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;12.*&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;nvidia/label/cuda-12.6.3&quot;</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">cudnn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;9.*&quot;</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">huggingface_hub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;*&quot;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&gt;=3.10"</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">cuda-toolkit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"12.*"</span><span class="p">,</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"nvidia/label/cuda-12.6.3"</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">cudnn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"9.*"</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">huggingface_hub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"*"</span>
 <a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
 <a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="k">[pypi-dependencies]</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="n">onnxruntime-gpu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;*&quot;</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="n">onnxruntime-gpu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"*"</span>
 </code></pre></div>
 <p>Choose the <code>nvidia/label/cuda-X.Y.Z</code> channel to match the CUDA version required by
 your chosen <code>onnxruntime-gpu</code> release. Pin the version if needed:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[pypi-dependencies]</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">onnxruntime-gpu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=1.18,&lt;1.20&quot;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">onnxruntime-gpu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&gt;=1.18,&lt;1.20"</span>
 </code></pre></div>
 <h3 id="other-providers">Other providers<a class="headerlink" href="#other-providers" title="Permanent link">&para;</a></h3>
 <p>onnxruntime supports additional hardware via execution providers:
@@ -1824,10 +1824,10 @@ which is normal. To silence them, raise the log severity to <code>ERROR</code> (
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">so</span><span class="o">.</span><span class="n">log_severity_level</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># 0=Verbose, 1=Info, 2=Warning (default), 3=Error, 4=Fatal</span>
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
 <a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">model</span> <span class="o">=</span> <span class="n">Astromer2</span><span class="o">.</span><span class="n">from_hf</span><span class="p">(</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="n">output</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="n">output</span><span class="o">=</span><span class="s2">"mean"</span><span class="p">,</span>
 <a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="n">ort_session_kwargs</span><span class="o">=</span><span class="p">{</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>        <span class="s2">&quot;providers&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;CUDAExecutionProvider&quot;</span><span class="p">],</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>        <span class="s2">&quot;sess_options&quot;</span><span class="p">:</span> <span class="n">so</span><span class="p">,</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>        <span class="s2">"providers"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"CUDAExecutionProvider"</span><span class="p">],</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>        <span class="s2">"sess_options"</span><span class="p">:</span> <span class="n">so</span><span class="p">,</span>
 <a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="p">},</span>
 <a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="p">)</span>
 </code></pre></div>

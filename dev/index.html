@@ -1787,7 +1787,7 @@
 <p><code>light-curve</code> is a Python package for analyzing photometric light curves at the scale of millions of objects.
 It provides multiple tools for ML pre-processing pipelines as well as 40+ statistical and variability features
 for filtering, classification, and catalog analysis.</p>
-<div class="highlight"><span class="filename">Install</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;light-curve[full]&#39;</span>
+<div class="highlight"><span class="filename">Install</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">'light-curve[full]'</span>
 </code></pre></div>
 <hr />
 <div class="lc-cards">
@@ -1963,7 +1963,7 @@ for filtering, classification, and catalog analysis.</p>
 <a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">result</span> <span class="o">=</span> <span class="n">extractor</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="c1"># ML embedding with pretrained Astromer2 (downloads on first use)</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="n">model</span> <span class="o">=</span> <span class="n">Astromer2</span><span class="o">.</span><span class="n">from_hf</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="n">model</span> <span class="o">=</span> <span class="n">Astromer2</span><span class="o">.</span><span class="n">from_hf</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s2">"mean"</span><span class="p">)</span>
 <a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="n">embedding</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>   <span class="c1"># shape (256,)</span>
 <a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
 <a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="c1"># dm-dt map for CNN-based variability classifiers</span>
