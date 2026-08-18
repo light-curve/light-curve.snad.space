@@ -2274,14 +2274,26 @@ sample standard deviation is used instead</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Multiband resampling strategy, ignored unless <code>bands</code> is given:</p>
+                <p>How the multiband light curve is resampled, ignored unless <code>bands</code> is
+given. The two strategies answer different questions and can give
+noticeably different uncertainties on unevenly sampled data:</p>
 <ul>
-<li>'stratified': resample each passband independently, preserving every
-  per-band count. No resample is ever rejected, but conditioning on the
-  per-band sample sizes drops the variance from how observations happen to
-  be allocated across bands,</li>
-<li>'rejection': resample all observations jointly, redrawing resamples that
-  fail the wrapped features' per-band requirements</li>
+<li>'stratified': resample each passband on its own, drawing exactly as many
+  observations as that passband started with. This conditions on the
+  per-band sample sizes, so the uncertainty leaves out the variance coming
+  from how observations happened to be split between bands. Every resample
+  keeps every passband at its original length, so none can fall below what
+  the wrapped features need and none is ever rejected. Use it when the
+  per-band cadence is a fixed property of the survey rather than a random
+  outcome,</li>
+<li>'rejection': the classical i.i.d. bootstrap — resample all observations
+  jointly, ignoring which band they came from. Per-band counts then vary
+  between resamples, so the uncertainty also covers the allocation of
+  observations across bands, but a resample can leave a passband with too
+  few points for the wrapped features. Those resamples are thrown away and
+  redrawn, within the budget set by <code>max_attempts_factor</code>. Use it when
+  you want the uncertainty of the light curve as a whole; be wary of it
+  when some band has few observations, as most resamples may be rejected</li>
 </ul>
               </div>
             </td>
