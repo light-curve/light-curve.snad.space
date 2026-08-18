@@ -929,7 +929,7 @@
   <span class="md-ellipsis">
     
   
-    Linear trend
+    Linear and parabola
   
 
     
@@ -1763,6 +1763,11 @@ The <code>.many()</code> method processes a list of light curves in batch with r
 <td>1</td>
 </tr>
 <tr>
+<td><a href="api/variability/#light_curve.BiweightScale"><code>BiweightScale</code></a></td>
+<td>Tukey's biweight robust scale of magnitude, a robust alternative to <span class="arithmatex">\(\sigma_m\)</span></td>
+<td>1</td>
+</tr>
+<tr>
 <td><a href="api/variability/#light_curve.Chi2Pvar"><code>Chi2Pvar</code></a></td>
 <td>Probability of variability from the <span class="arithmatex">\(\chi^2\)</span> test</td>
 <td>1</td>
@@ -1848,6 +1853,11 @@ The <code>.many()</code> method processes a list of light curves in batch with r
 <td>1</td>
 </tr>
 <tr>
+<td><a href="api/variability/#light_curve.QnScale"><code>QnScale</code></a></td>
+<td>Rousseeuw–Croux <span class="arithmatex">\(Q_n\)</span> robust scale of magnitude, from pairwise differences</td>
+<td>1</td>
+</tr>
+<tr>
 <td><a href="api/variability/#light_curve.ReducedChi2"><code>ReducedChi2</code></a></td>
 <td>Reduced <span class="arithmatex">\(\chi^2\)</span> of magnitude measurements</td>
 <td>1</td>
@@ -1879,8 +1889,8 @@ The <code>.many()</code> method processes a list of light curves in batch with r
 </tr>
 </tbody>
 </table>
-<h3 id="linear-trend">Linear trend<a class="headerlink" href="#linear-trend" title="Permanent link">&para;</a></h3>
-<p><em>Fast: both features combined ~10 µs on 1,000 observations, single band.</em></p>
+<h3 id="linear-and-parabola">Linear and parabola<a class="headerlink" href="#linear-and-parabola" title="Permanent link">&para;</a></h3>
+<p><em>Fast: the linear features combined ~10 µs on 1,000 observations, single band.</em></p>
 <table>
 <thead>
 <tr>
@@ -1898,6 +1908,11 @@ The <code>.many()</code> method processes a list of light curves in batch with r
 <tr>
 <td><a href="api/linear/#light_curve.LinearTrend"><code>LinearTrend</code></a></td>
 <td>Slope, its error, and noise level of the unweighted linear fit</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="api/linear/#light_curve.ParabolaFit"><code>ParabolaFit</code></a></td>
+<td>Curvature, extremum value, and reduced <span class="arithmatex">\(\chi^2\)</span> of the weighted parabolic fit</td>
 <td>3</td>
 </tr>
 </tbody>
@@ -2077,6 +2092,10 @@ The <code>.many()</code> method processes a list of light curves in batch with r
 <tr>
 <td><a href="api/meta/#light_curve.Bins"><code>Bins</code></a></td>
 <td>Bin a time series, then apply any set of features to each bin</td>
+</tr>
+<tr>
+<td><a href="api/meta/#light_curve.Bootstrap"><code>Bootstrap</code></a></td>
+<td>Estimate feature uncertainties by bagging: each wrapped value plus its bootstrap spread</td>
 </tr>
 </tbody>
 </table>

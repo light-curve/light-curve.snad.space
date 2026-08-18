@@ -915,7 +915,7 @@
   <span class="md-ellipsis">
     
   
-    Linear trend
+    Linear and parabola
   
 
     
@@ -1601,15 +1601,36 @@
 and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
 <h2 id="unreleased">[Unreleased]<a class="headerlink" href="#unreleased" title="Permanent link">&para;</a></h2>
 <h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h3>
-<p>--</p>
+<ul>
+<li><code>BiweightScale</code>: Tukey's biweight robust scale of magnitude (Beers, Flynn &amp; Gebhardt 1990), a
+  robust alternative to the standard deviation, with tuning constant <code>c</code> defaulting to 9
+  (<a href="https://github.com/light-curve/light-curve-feature/pull/303">light-curve-feature#303</a>).</li>
+<li><code>QnScale</code>: the <span class="arithmatex">\(Q_n\)</span> robust scale of magnitude (Rousseeuw &amp; Croux 1993), built from pairwise
+  differences instead of deviations from a centre
+  (<a href="https://github.com/light-curve/light-curve-feature/pull/304">light-curve-feature#304</a>).</li>
+<li><code>ParabolaFit</code>: curvature, extremum value and reduced <span class="arithmatex">\(\chi^2\)</span> of the weighted parabolic fit
+  (<a href="https://github.com/light-curve/light-curve-feature/pull/302">light-curve-feature#302</a>).</li>
+<li><code>Bootstrap</code>: meta-feature estimating feature uncertainties by bagging, returning each wrapped
+  value plus its standard deviation over the resamples, or the levels given by <code>quantiles=</code>.
+  <code>bands=</code> switches to the multiband counterpart, where <code>band_strategy=</code> selects <code>'stratified'</code>
+  or <code>'rejection'</code> resampling
+  (<a href="https://github.com/light-curve/light-curve-feature/pull/305">light-curve-feature#305</a>).</li>
+</ul>
 <h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
-<p>--</p>
+<ul>
+<li>Bump <code>light-curve-feature</code> from 0.18.1 to 0.19.0
+  (<a href="https://github.com/light-curve/light-curve-python/pull/834">#834</a>).</li>
+</ul>
 <h3 id="deprecated">Deprecated<a class="headerlink" href="#deprecated" title="Permanent link">&para;</a></h3>
 <p>--</p>
 <h3 id="removed">Removed<a class="headerlink" href="#removed" title="Permanent link">&para;</a></h3>
 <p>--</p>
 <h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h3>
-<p>--</p>
+<ul>
+<li>Via <code>light-curve-feature</code> 0.19.0: <code>fill_value</code> replaced every passband when a single passband
+  was absent or unusable; a multiband feature, or a multiband <code>Bins</code>, now fills only the failing
+  passband (<a href="https://github.com/light-curve/light-curve-feature/pull/324">light-curve-feature#324</a>).</li>
+</ul>
 <h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
 <p>--</p>
 <h2 id="0132-2026-08-10">[0.13.2] 2026-08-10<a class="headerlink" href="#0132-2026-08-10" title="Permanent link">&para;</a></h2>

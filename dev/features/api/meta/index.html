@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#meta-extractor-and-bins" class="md-skip">
+        <a href="#meta-extractor-bins-and-bootstrap" class="md-skip">
           Skip to content
         </a>
       
@@ -949,6 +949,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#light_curve.Bootstrap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bootstrap
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1000,7 +1011,7 @@
   <span class="md-ellipsis">
     
   
-    Linear trend
+    Linear and parabola
   
 
     
@@ -1684,6 +1695,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#light_curve.Bootstrap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bootstrap
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1709,7 +1731,7 @@
   
 
 
-<h1 id="meta-extractor-and-bins">Meta — Extractor and Bins<a class="headerlink" href="#meta-extractor-and-bins" title="Permanent link">&para;</a></h1>
+<h1 id="meta-extractor-bins-and-bootstrap">Meta — Extractor, Bins and Bootstrap<a class="headerlink" href="#meta-extractor-bins-and-bootstrap" title="Permanent link">&para;</a></h1>
 
 
 <div class="doc doc-object doc-class">
@@ -2045,6 +2067,327 @@ considering bin. Bins takes any other feature evaluators to extract features fro
             </tr>
             <tr class="doc-section-item">
               <td><code><span title="light_curve.Bins.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.Bootstrap" class="doc doc-heading">
+            <code>light_curve.Bootstrap</code>
+
+
+<a href="#light_curve.Bootstrap" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Bootstrap uncertainty meta-feature</p>
+<p>Estimates the uncertainty of feature values by bagging: it draws <code>n_bootstrap</code> resamples of
+the light curve, sampling observations <em>with replacement</em> and keeping the original length, and
+evaluates the wrapped features on each resample. For every wrapped feature value it returns the
+value on the original light curve, followed by a summary of that value's spread over the
+resamples — either the sample standard deviation, or the levels given by <code>quantiles</code>.</p>
+<p>In single-band mode all <code>n_bootstrap</code> resamples are always evaluated, so the uncertainty is
+always defined. In multiband mode the <code>'rejection'</code> strategy may collect too few valid
+resamples, in which case the feature fails and <code>fill_value</code> applies as it does to any other
+feature.</p>
+<p>Features that cannot be evaluated on a resample are rejected with <code>ValueError</code>:</p>
+<ul>
+<li>features requiring <strong>sorting</strong> — bagging duplicates observations, which divides by a zero time
+  interval for features that also read time and, even where time is not read, biases statistics
+  built from consecutive differences, since duplicated points sort adjacent and contribute
+  spurious zero-difference terms,</li>
+<li>
+<p>features requiring <strong>variability</strong> — a resample may be constant.</p>
+</li>
+<li>
+<p>Depends on: as required by sub-features</p>
+</li>
+<li>Minimum number of observations: as required by sub-features, but at least <strong>1</strong></li>
+<li>Number of features: <code>(1 + n_uncertainty)</code> per sub-feature value, where <code>n_uncertainty</code> is
+  1 for the standard deviation, or the number of quantile levels</li>
+</ul>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>features</code>
+            </td>
+            <td>
+                  <code><span title="iterable">iterable</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Features to estimate the bootstrap uncertainty of. Features requiring
+sorting or variability are rejected: bagging duplicates observations, and
+a resample may turn out constant</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>n_bootstrap</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Number of resamples to draw, at least 2</p>
+              </div>
+            </td>
+            <td>
+                  <code>100</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>seed</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Seed of the random number generator drawing the resamples, which makes the
+output reproducible</p>
+              </div>
+            </td>
+            <td>
+                  <code>0</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>quantiles</code>
+            </td>
+            <td>
+                  <code>sequence of float or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Quantile levels in [0, 1] to summarise the spread of each feature over the
+resamples, e.g. <code>[0.16, 0.84]</code> for a 1-sigma-like interval. If None, the
+sample standard deviation is used instead</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Not supported, apply transformations to individual features</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If given, each single-band feature in
+<code>features</code> is evaluated independently per passband; multiband features
+(e.g. color features) are passed through unchanged</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>band_strategy</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>How the multiband light curve is resampled, ignored unless <code>bands</code> is
+given. The two strategies answer different questions and can give
+noticeably different uncertainties on unevenly sampled data:</p>
+<ul>
+<li>'stratified': resample each passband on its own, drawing exactly as many
+  observations as that passband started with. This conditions on the
+  per-band sample sizes, so the uncertainty leaves out the variance coming
+  from how observations happened to be split between bands. Every resample
+  keeps every passband at its original length, so none can fall below what
+  the wrapped features need and none is ever rejected. Use it when the
+  per-band cadence is a fixed property of the survey rather than a random
+  outcome,</li>
+<li>'rejection': the classical i.i.d. bootstrap — resample all observations
+  jointly, ignoring which band they came from. Per-band counts then vary
+  between resamples, so the uncertainty also covers the allocation of
+  observations across bands, but a resample can leave a passband with too
+  few points for the wrapped features. Those resamples are thrown away and
+  redrawn, within the budget set by <code>max_attempts_factor</code>. Use it when
+  you want the uncertainty of the light curve as a whole; be wary of it
+  when some band has few observations, as most resamples may be rejected</li>
+</ul>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;stratified&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>max_attempts_factor</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Bounds the redrawing budget of the 'rejection' strategy at
+<code>n_bootstrap * max_attempts_factor</code> total draws. Ignored by 'stratified'</p>
+              </div>
+            </td>
+            <td>
+                  <code>100</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Bootstrap.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Bootstrap.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.Bootstrap.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.Bootstrap.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.Bootstrap.many">many</span></code></td>
               <td>
                 <div class="doc-md-description">
                   <p>Extract features from multiple light curves in parallel</p>
