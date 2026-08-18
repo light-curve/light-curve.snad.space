@@ -989,6 +989,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#light_curve.BiweightScale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BiweightScale
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#light_curve.Chi2Pvar" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1187,6 +1198,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#light_curve.QnScale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QnScale
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#light_curve.ReducedChi2" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1275,7 +1297,7 @@
   <span class="md-ellipsis">
     
   
-    Linear trend
+    Linear and parabola
   
 
     
@@ -1971,6 +1993,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#light_curve.BiweightScale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BiweightScale
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#light_curve.Chi2Pvar" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2162,6 +2195,17 @@
     <span class="md-ellipsis">
       
         PercentDifferenceMagnitudePercentile
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light_curve.QnScale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QnScale
       
     </span>
   </a>
@@ -2831,6 +2875,232 @@ order. If None (default), single-band mode is used.</p>
             </tr>
             <tr class="doc-section-item">
               <td><code><span title="light_curve.BeyondNStd.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.BiweightScale" class="doc doc-heading">
+            <code>light_curve.BiweightScale</code>
+
+
+<a href="#light_curve.BiweightScale" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Biweight scale — a robust measure of the magnitude scale</p>
+<p>Tukey's biweight (bisquare) scale estimator, a robust alternative to the standard deviation
+that down-weights outliers smoothly. With the median <span class="arithmatex">\(M\)</span> and the median absolute deviation
+<span class="arithmatex">\(\mathrm{MAD} = \mathrm{Median}(|m_i - M|)\)</span>, define</p>
+<div class="arithmatex">\[
+u_i = \frac{m_i - M}{c \cdot \mathrm{MAD}},
+\]</div>
+<p>with tuning constant <span class="arithmatex">\(c\)</span> (default <span class="arithmatex">\(c = 9\)</span>). Only points with <span class="arithmatex">\(|u_i| &lt; 1\)</span> contribute, and the
+scale is</p>
+<div class="arithmatex">\[
+\zeta_\mathrm{BI} = \sqrt{N} \,
+\frac{\sqrt{\sum_{|u_i| &lt; 1} (m_i - M)^2 \, (1 - u_i^2)^4}}
+{\left| \sum_{|u_i| &lt; 1} (1 - u_i^2)(1 - 5 u_i^2) \right|}.
+\]</div>
+<p>Smaller <span class="arithmatex">\(c\)</span> rejects outliers more aggressively; larger <span class="arithmatex">\(c\)</span> approaches the standard deviation.</p>
+<p>When <span class="arithmatex">\(\mathrm{MAD} = 0\)</span> (at least half of the values equal the median) the estimator is
+undefined and zero is returned.</p>
+<ul>
+<li>Depends on: <strong>magnitude</strong></li>
+<li>Minimum number of observations: <strong>1</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+<p>Beers, Flynn &amp; Gebhardt 1990 <a href="https://doi.org/10.1086/115487">DOI:10.1086/115487</a></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>c</code>
+            </td>
+            <td>
+                  <code>positive float</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Tuning constant — how many MADs away from the median a point is still
+given weight. Smaller values reject outliers more aggressively, larger
+values approach the standard deviation</p>
+              </div>
+            </td>
+            <td>
+                  <code>9.0</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'identity'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.BiweightScale.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.BiweightScale.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.BiweightScale.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.BiweightScale.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.BiweightScale.many">many</span></code></td>
               <td>
                 <div class="doc-md-description">
                   <p>Extract features from multiple light curves in parallel</p>
@@ -6441,6 +6711,210 @@ order. If None (default), single-band mode is used.</p>
             </tr>
             <tr class="doc-section-item">
               <td><code><span title="light_curve.PercentDifferenceMagnitudePercentile.many">many</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features from multiple light curves in parallel</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="light_curve.QnScale" class="doc doc-heading">
+            <code>light_curve.QnScale</code>
+
+
+<a href="#light_curve.QnScale" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+    <p class="doc doc-class-bases">
+      Bases: <code><a class="autorefs autorefs-internal" title="light_curve.light_curve_ext._FeatureEvaluator" href="../base/#light_curve.light_curve_ext._FeatureEvaluator">_FeatureEvaluator</a></code></p>
+
+
+
+        <p>Qn — a robust measure of the magnitude scale</p>
+<p>The Qn estimator of Rousseeuw &amp; Croux (1993), a robust alternative to the standard deviation
+with 50% breakdown point and ~82% Gaussian efficiency (much higher than the median absolute
+deviation). Unlike the MAD it does not assume a symmetric distribution and uses pairwise
+differences rather than deviations from a center:</p>
+<div class="arithmatex">\[
+Q_n = c \cdot \left\{ |m_i - m_j| ~:~ i &lt; j \right\}_{(k)},
+\]</div>
+<p>the <span class="arithmatex">\(k\)</span>-th order statistic of all <span class="arithmatex">\(\binom{N}{2}\)</span> pairwise absolute differences, where
+<span class="arithmatex">\(h = \lfloor N/2 \rfloor + 1\)</span>, <span class="arithmatex">\(k = \binom{h}{2}\)</span>, and <span class="arithmatex">\(c = 1 / (\sqrt2\, \Phi^{-1}(5/8)) \approx
+2.219\)</span> makes the estimator consistent with the standard deviation for Gaussian noise.</p>
+<p>The <span class="arithmatex">\(O(N \log N)\)</span> algorithm of Croux &amp; Rousseeuw (1992) is used (no <span class="arithmatex">\(O(N^2)\)</span> materialization
+of the pairwise differences).</p>
+<ul>
+<li>Depends on: <strong>magnitude</strong></li>
+<li>Minimum number of observations: <strong>2</strong></li>
+<li>Number of features: <strong>1</strong></li>
+</ul>
+<p>Rousseeuw &amp; Croux 1993 <a href="https://doi.org/10.1080/01621459.1993.10476408">DOI:10.1080/01621459.1993.10476408</a></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>transform</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> or <span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Transformer to apply to the feature values. If str, must be one of:</p>
+<ul>
+<li><code>'default'</code> - use default transformer for the feature, same as giving
+   True. The default for this feature is <code>'identity'</code></li>
+<li><code>'arcsinh'</code> - Hyperbolic arcsine feature transformer</li>
+<li><code>'clipped_lg'</code> - Decimal logarithm of a value clipped to a minimum value</li>
+<li><code>'identity'</code> - Identity feature transformer</li>
+<li><code>'lg'</code> - Decimal logarithm feature transformer</li>
+<li><code>'ln1p'</code> - ln(1+x) feature transformer</li>
+<li><code>'sqrt'</code> - Square root feature transformer</li>
+</ul>
+<p>If bool, True uses the default transformer, False disables it.
+If None, no transformation is applied (default)</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bands</code>
+            </td>
+            <td>
+                  <code>list of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode. If provided, the feature is evaluated
+independently per passband and the outputs are concatenated in passband
+order. If None (default), single-band mode is used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.QnScale.names">names</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature names</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.QnScale.descriptions">descriptions</span></code></td>
+            <td>
+                  <code>list of str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Feature descriptions</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="light_curve.QnScale.bands">bands</span></code></td>
+            <td>
+                  <code>numpy.ndarray of str or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband names for multiband mode, or None for single-band mode</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.QnScale.__call__">__call__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Extract features and return them as a numpy array</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="light_curve.QnScale.many">many</span></code></td>
               <td>
                 <div class="doc-md-description">
                   <p>Extract features from multiple light curves in parallel</p>

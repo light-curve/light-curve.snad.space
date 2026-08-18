@@ -929,7 +929,7 @@
   <span class="md-ellipsis">
     
   
-    Linear trend
+    Linear and parabola
   
 
     
@@ -1724,9 +1724,9 @@ All share a common interface: callable objects with <code>.names</code> and <cod
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">7.1</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">,</span> <span class="mf">13.0</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">17.0</span><span class="p">,</span> <span class="mf">19.0</span><span class="p">])</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">15.1</span><span class="p">,</span> <span class="mf">15.3</span><span class="p">,</span> <span class="mf">14.9</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">15.2</span><span class="p">,</span> <span class="mf">15.1</span><span class="p">,</span> <span class="mf">14.8</span><span class="p">,</span> <span class="mf">15.3</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">15.1</span><span class="p">])</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.05</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">band</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">([</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">band</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">([</span><span class="s2">"g"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">ext</span> <span class="o">=</span> <span class="n">licu</span><span class="o">.</span><span class="n">Extractor</span><span class="p">(</span><span class="n">licu</span><span class="o">.</span><span class="n">Chi2Pvar</span><span class="p">(),</span> <span class="n">licu</span><span class="o">.</span><span class="n">BeyondNStd</span><span class="p">(</span><span class="n">nstd</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">licu</span><span class="o">.</span><span class="n">LinearFit</span><span class="p">(</span><span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">]))</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">ext</span> <span class="o">=</span> <span class="n">licu</span><span class="o">.</span><span class="n">Extractor</span><span class="p">(</span><span class="n">licu</span><span class="o">.</span><span class="n">Chi2Pvar</span><span class="p">(),</span> <span class="n">licu</span><span class="o">.</span><span class="n">BeyondNStd</span><span class="p">(</span><span class="n">nstd</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">licu</span><span class="o">.</span><span class="n">LinearFit</span><span class="p">(</span><span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">"g"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">]))</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">result</span> <span class="o">=</span> <span class="n">ext</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">band</span><span class="p">)</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">ext</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">result</span><span class="p">)))</span>
 </code></pre></div>
@@ -1760,6 +1760,11 @@ The <code>.many()</code> method processes a list of light curves in batch with r
 <tr>
 <td><a href="api/variability/#light_curve.BeyondNStd"><code>BeyondNStd</code></a></td>
 <td>Fraction of observations beyond <span class="arithmatex">\(n\,\sigma_m\)</span> from <span class="arithmatex">\(\langle m \rangle\)</span></td>
+<td>1</td>
+</tr>
+<tr>
+<td><a href="api/variability/#light_curve.BiweightScale"><code>BiweightScale</code></a></td>
+<td>Tukey's biweight robust scale of magnitude, a robust alternative to <span class="arithmatex">\(\sigma_m\)</span></td>
 <td>1</td>
 </tr>
 <tr>
@@ -1848,6 +1853,11 @@ The <code>.many()</code> method processes a list of light curves in batch with r
 <td>1</td>
 </tr>
 <tr>
+<td><a href="api/variability/#light_curve.QnScale"><code>QnScale</code></a></td>
+<td>Rousseeuw–Croux <span class="arithmatex">\(Q_n\)</span> robust scale of magnitude, from pairwise differences</td>
+<td>1</td>
+</tr>
+<tr>
 <td><a href="api/variability/#light_curve.ReducedChi2"><code>ReducedChi2</code></a></td>
 <td>Reduced <span class="arithmatex">\(\chi^2\)</span> of magnitude measurements</td>
 <td>1</td>
@@ -1879,8 +1889,8 @@ The <code>.many()</code> method processes a list of light curves in batch with r
 </tr>
 </tbody>
 </table>
-<h3 id="linear-trend">Linear trend<a class="headerlink" href="#linear-trend" title="Permanent link">&para;</a></h3>
-<p><em>Fast: both features combined ~10 µs on 1,000 observations, single band.</em></p>
+<h3 id="linear-and-parabola">Linear and parabola<a class="headerlink" href="#linear-and-parabola" title="Permanent link">&para;</a></h3>
+<p><em>Fast: the linear features combined ~10 µs on 1,000 observations, single band.</em></p>
 <table>
 <thead>
 <tr>
@@ -1898,6 +1908,11 @@ The <code>.many()</code> method processes a list of light curves in batch with r
 <tr>
 <td><a href="api/linear/#light_curve.LinearTrend"><code>LinearTrend</code></a></td>
 <td>Slope, its error, and noise level of the unweighted linear fit</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="api/linear/#light_curve.ParabolaFit"><code>ParabolaFit</code></a></td>
+<td>Curvature, extremum value, and reduced <span class="arithmatex">\(\chi^2\)</span> of the weighted parabolic fit</td>
 <td>3</td>
 </tr>
 </tbody>
@@ -2077,6 +2092,10 @@ The <code>.many()</code> method processes a list of light curves in batch with r
 <tr>
 <td><a href="api/meta/#light_curve.Bins"><code>Bins</code></a></td>
 <td>Bin a time series, then apply any set of features to each bin</td>
+</tr>
+<tr>
+<td><a href="api/meta/#light_curve.Bootstrap"><code>Bootstrap</code></a></td>
+<td>Estimate feature uncertainties by bagging: each wrapped value plus its bootstrap spread</td>
 </tr>
 </tbody>
 </table>
