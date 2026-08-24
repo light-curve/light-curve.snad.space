@@ -1,0 +1,575 @@
+/* White-mode: give the header a subtle bottom border so it doesn't float */
+[data-md-color-scheme="default"] .md-header {
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+/* ── Brand ────────────────────────────────────────────────────────────── */
+/* Palette taken from the logo. The purple gets a lightened variant for use
+   against a dark background — the same split the two logo files use. */
+
+:root {
+  --lc-purple: #532969;
+  --lc-purple-lifted: #653280;
+  --lc-magenta: #a3195b;
+  --lc-orange: #f25613;
+  --lc-amber: #ffa324;
+
+  /* How tall Licu is drawn when a page opens with him. Every asset he appears
+     in is cropped tight to him, so his height is the canvas height and this
+     one number is one size — the hero and the lockups cannot drift apart. */
+  --lc-mark-height: 5.88rem;
+}
+
+/* 44.984375em is 719.75px — Material's own phone/tablet breakpoint, which it
+   pairs with min-width: 45em. The quarter pixel is how it stops both queries
+   matching at the boundary. */
+@media screen and (max-width: 44.984375em) {
+  :root {
+    --lc-mark-height: 4.52rem;
+  }
+}
+
+/* Which half of the palette is legible depends entirely on the background,
+   and the two halves do not overlap: against white, purple and magenta clear
+   AA while amber and orange do not; against slate it is exactly the other way
+   round. So the roles swap wholesale between schemes rather than shifting
+   shade. */
+
+:root,
+[data-md-color-scheme="default"] {
+  --lc-fg: var(--lc-purple);
+  --lc-fg-accent: var(--lc-magenta);
+}
+
+[data-md-color-scheme="slate"] {
+  --lc-fg: var(--lc-amber);
+  --lc-fg-accent: var(--lc-orange);
+}
+
+/* Hand the roles to Material. Body links, link hover, search highlighting,
+   the back-to-top button and the nav rules further down all follow from
+   these. Two attributes to outweigh Material's own palette selectors. */
+
+[data-md-color-scheme="default"][data-md-color-primary="white"],
+[data-md-color-scheme="slate"][data-md-color-primary="indigo"] {
+  --md-typeset-a-color: var(--lc-fg);
+  --md-accent-fg-color: var(--lc-fg-accent);
+  --md-accent-fg-color--transparent: color-mix(in srgb, var(--lc-fg-accent) 10%, transparent);
+}
+
+/* Dark header in brand purple instead of Material indigo. The light scheme
+   keeps its white header, so it is left alone. */
+
+[data-md-color-scheme="slate"][data-md-color-primary="indigo"] {
+  --md-primary-fg-color: var(--lc-purple-lifted);
+  --md-primary-fg-color--dark: var(--lc-purple);
+}
+
+::selection {
+  background: var(--lc-fg);
+  color: var(--md-default-bg-color);
+}
+
+/* Show the logo variant matching the active palette. Paired images are marked
+   up as .lc-logo--light / .lc-logo--dark wherever the mark appears. */
+
+[data-md-color-scheme="default"] .lc-logo--dark,
+[data-md-color-scheme="slate"] .lc-logo--light {
+  display: none;
+}
+
+/* The header and drawer marks come from overrides/partials/logo.html, where
+   Material's own `.md-header__button.md-logo img` would otherwise win. */
+
+[data-md-color-scheme="default"] .md-logo img.lc-logo--dark,
+[data-md-color-scheme="slate"] .md-logo img.lc-logo--light {
+  display: none;
+}
+
+/* ── Fix >>> doctest blocks (Markdown reads >>> as 3-level blockquote) ── */
+
+.md-typeset blockquote > blockquote > blockquote {
+  background: var(--md-code-bg-color);
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.5em 0.8em;
+  margin: 0;
+}
+
+.md-typeset blockquote > blockquote > blockquote p {
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 0.85em;
+  white-space: pre-wrap;
+  margin: 0;
+  color: var(--md-code-fg-color);
+}
+
+.md-typeset blockquote:has(> blockquote > blockquote),
+.md-typeset blockquote > blockquote:has(> blockquote) {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* ── Footer: hide the empty/unwanted footer ───────────────────────── */
+
+.md-footer {
+  display: none !important;
+}
+
+/* ── Lockups ─────────────────────────────────────────────────────── */
+/* Licu with two lines of Cascadia Mono, expanded from a ```lockup fence by
+   docs/hooks.py. Both background variants are inlined and the .lc-logo--light
+   / .lc-logo--dark rules above show the matching one.
+
+   The canvas is cropped tight to Licu, exactly as mark-wide-*.svg is, so
+   setting his height here draws him at the same size as on the landing page
+   with nothing to convert. The lettering's descent metric reaches a fraction
+   of a unit below him, hence overflow: visible — real descenders sit well
+   inside, but a clipped tail would be worse than a hair of overhang. */
+
+/* Width and aspect-ratio come from the hook; the height follows from them. */
+.lc-lockup,
+.lc-mark {
+  position: relative;
+}
+
+.lc-lockup {
+  margin: 0 0 0.5rem;
+}
+
+/* Absolutely positioned so the artwork ignores floats. An <svg> is a replaced
+   element, and a block-level replaced element is not allowed to overlap a
+   float — so in normal flow Material's floated "edit this page" button shoves
+   a wide lockup down past its own wrapper and into the heading below. Taking
+   it out of flow sidesteps that; the wrapper still reserves the right space. */
+.lc-lockup svg,
+.lc-mark svg {
+  position: absolute;
+  inset: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: visible;
+}
+
+/* The lockup already reads as the page's banner, so the heading under it does
+   not need the usual leading space. */
+.md-typeset .lc-lockup + h1 {
+  margin-top: 0;
+}
+
+/* ── Landing hero ────────────────────────────────────────────────── */
+/* Mark plus a real heading rather than the wordmark SVG, so the name stays
+   selectable and reflows on narrow screens. */
+
+.lc-hero {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem 2rem;
+  margin: 0 0 2rem;
+}
+
+/* Licu without lettering: the name is the heading beside it, not artwork. */
+.lc-hero > .lc-mark {
+  flex: none;
+}
+
+.lc-hero-body {
+  flex: 1;
+  min-width: 12rem;
+}
+
+.md-typeset .lc-hero-body h1 {
+  margin: 0 0 0.3rem;
+  font-family: var(--md-code-font-family);
+  font-weight: 700;
+}
+
+.md-typeset .lc-hero-body p {
+  margin: 0;
+}
+
+
+/* ── Hero cards ──────────────────────────────────────────────────── */
+
+.lc-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  margin: 2rem 0;
+}
+
+.lc-card {
+  position: relative;           /* anchor for the full-card link overlay */
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: box-shadow 0.25s, border-color 0.25s, transform 0.25s;
+}
+
+.lc-card:hover {
+  border-color: color-mix(in srgb, var(--lc-fg) 45%, transparent);
+  box-shadow: 0 4px 24px color-mix(in srgb, var(--lc-fg) 22%, transparent);
+  transform: translateY(-3px);
+}
+
+.lc-card-body h3 a {
+  color: var(--md-default-fg-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* A brand-purple panel, the same in both schemes, so the white line art stays
+   readable either way. The illustrations in index.md spell their colours out
+   as literal hexes — SVG presentation attributes cannot take var(), and
+   everything inside sits on this one fixed background regardless of the
+   palette, so there is nothing for them to react to.
+   Data is white; annotation is amber #ffa324. The dm-dt animation needs three
+   telling-apart colours, so it adds #ff8a6b and #ff8fc4 — orange and magenta
+   lightened onto the purple the same way --lc-purple-lifted is. Brand orange
+   and magenta themselves only reach 3.2:1 and 1.5:1 here, so neither is
+   usable on this panel unlifted. */
+.lc-card-svg-wrap {
+  background: var(--lc-purple) !important;
+  aspect-ratio: 240 / 110;
+  overflow: hidden;
+}
+
+.lc-card-body {
+  padding: 1rem 1.2rem 1.2rem;
+  flex: 1;
+}
+
+.lc-card-body h3 {
+  margin: 0 0 .5rem;
+  font-size: 1rem;
+}
+
+.lc-card-body p {
+  margin: 0;
+  font-size: .9rem;
+  color: var(--md-default-fg-color--light);
+}
+
+/* Fix SVG size — Material's global svg rule shrinks all svgs to 1.2rem */
+.lc-card-svg-wrap svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+}
+
+/* ── Used by section ─────────────────────────────────────────────── */
+
+.md-typeset h2:has(+ .lc-used-by) {
+  margin-bottom: 0.2rem;
+}
+
+.lc-used-by {
+  display: flex;
+  gap: 2.5rem;
+  margin: 0 0 1rem;
+  align-items: start;
+}
+
+.lc-ub-col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+@media (max-width: 600px) {
+  .lc-used-by {
+    flex-direction: column;
+  }
+}
+
+.lc-ub-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.lc-ub-heading {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--md-default-fg-color--light);
+  margin: 0;
+}
+
+.lc-ub-desc {
+  font-size: 0.9rem;
+  color: var(--md-default-fg-color--light);
+  margin: 0;
+  max-width: 68ch;
+}
+
+/* Broker / team logos */
+.lc-ub-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 0.2rem;
+}
+
+.lc-broker-logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none !important;
+}
+
+.lc-broker-logo img {
+  height: 4rem;
+  max-width: 16rem;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+
+/* Software package cards */
+.lc-ub-pkg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.2rem;
+}
+
+.lc-ub-pkg {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 2;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.4rem;
+}
+
+.lc-ub-pkg-logo-wrap {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.lc-ub-pkg-logo {
+  height: 4rem !important;
+  width: auto !important;
+  max-width: 100%;
+  object-fit: contain;
+  display: block !important;
+}
+
+/* Wordmarks: smaller, bottom-aligned so they sit close to the description */
+.lc-ub-pkg-logo--wordmark {
+  height: 2rem !important;
+}
+
+[data-md-color-scheme="slate"] .lc-ub-pkg-logo--wordmark {
+  filter: brightness(0) invert(1);
+}
+
+.lc-ub-pkg-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--md-default-fg-color);
+}
+
+.lc-ub-pkg-desc {
+  font-size: 0.8rem;
+  color: var(--md-default-fg-color--light);
+  line-height: 1.4;
+}
+
+/* Increase max content width for large screens */
+.md-grid {
+  max-width: 87.5rem;
+}
+
+/* ── Features SVG: A annotation, then P — looped on hover ───────────── */
+
+.lc-svg-features .lc-feat-s1,
+.lc-svg-features .lc-feat-s2 { opacity: 0; }
+
+@keyframes feat-step1 {
+  0%        { opacity: 0; }
+  12%, 55%   { opacity: 1; }
+  72%, 100% { opacity: 0; }
+}
+@keyframes feat-step2 {
+  0%, 30%   { opacity: 0; }
+  37%, 60%  { opacity: 1; }
+  70%, 100% { opacity: 0; }
+}
+
+.lc-card:hover .lc-svg-features .lc-feat-s1 { animation: feat-step1 4s linear infinite; }
+.lc-card:hover .lc-svg-features .lc-feat-s2 { animation: feat-step2 4s linear infinite; }
+
+/* ── Embeddings SVG: connections draw then vector text — looped on hover */
+
+.lc-svg-embed .lc-conn-a,
+.lc-svg-embed .lc-conn-b { opacity: 0; }
+.lc-svg-embed .lc-vec-text { opacity: 0; }
+
+@keyframes embed-conn-a {
+  0%        { opacity: 0; }
+  5%, 65%   { opacity: 0.75; }
+  85%, 100% { opacity: 0; }
+}
+@keyframes embed-conn-b {
+  0%, 18%   { opacity: 0; }
+  28%, 65%  { opacity: 0.75; }
+  85%, 100% { opacity: 0; }
+}
+@keyframes embed-vec {
+  0%, 28%   { opacity: 0; }
+  40%, 75%  { opacity: 1; }
+  85%, 100% { opacity: 0; }
+}
+
+.lc-card:hover .lc-svg-embed .lc-conn-a   { animation: embed-conn-a 4s linear infinite; }
+.lc-card:hover .lc-svg-embed .lc-conn-b   { animation: embed-conn-b 4s linear infinite; }
+.lc-card:hover .lc-svg-embed .lc-vec-text { animation: embed-vec    4s linear infinite; }
+
+/* ── dm-dt SVG: point-pair → pixel animation on hover ────────────── */
+
+.lc-dmdt-s1, .lc-dmdt-s2, .lc-dmdt-s3 { opacity: 0; }
+
+@keyframes dmdt-step1 {
+  0%        { opacity: 0; }
+  8%, 25%   { opacity: 0.9; }
+  33%, 100% { opacity: 0; }
+}
+@keyframes dmdt-step2 {
+  0%, 33%   { opacity: 0; }
+  41%, 58%  { opacity: 0.9; }
+  66%, 100% { opacity: 0; }
+}
+@keyframes dmdt-step3 {
+  0%, 66%   { opacity: 0; }
+  74%, 91%  { opacity: 0.9; }
+  99%, 100% { opacity: 0; }
+}
+
+.lc-card:hover .lc-dmdt-s1 { animation: dmdt-step1 3s linear infinite; }
+.lc-card:hover .lc-dmdt-s2 { animation: dmdt-step2 3s linear infinite; }
+.lc-card:hover .lc-dmdt-s3 { animation: dmdt-step3 3s linear infinite; }
+
+/* reduced-motion: show all annotations statically */
+@media (prefers-reduced-motion: reduce) {
+  .lc-svg-features .lc-feat-s1,
+  .lc-svg-features .lc-feat-s2 { opacity: 1 !important; animation: none; }
+  .lc-svg-embed .lc-conn-a,
+  .lc-svg-embed .lc-conn-b { opacity: 0.75 !important; animation: none; }
+  .lc-svg-embed .lc-vec-text { opacity: 1 !important; animation: none; }
+  .lc-dmdt-s1, .lc-dmdt-s2, .lc-dmdt-s3 { opacity: 0.9 !important; animation: none; }
+}
+
+/* ── Navigation links ──────────────────────────────────────────────── */
+
+/* Left sidebar — non-active links: brand + underline */
+.md-sidebar--primary .md-nav__link:not(.md-nav__link--active):not([aria-current="page"]) {
+  color: var(--md-typeset-a-color) !important;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: from-font;
+}
+
+/* Left sidebar — active (both class and aria-current for robustness): black, no underline */
+.md-sidebar--primary .md-nav__link--active,
+.md-sidebar--primary .md-nav__link[aria-current="page"] {
+  color: var(--md-default-fg-color) !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* Section container div also carries md-nav__link — prevent its text-decoration from bleeding
+   through to the active child <a> (CSS text-decoration on a parent overrides child's none) */
+.md-sidebar--primary .md-nav__container {
+  text-decoration: none !important;
+}
+
+/* Left sidebar — not clickable on desktop only (on mobile, allows navigating to section index) */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary .md-nav__link--active,
+  .md-sidebar--primary .md-nav__link[aria-current="page"] {
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+/* Right TOC — non-active: underline */
+.md-sidebar--secondary .md-nav__link:not(.md-nav__link--active):not([aria-current="page"]) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: from-font;
+}
+
+/* Right TOC — active: default text (not blue), no underline */
+.md-sidebar--secondary .md-nav__link--active,
+.md-sidebar--secondary .md-nav__link[aria-current="page"] {
+  color: var(--md-default-fg-color) !important;
+  text-decoration: none;
+}
+
+/* Top tabs — non-active: brand, no opacity fade, bold, underline */
+.md-tabs__item:not(.md-tabs__item--active) .md-tabs__link {
+  color: var(--md-typeset-a-color) !important;
+  opacity: 1 !important;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: from-font;
+}
+
+/* Top tabs — active: black, no underline, not clickable */
+.md-tabs__item--active .md-tabs__link {
+  color: var(--md-default-fg-color) !important;
+  opacity: 1 !important;
+  font-weight: 700;
+  text-decoration: none !important;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* ── Notebooks: download / Colab button row ─────────────────────── */
+
+.lc-nb-buttons {
+  margin: 0 0 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Override md-button's inline-block so icon + text align perfectly */
+.lc-nb-buttons .md-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+}
+
+.lc-nb-icon {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.lc-nb-icon svg {
+  width: 1.1em;
+  height: 1.1em;
+  fill: currentColor;
+}
+
+/* ── Notebooks: hide cell count badges ───────────────────────────── */
+
+.jp-Cell-inputWrapper .jp-InputPrompt {
+  display: none !important;
+}
