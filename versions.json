@@ -1,7 +1,12 @@
 [
   {
-    "version": "pr838",
-    "title": "pr838",
+    "version": "latest",
+    "title": "latest",
+    "aliases": []
+  },
+  {
+    "version": "dev",
+    "title": "dev",
     "aliases": []
   },
   {
@@ -10,13 +15,8 @@
     "aliases": []
   },
   {
-    "version": "latest",
-    "title": "latest",
-    "aliases": []
-  },
-  {
-    "version": "dev",
-    "title": "dev",
+    "version": "pr838",
+    "title": "pr838",
     "aliases": []
   }
 ]
