@@ -1879,7 +1879,7 @@ Without them, <code>BazinFit</code>, <code>LinexpFit</code>, and <code>VillarFit
 <td><strong>aarch64</strong></td>
 <td>PyPI</td>
 <td>PyPI</td>
-<td>PyPI (macOS 14+), conda</td>
+<td>PyPI (macOS 15+), conda</td>
 <td>not tested</td>
 </tr>
 <tr>
@@ -1895,7 +1895,7 @@ Without them, <code>BazinFit</code>, <code>LinexpFit</code>, and <code>VillarFit
 <ul>
 <li><strong>MKL</strong>: Linux x86-64 PyPI wheels use Intel MKL for a significantly faster periodogram. Conda and other platforms use the pure-Rust <a href="https://crates.io/crates/rustfft">RustFFT</a> backend.</li>
 <li><strong>Windows conda</strong>: Excludes GSL, so the <code>"lmsder"</code> fitting backend is unavailable. PyPI wheels on Windows include GSL.</li>
-<li><strong>macOS</strong>: Requires macOS 14+ (aarch64) or 15+ (x86-64). Open an <a href="https://github.com/light-curve/light-curve-python/issues">issue</a> if you need support for an older version.</li>
+<li><strong>macOS</strong>: Requires macOS 15+. Open an <a href="https://github.com/light-curve/light-curve-python/issues">issue</a> if you need support for an older version.</li>
 </ul>
 <h2 id="embeddings-light_curveembed">Embeddings (<code>light_curve.embed</code>)<a class="headerlink" href="#embeddings-light_curveembed" title="Permanent link">&para;</a></h2>
 <p>The embedding models use <a href="https://onnxruntime.ai">ONNX Runtime</a> for inference. You must install the
