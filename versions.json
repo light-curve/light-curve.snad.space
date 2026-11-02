@@ -1,7 +1,12 @@
 [
   {
-    "version": "pr869",
-    "title": "pr869",
+    "version": "latest",
+    "title": "latest",
+    "aliases": []
+  },
+  {
+    "version": "dev",
+    "title": "dev",
     "aliases": []
   },
   {
@@ -10,13 +15,8 @@
     "aliases": []
   },
   {
-    "version": "latest",
-    "title": "latest",
-    "aliases": []
-  },
-  {
-    "version": "dev",
-    "title": "dev",
+    "version": "pr869",
+    "title": "pr869",
     "aliases": []
   }
 ]
