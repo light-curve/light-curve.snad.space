@@ -1893,10 +1893,12 @@ t_j^* = (j + \frac12) \cdot \mathrm{window} + \mathrm{offset},
 m_j^* = \frac{\sum{m_i / \delta_i^2}}{\sum{\delta_i^{-2}}},
 \]</div>
 <div class="arithmatex">\[
-\delta_j^* = \frac{N_j}{\sum{\delta_i^{-2}}},
+{\delta_j^*}^2 = \frac{N_j}{\sum{\delta_i^{-2}}},
 \]</div>
 <p>where <span class="arithmatex">\(N_j\)</span> is a number of sampling observations and all sums are over observations inside
-considering bin. Bins takes any other feature evaluators to extract features from sample time series</p>
+considering bin. Empty bins are skipped. Bins takes any other feature evaluators to extract
+features from sample time series. The binned time series itself is available via
+<code>Bins::bin()</code>.</p>
 <ul>
 <li>Depends on: <strong>time</strong>, <strong>magnitude</strong>, <strong>magnitude error</strong></li>
 <li>Minimum number of observations: as required by sub-features, but at least <strong>1</strong></li>

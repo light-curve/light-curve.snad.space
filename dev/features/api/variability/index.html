@@ -3168,9 +3168,12 @@ p_{\rm var} \equiv Q\!\left(\frac{N-1}{2},\,\frac{\chi^2}{2}\right),
 \]</div>
 <p>is the chi-squared statistic with <span class="arithmatex">\(N-1\)</span> degrees of freedom.
 The weighted mean <span class="arithmatex">\(\bar{m}\)</span> is computed as described in [WeightedMean].</p>
-<p><span class="arithmatex">\(p_{\rm var}\)</span> is the probability that the observed scatter exceeds what is
-expected from measurement uncertainties alone, i.e.\ the probability that
-the source is intrinsically variable.</p>
+<p><span class="arithmatex">\(p_{\rm var}\)</span> is the <span class="arithmatex">\(p\)</span>-value of the <span class="arithmatex">\(\chi^2\)</span> test under the null hypothesis
+of a non-variable source: the probability that scatter at least as large as
+observed arises from measurement uncertainties alone. Note that despite the
+name, <strong>low</strong> values indicate variability: <span class="arithmatex">\(p_{\rm var} \to 0\)</span> for strongly
+variable sources, while non-variable sources yield values distributed
+uniformly between 0 and 1.</p>
 <ul>
 <li>Depends on: <strong>magnitude</strong>, <strong>magnitude error</strong></li>
 <li>Minimum number of observations: <strong>2</strong></li>

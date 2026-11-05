@@ -1606,6 +1606,19 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li>macOS ARM64 wheels are now built on the <code>macos-15</code> GitHub Actions runner (<code>macos-14</code> is
   deprecated), so they require macOS 15+ instead of macOS 14+</li>
+<li>Bump <code>pyO3</code> and <code>rust-numpy</code> from 0.29 to 0.30</li>
+<li>Bump <code>arrow-rs</code> from 59 to 60.1 and <code>pyo3-arrow</code> from 0.19 to 0.21, used by the Arrow input
+  support</li>
+<li><strong>Build breaking</strong>: bump minimum supported Rust version (MSRV) from 1.88 to 1.98</li>
+<li>Bump <code>light-curve-feature</code> from 0.19.0 to 0.21.0</li>
+<li>Via <code>light-curve-feature</code> 0.20: "fast-math" ("algebraic" floating-point operations) is enabled,
+  significantly speeding up many features; feature values may now differ slightly between
+  platforms and compiler versions
+  (<a href="https://github.com/light-curve/light-curve-feature/pull/327">light-curve-feature#327</a>)</li>
+<li>Via <code>light-curve-feature</code> 0.21: <code>nuts-rs</code> is bumped from 0.18 to 0.19, so results of NUTS-based
+  fits (<code>algorithm="nuts"</code> and its combinations) change
+  (<a href="https://github.com/light-curve/light-curve-feature/pull/340">light-curve-feature#340</a>,
+  <a href="https://github.com/light-curve/light-curve-feature/pull/341">light-curve-feature#341</a>)</li>
 </ul>
 <h3 id="deprecated">Deprecated<a class="headerlink" href="#deprecated" title="Permanent link">&para;</a></h3>
 <p>--</p>
@@ -1616,6 +1629,15 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li><code>transform</code> was silently ignored when <code>bands</code> was given, so multiband features returned untransformed values;
   fit features (<code>BazinFit</code> etc.) now also accept <code>transform=True</code> together with <code>bands</code> instead of raising
   (<a href="https://github.com/light-curve/light-curve-python/issues/872">#872</a>)</li>
+<li>Via <code>light-curve-feature</code> 0.21: <code>Periodogram</code> and multiband <code>Periodogram</code> panicked on light
+  curves with fewer than two observations
+  (<a href="https://github.com/light-curve/light-curve-feature/pull/335">light-curve-feature#335</a>)</li>
+<li>Via <code>light-curve-feature</code> 0.21: multiband <code>Periodogram</code> built its frequency grid from unsorted
+  observation times
+  (<a href="https://github.com/light-curve/light-curve-feature/pull/335">light-curve-feature#335</a>)</li>
+<li>Via <code>light-curve-feature</code> 0.21: <code>Chi2Pvar</code> description wrongly stated that the value is high for
+  variable sources, while it is the <span class="arithmatex">\(\chi^2\)</span> test <span class="arithmatex">\(p\)</span>-value, low for variable sources
+  (<a href="https://github.com/light-curve/light-curve-feature/pull/336">light-curve-feature#336</a>)</li>
 </ul>
 <h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
 <p>--</p>
