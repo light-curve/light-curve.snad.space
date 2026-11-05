@@ -2998,7 +2998,11 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <h3 id="removed">Removed<a class="headerlink" href="#removed" title="Permanent link">&para;</a></h3>
 <p>--</p>
 <h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h3>
-<p>--</p>
+<ul>
+<li><code>transform</code> was silently ignored when <code>bands</code> was given, so multiband features returned untransformed values;
+  fit features (<code>BazinFit</code> etc.) now also accept <code>transform=True</code> together with <code>bands</code> instead of raising
+  (<a href="https://github.com/light-curve/light-curve-python/issues/872">#872</a>)</li>
+</ul>
 <h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
 <p>--</p>
 <h2 id="0133-2026-08-18">[0.13.3] 2026-08-18<a class="headerlink" href="#0133-2026-08-18" title="Permanent link">&para;</a></h2>
