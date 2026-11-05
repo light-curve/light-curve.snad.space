@@ -1,12 +1,12 @@
 [
   {
-    "version": "pr880",
-    "title": "pr880",
+    "version": "latest",
+    "title": "latest",
     "aliases": []
   },
   {
-    "version": "pr877",
-    "title": "pr877",
+    "version": "dev",
+    "title": "dev",
     "aliases": []
   },
   {
@@ -15,13 +15,18 @@
     "aliases": []
   },
   {
-    "version": "latest",
-    "title": "latest",
+    "version": "pr877",
+    "title": "pr877",
     "aliases": []
   },
   {
-    "version": "dev",
-    "title": "dev",
+    "version": "pr878",
+    "title": "pr878",
+    "aliases": []
+  },
+  {
+    "version": "pr880",
+    "title": "pr880",
     "aliases": []
   }
 ]
