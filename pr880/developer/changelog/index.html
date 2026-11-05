@@ -1626,6 +1626,9 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <p>--</p>
 <h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h3>
 <ul>
+<li><code>transform</code> was silently ignored when <code>bands</code> was given, so multiband features returned untransformed values;
+  fit features (<code>BazinFit</code> etc.) now also accept <code>transform=True</code> together with <code>bands</code> instead of raising
+  (<a href="https://github.com/light-curve/light-curve-python/issues/872">#872</a>)</li>
 <li>Via <code>light-curve-feature</code> 0.21: <code>Periodogram</code> and multiband <code>Periodogram</code> panicked on light
   curves with fewer than two observations
   (<a href="https://github.com/light-curve/light-curve-feature/pull/335">light-curve-feature#335</a>)</li>
