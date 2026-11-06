@@ -2987,7 +2987,11 @@
 and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
 <h2 id="unreleased">[Unreleased]<a class="headerlink" href="#unreleased" title="Permanent link">&para;</a></h2>
 <h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h3>
-<p>--</p>
+<ul>
+<li><code>__eq__</code> and <code>__hash__</code> for Rust-backed features
+  (<a href="https://github.com/light-curve/light-curve-python/issues/148">#148</a>,
+  <a href="https://github.com/light-curve/light-curve-python/issues/151">#151</a>)</li>
+</ul>
 <h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
 <ul>
 <li>macOS ARM64 wheels are now built on the <code>macos-15</code> GitHub Actions runner (<code>macos-14</code> is
@@ -3012,6 +3016,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <p>--</p>
 <h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h3>
 <ul>
+<li><code>Bins</code> names and descriptions used the default window and offset instead of the given ones, until pickled</li>
 <li><code>transform</code> was silently ignored when <code>bands</code> was given, so multiband features returned untransformed values;
   fit features (<code>BazinFit</code> etc.) now also accept <code>transform=True</code> together with <code>bands</code> instead of raising
   (<a href="https://github.com/light-curve/light-curve-python/issues/872">#872</a>)</li>
