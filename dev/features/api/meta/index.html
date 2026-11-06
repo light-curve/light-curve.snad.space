@@ -2099,6 +2099,197 @@ features from sample time series. The binned time series itself is available via
 
 
 
+<div class="doc doc-object doc-function">
+
+
+<h3 id="light_curve.Bins.bin" class="doc doc-heading">
+            <code class="highlight language-python"><span class="nb">bin</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-method descriptor"><code>method descriptor</code></small>
+  </span>
+
+<a href="#light_curve.Bins.bin" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Bin a light curve</p>
+<p>Observations are grouped into bins of width <code>window</code> starting at <code>offset</code>. Wrapped
+features do not affect binning.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>t</code>
+            </td>
+            <td>
+                  <code>np.ndarray of np.float32 or np.float64</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Time moments, must be sorted</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>m</code>
+            </td>
+            <td>
+                  <code><span title="np.ndarray">ndarray</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Signal values, same dtype as <code>t</code></p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>sigma</code>
+            </td>
+            <td>
+                  <code><span title="np.ndarray">ndarray</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Signal uncertainties, same dtype as <code>t</code>. If None, all observations have equal weights</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>band</code>
+            </td>
+            <td>
+                  <code><span title="np.ndarray">ndarray</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Passband of each observation, required in multiband mode (<code>bands=</code> was given) and
+not accepted otherwise</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>sorted</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p><code>True</code> guarantees that <code>t</code> is sorted, <code>None</code> checks it, <code>False</code> is not
+supported</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>cast</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Allow casting input arrays to a common dtype</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>t</code></td>            <td>
+                  <code><span title="np.ndarray">ndarray</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Bin centers</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>m</code></td>            <td>
+                  <code><span title="np.ndarray">ndarray</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Weighted mean signal in each bin</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>sigma</code></td>            <td>
+                  <code><span title="np.ndarray">ndarray</span> or None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Binned uncertainties, None if <code>sigma</code> is None</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>band</code></td>            <td>
+                  <code><span title="np.ndarray">ndarray</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Multiband mode only: passband of each binned observation. The output is sorted by
+time</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
 
 
   </div>
