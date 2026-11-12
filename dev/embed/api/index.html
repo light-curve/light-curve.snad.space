@@ -2119,7 +2119,7 @@ tensors) and :meth:<code>predict_tensors</code> (run the session and return embe
                 <code>session</code>
             </td>
             <td>
-                  <code><span title="ort.InferenceSession">InferenceSession</span></code>
+                  <code>InferenceSession</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -2237,7 +2237,7 @@ is embedded independently, and the results are concatenated along
                 <code>session</code>
             </td>
             <td>
-                  <code><span title="ort.InferenceSession">InferenceSession</span></code>
+                  <code>InferenceSession</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -2382,7 +2382,7 @@ on **ZTF DR16** (Zubercal DR16 × Gaia DR3), which covers
                 <code>session</code>
             </td>
             <td>
-                  <code><span title="ort.InferenceSession">InferenceSession</span></code>
+                  <code>InferenceSession</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -3821,7 +3821,7 @@ band labels instead of integers.</p>
                 <code>session</code>
             </td>
             <td>
-                  <code><span title="ort.InferenceSession">InferenceSession</span></code>
+                  <code>InferenceSession</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -3837,7 +3837,7 @@ band labels instead of integers.</p>
                 <code>output</code>
             </td>
             <td>
-                  <code>(<span title="token">token</span>, <span title="mean">mean</span>, <span title="sequence">sequence</span>)</code>
+                  <code>(token, mean, sequence)</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -3973,9 +3973,9 @@ produce the same number of windows.</p>
 
 <details class="references" open>
   <summary>References</summary>
-  <p>Becker et al. (2024), <em>ATAT: Astronomical Transformer for time series And
-Tabular data</em>, Astronomy &amp; Astrophysics, 691, A163.
-https://doi.org/10.1051/0004-6361/202451418</p>
+  <p>Cabrera-Vives et al. (2024), <em>ATAT: Astronomical Transformer for time series
+and Tabular data</em>, Astronomy &amp; Astrophysics, 689, A289.
+https://ui.adsabs.harvard.edu/abs/2024A%26A...689A.289C/abstract</p>
 </details>
 
 
@@ -4287,7 +4287,7 @@ band labels instead of integers.</p>
                 <code>session</code>
             </td>
             <td>
-                  <code><span title="ort.InferenceSession">InferenceSession</span></code>
+                  <code>InferenceSession</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -4303,7 +4303,7 @@ band labels instead of integers.</p>
                 <code>output</code>
             </td>
             <td>
-                  <code>(<span title="last">last</span>, <span title="mean">mean</span>, <span title="sequence">sequence</span>)</code>
+                  <code>(last, mean, sequence)</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -4525,7 +4525,7 @@ https://ui.adsabs.harvard.edu/abs/2025arXiv251100614T/abstract</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Whether to load the model in float16 precision if supported.
+                <p>Whether to load the model in bfloat16 precision if supported.
 Defaults to <code>False</code> (float32) for maximum compatibility; set to
 <code>True</code> to use original model precision and reduce memory usage
 if your hardware supports it.</p>
@@ -4776,7 +4776,7 @@ https://huggingface.co/amazon/chronos-2</p>
                 <code>session</code>
             </td>
             <td>
-                  <code><span title="ort.InferenceSession">InferenceSession</span></code>
+                  <code>InferenceSession</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -5086,7 +5086,7 @@ https://huggingface.co/amazon/chronos-bolt-base</p>
                 <code>session</code>
             </td>
             <td>
-                  <code><span title="ort.InferenceSession">InferenceSession</span></code>
+                  <code>InferenceSession</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -5102,7 +5102,7 @@ https://huggingface.co/amazon/chronos-bolt-base</p>
                 <code>size</code>
             </td>
             <td>
-                  <code>(<span title="tiny">tiny</span>, <span title="mini">mini</span>, <span title="small">small</span>, <span title="base">base</span>)</code>
+                  <code>(tiny, mini, small, base)</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -5220,7 +5220,7 @@ Defaults to <code>"end"</code>.</p>
                 <code>size</code>
             </td>
             <td>
-                  <code>(<span title="tiny">tiny</span>, <span title="mini">mini</span>, <span title="small">small</span>, <span title="base">base</span>)</code>
+                  <code>(tiny, mini, small, base)</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -5429,7 +5429,7 @@ Models</em>, ICML 2024.  https://huggingface.co/AutonLab/MOMENT-1-base</p>
                 <code>session</code>
             </td>
             <td>
-                  <code><span title="ort.InferenceSession">InferenceSession</span></code>
+                  <code>InferenceSession</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -5445,7 +5445,7 @@ Models</em>, ICML 2024.  https://huggingface.co/AutonLab/MOMENT-1-base</p>
                 <code>size</code>
             </td>
             <td>
-                  <code>(<span title="small">small</span>, <span title="base">base</span>, <span title="large">large</span>)</code>
+                  <code>(small, base, large)</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -5565,7 +5565,7 @@ Defaults to <code>"end"</code>.</p>
                 <code>size</code>
             </td>
             <td>
-                  <code>(<span title="small">small</span>, <span title="base">base</span>, <span title="large">large</span>)</code>
+                  <code>(small, base, large)</code>
             </td>
             <td>
               <div class="doc-md-description">
